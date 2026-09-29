@@ -55,6 +55,17 @@ class MediaTest(unittest.TestCase):
         self.assertTrue(self.good.with_suffix(".jpg").is_file())
         self.assertAlmostEqual(measured["duration"], 20.0, delta=0.1)
 
+    def test_full_range_peaky_master_is_normalized(self):
+        hot = self.tmp / "hot.mp4"
+        ffmpeg("-f", "lavfi", "-i", "testsrc2=s=1080x1920:r=30:d=16",
+               "-f", "lavfi", "-i", "aevalsrc='0.97*sin(2*PI*440*t)*lt(mod(t,0.5),0.03)':s=48000:d=16",
+               "-vf", "scale=out_range=pc,format=yuvj420p", "-c:v", "libx264", "-preset", "ultrafast",
+               "-c:a", "aac", "-shortest", str(hot))
+        out = finish(hot, self.tmp / "hot-out.mp4", "vertical", poster_t=1.0)
+        by_id = {c.id: c for c in analyze(out, "vertical", 16.0, None, None)[0]}
+        for cid in ("media.container", "audio.true_peak"):
+            self.assertTrue(by_id[cid].passed, f"{cid}: {by_id[cid].message}")
+
     def test_dead_open_fails_hook_gates(self):
         bad = self.tmp / "bad.mp4"
         ffmpeg("-f", "lavfi", "-i", "testsrc2=s=1080x1920:r=30:d=20",

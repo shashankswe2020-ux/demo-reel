@@ -1,0 +1,420 @@
+{
+  "schema": "demo-reel/plan@1",
+  "project": {
+    "name": "local-llmup",
+    "root": "..",
+    "one_liner": "local-llmup tells you which local LLMs your computer can run, before downloading.",
+    "audience": "Developers who want to run models locally without guessing what their hardware can handle",
+    "cta": {
+      "text": "brew install shashankswe2020-ux/tap/local-llmup",
+      "target": "brew install shashankswe2020-ux/tap/local-llmup"
+    },
+    "lexicon": [
+      "can-run",
+      "tok/s",
+      "verdict",
+      "local LLMs",
+      "weights",
+      "catalog",
+      "llmup",
+      "yes / slow / no",
+      "Ollama",
+      "127.0.0.1"
+    ]
+  },
+  "claims": [
+    {
+      "id": "c1",
+      "text": "The offline catalog has 66 models with evidence attached",
+      "evidence": {
+        "file": "site/index.html",
+        "quote": "66 models. Evidence attached."
+      }
+    },
+    {
+      "id": "c2",
+      "text": "Install with Homebrew",
+      "evidence": {
+        "file": "README.md",
+        "quote": "brew install shashankswe2020-ux/tap/local-llmup"
+      }
+    },
+    {
+      "id": "c3",
+      "text": "The browser workspace keeps everything local",
+      "evidence": {
+        "file": "site/index.html",
+        "quote": "Nothing leaves your machine."
+      }
+    },
+    {
+      "id": "c4",
+      "text": "Advice makes no network calls",
+      "evidence": {
+        "file": "site/index.html",
+        "quote": "Recommendations, can-run and doctor make no network calls and use a bundled offline catalog."
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "h1",
+      "type": "question",
+      "text": "Which local LLMs can your laptop run?",
+      "visual": "terminal types can-run, verdicts start landing",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 3,
+        "visual_proof": 4,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h2",
+      "type": "negative",
+      "text": "Stop downloading weights your RAM can't fit",
+      "visual": "red no verdict: ram-bound, not enough RAM",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 5,
+        "visual_proof": 5,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h3",
+      "type": "demo_first",
+      "text": "yes / slow / no, before the download",
+      "visual": "three verdict pills slam in over the terminal",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 4,
+        "visual_proof": 5,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h4",
+      "type": "statistic",
+      "claim": "c1",
+      "text": "66 models. Evidence attached.",
+      "visual": "catalog counter races to 66",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 2,
+        "visual_proof": 3,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h5",
+      "type": "pain_point",
+      "text": "Downloaded the weights. It won't even load.",
+      "visual": "progress bar fills, then the red no verdict",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 3,
+        "stakes": 5,
+        "visual_proof": 3,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h6",
+      "type": "before_after",
+      "text": "Guess and download, or one can-run verdict",
+      "visual": "split: download bar vs instant verdict",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 4,
+        "stakes": 3,
+        "visual_proof": 4,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h7",
+      "type": "bold_claim",
+      "text": "Your RAM decides. llmup tells you first.",
+      "visual": "RAM readout, then verdict",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 3,
+        "visual_proof": 3,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h8",
+      "type": "teaser",
+      "text": "Watch the verdict before the download",
+      "visual": "cursor blinks, verdict lands",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 3,
+        "stakes": 3,
+        "visual_proof": 3,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h9",
+      "type": "challenge",
+      "text": "Guess which local LLMs your laptop runs",
+      "visual": "model names flash, verdicts hidden",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 3,
+        "stakes": 2,
+        "visual_proof": 3,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h10",
+      "type": "contrarian",
+      "text": "Check the fit before you pull weights",
+      "visual": "can-run typed before ollama pull",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 3,
+        "visual_proof": 3,
+        "pattern_break": 2
+      }
+    }
+  ],
+  "variants": [
+    {
+      "id": "A",
+      "hook": "h3"
+    },
+    {
+      "id": "B",
+      "hook": "h2"
+    },
+    {
+      "id": "C",
+      "hook": "h1"
+    }
+  ],
+  "formats": [
+    "vertical",
+    "square",
+    "landscape"
+  ],
+  "tone": "terminal",
+  "duration_s": 20,
+  "loop": {
+    "strategy": "callback",
+    "note": "Opens on a red 'no' verdict; the CTA types can-run again and lands a green 'yes', closing the loop."
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "start": 0,
+      "duration": 2.8,
+      "visual": "hook line slams in over a terminal where can-run deepseek-r1:671b returns the red no verdict",
+      "sources": [
+        "assets/screenshot-can-run.png",
+        "assets/can-run.tape"
+      ],
+      "events": [
+        0.15,
+        0.7,
+        1.3,
+        1.9,
+        2.4
+      ],
+      "text": [
+        {
+          "slot": "hook",
+          "in": 0.15,
+          "out": 2.8,
+          "box": [
+            0.08,
+            0.14,
+            0.78,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "role": "reveal",
+      "start": 2.8,
+      "duration": 3.4,
+      "visual": "app icon and local-llmup wordmark drop in, yes / slow / no pills stagger in beneath",
+      "sources": [
+        "assets/app-icon.png",
+        "site/index.html"
+      ],
+      "events": [
+        0.3,
+        1.0,
+        1.4,
+        1.8,
+        2.6
+      ],
+      "text": [
+        {
+          "content": "Which local LLMs can your computer run?",
+          "in": 0.3,
+          "out": 3.4,
+          "box": [
+            0.08,
+            0.14,
+            0.78,
+            0.16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "role": "demo",
+      "start": 6.2,
+      "duration": 6.4,
+      "visual": "terminal: type can-run qwen3:8b, green yes with tok/s; type can-run deepseek-r1:671b, red no (ram-bound)",
+      "sources": [
+        "assets/screenshot-can-run.png",
+        "assets/can-run.tape"
+      ],
+      "events": [
+        0.2,
+        0.6,
+        1.0,
+        1.4,
+        1.7,
+        2.2,
+        3.0,
+        3.5,
+        4.2,
+        4.8,
+        5.6
+      ],
+      "text": [
+        {
+          "content": "One command. One verdict.",
+          "in": 0.3,
+          "out": 2.8,
+          "box": [
+            0.08,
+            0.14,
+            0.78,
+            0.1
+          ]
+        },
+        {
+          "content": "no = skip the download",
+          "in": 4.3,
+          "out": 6.4,
+          "box": [
+            0.08,
+            0.14,
+            0.78,
+            0.1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "role": "proof",
+      "start": 12.6,
+      "duration": 3.8,
+      "visual": "browser workspace Models view pushes in; Runs well / Runs slowly pills pop",
+      "sources": [
+        "assets/screenshot-gui.png",
+        "site/index.html"
+      ],
+      "events": [
+        0.3,
+        0.9,
+        1.5,
+        2.1,
+        2.4,
+        3.0,
+        3.5
+      ],
+      "text": [
+        {
+          "content": "66 models. Evidence attached.",
+          "claim": "c1",
+          "in": 0.3,
+          "out": 2.0,
+          "box": [
+            0.08,
+            0.14,
+            0.78,
+            0.12
+          ]
+        },
+        {
+          "content": "Nothing leaves your machine.",
+          "claim": "c3",
+          "in": 2.1,
+          "out": 3.8,
+          "box": [
+            0.08,
+            0.14,
+            0.78,
+            0.12
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "role": "cta",
+      "start": 16.4,
+      "duration": 3.6,
+      "visual": "install command, then can-run lands a green yes (callback to the red no)",
+      "sources": [
+        "README.md",
+        "assets/can-run.tape"
+      ],
+      "events": [
+        0.3,
+        1.0,
+        1.7,
+        2.4,
+        3.1
+      ],
+      "text": [
+        {
+          "content": "brew install shashankswe2020-ux/tap/local-llmup",
+          "claim": "c2",
+          "in": 0.3,
+          "out": 3.6,
+          "box": [
+            0.08,
+            0.14,
+            0.78,
+            0.16
+          ]
+        }
+      ]
+    }
+  ],
+  "share": {
+    "x": "Stop downloading weights your RAM can't fit.\n\nllmup can-run gives a yes / slow / no verdict with estimated tok/s before you pull anything. Offline catalog, no network calls.\n\nbrew install shashankswe2020-ux/tap/local-llmup",
+    "linkedin": "Stop downloading weights your RAM can't fit.\n\nlocal-llmup checks your GPU, VRAM, RAM and disk and gives every model in its offline catalog a yes / slow / no verdict with an estimated tok/s range, and the reason when it won't fit. Then it pulls, verifies and serves the one that does, across Ollama, llama.cpp, MLX and LM Studio.\n\nThe catalog: 66 models, evidence attached. Advice makes no network calls; servers bind to 127.0.0.1.\n\nbrew install shashankswe2020-ux/tap/local-llmup",
+    "tiktok": "POV: you check if the model fits BEFORE the download\nbrew install shashankswe2020-ux/tap/local-llmup",
+    "instagram": "Stop downloading weights your RAM can't fit.\nllmup can-run: yes / slow / no, before the download.\nbrew install shashankswe2020-ux/tap/local-llmup",
+    "youtube_title": "Which local LLMs can your laptop run? (llmup can-run)",
+    "hashtags": [
+      "#localllm",
+      "#ollama",
+      "#rustlang",
+      "#selfhosted"
+    ]
+  }
+}

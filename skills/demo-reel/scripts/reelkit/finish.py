@@ -12,11 +12,15 @@ from . import specs
 from .ffmpeg import ToolError, media_path, probe, run, tool
 
 LOUDNORM_TP = -1.5  # headroom so AAC encoding stays under the -1 dBTP gate
+# loudnorm's linear mode cannot cap peaks when it adds gain; this limiter (-2.5 dBFS) does.
+PEAK_LIMITER = "alimiter=limit=0.75:attack=1:release=50:level=disabled"
+# Browser/PNG/JPEG sources arrive full-range; platforms expect limited-range yuv420p.
+TV_RANGE = "scale=out_range=tv,format=yuv420p"
 
 
 def _video_graph(fmt: str, fit: str, fps: int, focus: tuple[float, float]) -> str:
     w, h = specs.FORMATS[fmt]
-    tail = f"setsar=1,fps={fps},format=yuv420p[v]"
+    tail = f"setsar=1,fps={fps},{TV_RANGE}[v]"
     if fit == "crop":
         fx, fy = (min(1.0, max(0.0, f)) for f in focus)
         return (f"[0:v]scale={w}:{h}:force_original_aspect_ratio=increase,"
@@ -59,12 +63,12 @@ def finish(src_path: Path, out_path: Path, fmt: str, *, poster_t: float | None =
                      f"loudnorm=I={specs.LOUDNESS_TARGET_LUFS}:TP={LOUDNORM_TP}:LRA=11:"
                      f"measured_I={ln['input_i']}:measured_TP={ln['input_tp']}:measured_LRA={ln['input_lra']}:"
                      f"measured_thresh={ln['input_thresh']}:offset={ln['target_offset']}:linear=true,"
-                     "aresample=48000"]
+                     f"aresample=48000,{PEAK_LIMITER}"]
         else:
             args += ["-map", "1:a:0", "-shortest"]
         if duration:
             args += ["-t", f"{duration:.3f}"]
-        args += ["-c:v", "libx264", "-preset", "slow", "-crf", "18", "-profile:v", "high",
+        args += ["-c:v", "libx264", "-preset", "slow", "-crf", "18", "-profile:v", "high", "-color_range", "tv",
                  "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2",
                  "-movflags", "+faststart", str(staged)]
         run(args)
@@ -78,7 +82,7 @@ def finish(src_path: Path, out_path: Path, fmt: str, *, poster_t: float | None =
              "-i", str(staged), "-frames:v", "1", "-q:v", "2", str(poster)])
         # Replace only frame 0 so duration, frame count, and audio sync are untouched.
         run([tool("ffmpeg"), "-hide_banner", "-loglevel", "error", "-y", "-i", str(staged), "-i", str(poster),
-             "-filter_complex", "[0:v][1:v]overlay=0:0:enable='eq(n,0)',format=yuv420p[v]",
+             "-filter_complex", f"[0:v][1:v]overlay=0:0:enable='eq(n,0)',{TV_RANGE}[v]",
              "-map", "[v]", "-map", "0:a?", "-c:v", "libx264", "-preset", "slow", "-crf", "18",
-             "-profile:v", "high", "-c:a", "copy", "-movflags", "+faststart", str(out_path)])
+             "-profile:v", "high", "-color_range", "tv", "-c:a", "copy", "-movflags", "+faststart", str(out_path)])
     return out_path

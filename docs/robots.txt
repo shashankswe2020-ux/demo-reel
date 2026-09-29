@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shashankswe2020-ux.github.io/demo-reel/sitemap.xml

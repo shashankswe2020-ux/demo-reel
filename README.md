@@ -1,23 +1,56 @@
-# demo-reel
+<h1 align="center">demo-reel</h1>
 
-An agent skill that turns a project, a website, or a long screen recording into **gated, A/B-ready launch reels**:
-3 hook variants × 3 native formats (9:16, 1:1, 16:9). Each render comes with a baked poster, captions, per-platform
-share copy, and a QA report scored against **51 machine-verified gates**. After launch, a Bayesian loop reads real
-analytics and picks the winning hook.
+<p align="center">
+  <strong>AI launch video and viral reel generator for coding agents.</strong><br>
+  Turn any repo, website, or screen recording into launch videos for TikTok, Instagram Reels, YouTube Shorts, LinkedIn, and X.
+  Every render has to pass 51 automated quality gates before it ships.
+</p>
 
-It builds on [/brag](https://github.com/latent-spaces/brag) (story-first launch videos, creative laws, poster-as-frame-0)
-and on yt-clipper-server (weighted hot-zone detection, hook-type A/B testing, Thompson sampling, shell-free FFmpeg).
-It adds measurement at every step.
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue" alt="License: Apache 2.0"></a>
+  <img src="https://img.shields.io/badge/python-3.10%2B-3776AB" alt="Python 3.10+">
+  <img src="https://img.shields.io/badge/requires-FFmpeg-007808" alt="Requires FFmpeg">
+  <img src="https://img.shields.io/badge/Agent%20Skill-Claude%20Code%20%7C%20Codex%20%7C%20Copilot%20%7C%20Cursor-C6F432" alt="Agent Skill for Claude Code, Codex, Copilot, and Cursor">
+</p>
+
+<p align="center">
+  <a href="docs/assets/demo-reel-launch-video.mp4">
+    <img src="docs/assets/demo-reel-hero.gif" width="720" alt="demo-reel launch video: 51 checks before your launch video ships, a hook lab leaderboard, 3 hooks × 3 formats, and a QA report scoring VRS 100">
+  </a>
+</p>
+<p align="center">
+  <sub>demo-reel made this video of its own repo.
+  <a href="docs/assets/demo-reel-launch-video.mp4">Watch with sound (16:9 MP4)</a> ·
+  <a href="docs/case-studies/demo-reel/reel-A-vertical.mp4">9:16 version</a> ·
+  <a href="docs/case-studies/demo-reel/qa-report.md">QA report: VRS 100 on 9/9 renders</a></sub>
+</p>
+
+<p align="center">
+  <a href="#install">Install</a> ·
+  <a href="#use">Use</a> ·
+  <a href="skills/demo-reel/references/case-studies.md">Case studies</a> ·
+  <a href="skills/demo-reel/references/metrics.md">51 gates</a> ·
+  <a href="skills/demo-reel/references/faq.md">FAQ</a>
+</p>
+
+## What is demo-reel?
+
+An open-source **Agent Skill** that makes **launch videos and short-form reels** for software projects. Run `/demo-reel`
+in Claude Code, Codex CLI, GitHub Copilot, Cursor, or any agent that supports skills. The agent:
+
+1. Writes 10+ hooks from your code.
+2. Renders the best 3 in 9:16, 1:1, and 16:9.
+3. Ships only renders that pass **51 machine-verified gates**.
+
+After launch, `reel.py learn` picks the winning hook from your real analytics.
 
 ## Install
 
 ```sh
-npx skills add <this-repo> --skill demo-reel      # or copy skills/demo-reel/ into your agent's skills dir
+npx skills add https://github.com/shashankswe2020-ux/demo-reel --skill demo-reel
 ```
 
-The skill is exposed at `.claude/skills/`, `.agents/skills/`, and `.github/skills/` via symlinks to `skills/demo-reel/`.
-
-**Requirements:** Python 3.10+ (stdlib only), FFmpeg/ffprobe on `PATH`, and any frame renderer (Hyperframes, Remotion, Playwright, or Pillow).
+Requires Python 3.10+, FFmpeg, and a frame renderer (Playwright, Remotion, Hyperframes, or Pillow).
 
 ## Use
 
@@ -27,36 +60,16 @@ The skill is exposed at `.claude/skills/`, `.agents/skills/`, and `.github/skill
 /demo-reel demo-recording.mov --duration 25
 ```
 
-## Toolkit
+You get `reel-output/` with 9 videos, posters, captions, share copy, a posting plan, and a QA report.
 
-```
-python3 skills/demo-reel/scripts/reel.py lint     reel-output/reel-plan.json
-python3 skills/demo-reel/scripts/reel.py finish   work/A-vertical.mp4 --format vertical --poster-t 1.4 --out reel-output/reel-A-vertical.mp4
-python3 skills/demo-reel/scripts/reel.py captions reel-output/reel-plan.json --variant A --out reel-output/reel-A-vertical.srt
-python3 skills/demo-reel/scripts/reel.py check    reel-output/reel-plan.json --renders reel-output
-python3 skills/demo-reel/scripts/reel.py hotspots recording.mov --window 20
-python3 skills/demo-reel/scripts/reel.py compare  brag-output/brag.mp4 reel-output/reel-A-vertical.mp4
-python3 skills/demo-reel/scripts/reel.py learn    reel-output/metrics.csv --objective hook_rate
-python3 skills/demo-reel/scripts/reel.py gates
-```
+## Learn more
 
-## Verifiable scorecard against /brag
+| Topic | Reference |
+|---|---|
+| Workflow and creative laws | [SKILL.md](skills/demo-reel/SKILL.md) |
+| All 51 gates and scoring | [metrics.md](skills/demo-reel/references/metrics.md) |
+| CLI commands and tests | [toolkit.md](skills/demo-reel/references/toolkit.md) |
+| Case studies: demo-reel and local-llmup | [case-studies.md](skills/demo-reel/references/case-studies.md) |
+| FAQ | [faq.md](skills/demo-reel/references/faq.md) |
 
-| Metric | /brag | demo-reel |
-|---|---|---|
-| Machine-verified gate types (`reel.py gates --count`) | ~5 | **51** |
-| Gate evaluations per run (`qa-report.json`) | ~5 | **227** |
-| Hooks generated and scored | 1 | **≥ 10** |
-| Shipped renders per run | 1 | **9** |
-| Claims checked verbatim against source | 0 | **all** |
-| Post-launch winner selection | none | **P(best) ≥ 95%** |
-
-Pre-launch gates show a reel is *ready*. Whether it's *more viral* is decided by audience data: post the /brag render
-as a control variant and run `reel.py learn`. See
-[skills/demo-reel/references/metrics.md](skills/demo-reel/references/metrics.md).
-
-## Tests
-
-```sh
-cd skills/demo-reel/scripts && python3 -m unittest discover -s tests -v
-```
+Licensed under [Apache 2.0](LICENSE).
