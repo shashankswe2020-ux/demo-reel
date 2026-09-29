@@ -29,7 +29,7 @@
         "duration": 22.0,
         "fps": 30.0,
         "format": "square",
-        "size_mb": 5.15,
+        "size_mb": 5.17,
         "loudness": {
           "integrated": -14.0,
           "lra": 3.3,
@@ -64,7 +64,7 @@
           "category": "truth",
           "severity": "blocker",
           "passed": true,
-          "message": "4 claims verified",
+          "message": "3 claims verified",
           "value": 0,
           "threshold": 0,
           "scope": ""
@@ -137,7 +137,7 @@
           "message": "cutoff 76.6",
           "value": [
             95.0,
-            78.6,
+            80.6,
             76.6
           ],
           "threshold": 76.6,
@@ -221,8 +221,8 @@
           "category": "retention",
           "severity": "minor",
           "passed": true,
-          "message": "1.86 words/s",
-          "value": 1.86,
+          "message": "1.91 words/s",
+          "value": 1.91,
           "threshold": 2.5,
           "scope": ""
         },
@@ -291,8 +291,8 @@
           "category": "truth",
           "severity": "minor",
           "passed": true,
-          "message": "8 words",
-          "value": 8,
+          "message": "5 words",
+          "value": 5,
           "threshold": 15,
           "scope": ""
         },
@@ -614,7 +614,7 @@
         "duration": 22.0,
         "fps": 30.0,
         "format": "landscape",
-        "size_mb": 6.75,
+        "size_mb": 6.76,
         "loudness": {
           "integrated": -14.0,
           "lra": 3.3,
@@ -649,7 +649,7 @@
           "category": "truth",
           "severity": "blocker",
           "passed": true,
-          "message": "4 claims verified",
+          "message": "3 claims verified",
           "value": 0,
           "threshold": 0,
           "scope": ""
@@ -722,7 +722,7 @@
           "message": "cutoff 76.6",
           "value": [
             95.0,
-            78.6,
+            80.6,
             76.6
           ],
           "threshold": 76.6,
@@ -806,8 +806,8 @@
           "category": "retention",
           "severity": "minor",
           "passed": true,
-          "message": "1.86 words/s",
-          "value": 1.86,
+          "message": "1.91 words/s",
+          "value": 1.91,
           "threshold": 2.5,
           "scope": ""
         },
@@ -876,8 +876,8 @@
           "category": "truth",
           "severity": "minor",
           "passed": true,
-          "message": "8 words",
-          "value": 8,
+          "message": "5 words",
+          "value": 5,
           "threshold": 15,
           "scope": ""
         },
@@ -998,8 +998,8 @@
           "category": "platform",
           "severity": "minor",
           "passed": true,
-          "message": "6.7 MB",
-          "value": 6.7,
+          "message": "6.8 MB",
+          "value": 6.8,
           "threshold": 250.0,
           "scope": "landscape"
         },
@@ -1199,7 +1199,7 @@
         "duration": 22.0,
         "fps": 30.0,
         "format": "vertical",
-        "size_mb": 6.51,
+        "size_mb": 6.54,
         "loudness": {
           "integrated": -14.0,
           "lra": 3.3,
@@ -1220,7 +1220,7 @@
         "edge_density": {
           "bottom": 0.01,
           "right": 0.04,
-          "center": 10.28
+          "center": 10.59
         }
       },
       "checks": [
@@ -1239,7 +1239,7 @@
           "category": "truth",
           "severity": "blocker",
           "passed": true,
-          "message": "4 claims verified",
+          "message": "3 claims verified",
           "value": 0,
           "threshold": 0,
           "scope": ""
@@ -1312,7 +1312,7 @@
           "message": "cutoff 76.6",
           "value": [
             95.0,
-            78.6,
+            80.6,
             76.6
           ],
           "threshold": 76.6,
@@ -1396,8 +1396,8 @@
           "category": "retention",
           "severity": "minor",
           "passed": true,
-          "message": "1.86 words/s",
-          "value": 1.86,
+          "message": "1.91 words/s",
+          "value": 1.91,
           "threshold": 2.5,
           "scope": ""
         },
@@ -1466,8 +1466,8 @@
           "category": "truth",
           "severity": "minor",
           "passed": true,
-          "message": "8 words",
-          "value": 8,
+          "message": "5 words",
+          "value": 5,
           "threshold": 15,
           "scope": ""
         },
@@ -1767,7 +1767,7 @@
   },
   "hook_scores": {
     "h3": 95.0,
-    "h1": 78.6,
+    "h1": 80.6,
     "h8": 76.6,
     "h2": 75.0,
     "h7": 72.6,

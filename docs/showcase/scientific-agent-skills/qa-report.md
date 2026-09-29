@@ -10,7 +10,7 @@
 | Gate | Result | Detail |
 |---|---|---|
 | `plan.schema` | PASS | schema=demo-reel/plan@1 |
-| `plan.claims_evidence` | PASS | 4 claims verified |
+| `plan.claims_evidence` | PASS | 3 claims verified |
 | `plan.lexicon_grounded` | PASS | 11 terms |
 | `plan.hook_candidates` | PASS | 10 candidates |
 | `plan.hook_type_diversity` | PASS | types=['before_after', 'bold_claim', 'challenge', 'contrarian', 'demo_first', 'pain_point', 'question', 'statistic', 'teaser'] |
@@ -25,14 +25,14 @@
 | `plan.first_event` | PASS | first event after t=0 at 0.15s |
 | `plan.pattern_interrupts` | PASS | longest gap 0.80s |
 | `plan.reading_time` | PASS | ok |
-| `plan.text_density` | PASS | 1.86 words/s |
+| `plan.text_density` | PASS | 1.91 words/s |
 | `plan.numbers_backed` | PASS | ok |
 | `plan.safe_zone` | PASS | ok |
 | `plan.loop` | PASS | strategy=callback |
 | `plan.show_the_thing` | PASS | 100% of runtime sourced from product |
 | `plan.product_in_use` | PASS | feature: Ask like a scientist |
 | `plan.banned_phrases` | PASS | ok |
-| `plan.one_liner` | PASS | 8 words |
+| `plan.one_liner` | PASS | 5 words |
 | `plan.cta` | PASS | last role=cta, target='npx skills add K-Dense-AI/scientific-agent-skills' |
 | `plan.formats` | PASS | ['vertical', 'square', 'landscape'] |
 | `plan.share_limits` | PASS | ok |
@@ -68,7 +68,7 @@
 | Gate | Result | Detail |
 |---|---|---|
 | `plan.schema` | PASS | schema=demo-reel/plan@1 |
-| `plan.claims_evidence` | PASS | 4 claims verified |
+| `plan.claims_evidence` | PASS | 3 claims verified |
 | `plan.lexicon_grounded` | PASS | 11 terms |
 | `plan.hook_candidates` | PASS | 10 candidates |
 | `plan.hook_type_diversity` | PASS | types=['before_after', 'bold_claim', 'challenge', 'contrarian', 'demo_first', 'pain_point', 'question', 'statistic', 'teaser'] |
@@ -83,14 +83,14 @@
 | `plan.first_event` | PASS | first event after t=0 at 0.15s |
 | `plan.pattern_interrupts` | PASS | longest gap 0.80s |
 | `plan.reading_time` | PASS | ok |
-| `plan.text_density` | PASS | 1.86 words/s |
+| `plan.text_density` | PASS | 1.91 words/s |
 | `plan.numbers_backed` | PASS | ok |
 | `plan.safe_zone` | PASS | ok |
 | `plan.loop` | PASS | strategy=callback |
 | `plan.show_the_thing` | PASS | 100% of runtime sourced from product |
 | `plan.product_in_use` | PASS | feature: Ask like a scientist |
 | `plan.banned_phrases` | PASS | ok |
-| `plan.one_liner` | PASS | 8 words |
+| `plan.one_liner` | PASS | 5 words |
 | `plan.cta` | PASS | last role=cta, target='npx skills add K-Dense-AI/scientific-agent-skills' |
 | `plan.formats` | PASS | ['vertical', 'square', 'landscape'] |
 | `plan.share_limits` | PASS | ok |
@@ -101,7 +101,7 @@
 | `media.fps` | PASS | avg=30.000 r=30.000 |
 | `media.duration` | PASS | 22.00s (plan 22.0) |
 | `media.faststart` | PASS | atoms=['ftyp', 'moov', 'free', 'mdat'] |
-| `media.file_size` | PASS | 6.7 MB |
+| `media.file_size` | PASS | 6.8 MB |
 | `media.audio_stream` | PASS | 2ch @ 48000 Hz |
 | `audio.loudness` | PASS | -14.0 LUFS |
 | `audio.true_peak` | PASS | -2.3 dBTP |
@@ -126,7 +126,7 @@
 | Gate | Result | Detail |
 |---|---|---|
 | `plan.schema` | PASS | schema=demo-reel/plan@1 |
-| `plan.claims_evidence` | PASS | 4 claims verified |
+| `plan.claims_evidence` | PASS | 3 claims verified |
 | `plan.lexicon_grounded` | PASS | 11 terms |
 | `plan.hook_candidates` | PASS | 10 candidates |
 | `plan.hook_type_diversity` | PASS | types=['before_after', 'bold_claim', 'challenge', 'contrarian', 'demo_first', 'pain_point', 'question', 'statistic', 'teaser'] |
@@ -141,14 +141,14 @@
 | `plan.first_event` | PASS | first event after t=0 at 0.15s |
 | `plan.pattern_interrupts` | PASS | longest gap 0.80s |
 | `plan.reading_time` | PASS | ok |
-| `plan.text_density` | PASS | 1.86 words/s |
+| `plan.text_density` | PASS | 1.91 words/s |
 | `plan.numbers_backed` | PASS | ok |
 | `plan.safe_zone` | PASS | ok |
 | `plan.loop` | PASS | strategy=callback |
 | `plan.show_the_thing` | PASS | 100% of runtime sourced from product |
 | `plan.product_in_use` | PASS | feature: Ask like a scientist |
 | `plan.banned_phrases` | PASS | ok |
-| `plan.one_liner` | PASS | 8 words |
+| `plan.one_liner` | PASS | 5 words |
 | `plan.cta` | PASS | last role=cta, target='npx skills add K-Dense-AI/scientific-agent-skills' |
 | `plan.formats` | PASS | ['vertical', 'square', 'landscape'] |
 | `plan.share_limits` | PASS | ok |

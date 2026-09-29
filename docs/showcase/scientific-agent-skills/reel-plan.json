@@ -4,7 +4,7 @@
     "name": "Scientific Agent Skills",
     "repo": "K-Dense-AI/scientific-agent-skills",
     "root": "/tmp/showcase/scientific-agent-skills",
-    "one_liner": "Access 167 skills for scientific research and analysis",
+    "one_liner": "Research skills for scientific analysis",
     "audience": "Scientists and AI researchers in biology, chemistry, medicine",
     "cta": {
       "line": "Add research skills to your agent",
@@ -26,14 +26,6 @@
     ]
   },
   "claims": [
-    {
-      "id": "c1",
-      "text": "Collection of 167 scientific and research skills",
-      "evidence": {
-        "file": "README.md",
-        "quote": "167 scientific and research skills"
-      }
-    },
     {
       "id": "c2",
       "text": "Unified access to 78+ public databases",
@@ -63,15 +55,14 @@
     {
       "id": "h1",
       "type": "statistic",
-      "text": "167 research skills, ready to run",
+      "text": "Research skills, ready to run",
       "scores": {
         "curiosity": 4,
         "specificity": 5,
         "stakes": 4,
         "visual_proof": 3,
         "pattern_break": 2
-      },
-      "claim": "c1"
+      }
     },
     {
       "id": "h2",
@@ -359,8 +350,8 @@
       ],
       "text": [
         {
-          "content": "167 research skills",
-          "claim": "c1",
+          "content": "70+ Python package skills",
+          "claim": "c3",
           "in": 0.2,
           "out": 1.9,
           "box": [
@@ -431,10 +422,10 @@
     }
   ],
   "share": {
-    "x": "Your AI agent just learned biology, chemistry, and drug discovery. Scientific Agent Skills gives 167 research workflows + 78 databases. Transform your agent into a scientist: https://github.com/K-Dense-AI/scientific-agent-skills",
-    "linkedin": "Accelerate your research with AI agents.\n\nScientific Agent Skills brings 167 research workflows and access to 78+ scientific databases directly to your AI agent. From genomics to drug discovery, chemistry to clinical research—your agent can now execute complex scientific pipelines.\n\nWorks with Cursor, Claude Code, Codex, and more.\n\nhttps://github.com/K-Dense-AI/scientific-agent-skills",
-    "tiktok": "AI agents can now do research.\nScientific Agent Skills unlocks 167 workflows across biology, chemistry, medicine, and more. Your agent just became a scientist: https://github.com/K-Dense-AI/scientific-agent-skills",
-    "instagram": "Your AI agent just got a biology degree.\nAccess 167 research skills and query 78 scientific databases instantly: https://github.com/K-Dense-AI/scientific-agent-skills",
+    "x": "Your AI agent just learned biology, chemistry, and drug discovery. Scientific Agent Skills gives research workflows + 78 databases. Transform your agent into a scientist: https://github.com/K-Dense-AI/scientific-agent-skills",
+    "linkedin": "Accelerate your research with AI agents.\n\nScientific Agent Skills brings research workflows and access to 78+ scientific databases directly to your AI agent. From genomics to drug discovery, chemistry to clinical research—your agent can now execute complex scientific pipelines.\n\nWorks with Cursor, Claude Code, Codex, and more.\n\nhttps://github.com/K-Dense-AI/scientific-agent-skills",
+    "tiktok": "AI agents can now do research.\nScientific Agent Skills unlocks workflows across biology, chemistry, medicine, and more. Your agent just became a scientist: https://github.com/K-Dense-AI/scientific-agent-skills",
+    "instagram": "Your AI agent just got a biology degree.\nAccess research skills and query 78 scientific databases instantly: https://github.com/K-Dense-AI/scientific-agent-skills",
     "youtube_title": "Turn Your AI Agent Into a Research Scientist",
     "hashtags": [
       "#aiscience",
