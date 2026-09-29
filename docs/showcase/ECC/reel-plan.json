@@ -29,15 +29,15 @@
       "text": "68 agents for planning, review, build repair, security, and architecture",
       "evidence": {
         "file": "README.md",
-        "quote": "Access to 68 agents, 292 skills, and 94 legacy command shims"
+        "quote": "Access to 68 agents, 293 skills, and 94 legacy command shims"
       }
     },
     {
       "id": "c2",
-      "text": "292 skills covering TDD, research, security, docs, frontend, data, ML",
+      "text": "293 skills covering TDD, research, security, docs, frontend, data, ML",
       "evidence": {
         "file": "README.md",
-        "quote": "Skills | 292 skills | TDD, research, security, docs, frontend, data, ML"
+        "quote": "293 skills | TDD, research, security, docs, frontend, data, ML"
       }
     },
     {
@@ -61,7 +61,7 @@
     {
       "id": "h1",
       "type": "statistic",
-      "text": "68 agents. 292 skills.",
+      "text": "68 agents. 293 skills.",
       "scores": {
         "curiosity": 4,
         "specificity": 5,
@@ -358,7 +358,7 @@
       ],
       "text": [
         {
-          "content": "68 agents. 292 skills.",
+          "content": "68 agents. 293 skills.",
           "claim": "c1",
           "in": 0.2,
           "out": 1.9,
@@ -430,10 +430,10 @@
     }
   ],
   "share": {
-    "x": "68 agents + 292 skills + hooks + memory = coordinated agent engineering. ECC gives coding agents a system, not just skills. npx ecc-universal@2.2.2 setup",
-    "linkedin": "Your agent can write code, but ECC gives it a coordinated engineering system.\n\nAccess 68 agents, 292 skills, and enterprise security scanning. Plan before building. Test before shipping. Review from fresh context. Remember what matters.\n\nInstead of rebuilding this process in every prompt, install it once.",
-    "tiktok": "Agent writing bad code? ECC changes the game.\n\n68 agents. 292 skills. One system.\n\nPlan → Test → Implement → Review → Verify → Remember → Improve\n\nYour agent isn't just smarter. It's engineered.",
-    "instagram": "Engineering agents right 🔧\n\n68 agents. 292 skills. Hooks, rules, memory.\n\nNo more rebuilding workflows. No more losing context.\n\nOne install. Seven platforms. Weekly updates.",
+    "x": "68 agents + 293 skills + hooks + memory = coordinated agent engineering. ECC gives coding agents a system, not just skills. npx ecc-universal@2.2.2 setup",
+    "linkedin": "Your agent can write code, but ECC gives it a coordinated engineering system.\n\nAccess 68 agents, 293 skills, and enterprise security scanning. Plan before building. Test before shipping. Review from fresh context. Remember what matters.\n\nInstead of rebuilding this process in every prompt, install it once.",
+    "tiktok": "Agent writing bad code? ECC changes the game.\n\n68 agents. 293 skills. One system.\n\nPlan → Test → Implement → Review → Verify → Remember → Improve\n\nYour agent isn't just smarter. It's engineered.",
+    "instagram": "Engineering agents right 🔧\n\n68 agents. 293 skills. Hooks, rules, memory.\n\nNo more rebuilding workflows. No more losing context.\n\nOne install. Seven platforms. Weekly updates.",
     "youtube_title": "ECC: The Operating System Your Coding Agent Needs",
     "hashtags": [
       "#agents",

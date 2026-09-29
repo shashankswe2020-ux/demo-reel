@@ -1,6 +1,6 @@
 # demo-reel QA report: affaan-m/ECC
 
-- Hook (variant A): "68 agents. 292 skills."
+- Hook (variant A): "68 agents. 293 skills."
 - Headline feature: **Plans before it builds**
 
 ## square
