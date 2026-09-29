@@ -23,7 +23,7 @@ Write these down before you plan anything:
 1. What is it, in one sentence of ≤ 15 words? (This becomes `project.one_liner`.)
 2. Who is it for, and what changes for them?
 3. What does it do that nothing else does?
-4. Entry → key action → result: the 2–3 beats of the product in use.
+4. Entry → key action → result: the 2–3 beats of the product in use. Pick the **one headline feature** the demo scene will show, and find the README example (before/after, sample prompt and output, API call) that proves it.
 5. Which real files, components, or screens show those beats? (These become `scenes[].sources`.)
 6. Most impressive **verifiable** claim, with the file and verbatim quote.
 7. Funniest or most surprising true thing about it.

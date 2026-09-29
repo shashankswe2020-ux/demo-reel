@@ -80,7 +80,7 @@ Writes `qa-report.md` and `qa-report.json`.
 | **Pattern interrupt every ≤ 2.5 s.** A cut, an arrival, a click, a swipe, or typing. Nothing frozen for more than 3 s. | `plan.pattern_interrupts`, `visual.static_stretch` |
 | **Readable.** Every line stays settled for max(0.8 s, 0.3 s × words). Overall ≤ 2.5 words/s. Pace comes from motion, not from pulling text early. | `plan.reading_time`, `plan.text_density` |
 | **True.** Every on-screen number traces to a verbatim quote in the source. No invented metrics, users, or testimonials. | `plan.claims_evidence`, `plan.numbers_backed` |
-| **Show the thing.** ≥ 40% of runtime comes from real product source, including at least one scene of the product in use. | `plan.show_the_thing`, `plan.product_in_use` |
+| **Show the thing.** ≥ 40% of runtime comes from real product source. The demo scene shows **one headline feature** working (input → output), names it on screen, and backs it with a verified claim. | `plan.show_the_thing`, `plan.product_in_use` |
 | **Works with sound off, rewards sound on.** Captions sidecar is readable. Mix is at -14 LUFS / ≤ -1 dBTP with no dead air. | `captions.*`, `audio.*` |
 | **Native to each feed.** Exact resolution. Text inside the vertical safe zone. Platform UI zones stay quiet. | `media.resolution`, `plan.safe_zone`, `visual.ui_clutter` |
 | **Loops.** The ending calls back to the opening, so a replay feels intentional. | `plan.loop`, `visual.loop_seam` |

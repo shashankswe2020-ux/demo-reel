@@ -3,7 +3,7 @@
   "project": {
     "name": "OpenCodeReview",
     "repo": "alibaba/open-code-review",
-    "root": "https://github.com/alibaba/open-code-review",
+    "root": "/tmp/showcase/open-code-review",
     "one_liner": "CLI tool combining AI and engineering to find real code defects",
     "audience": "Developers and teams reviewing pull requests on GitHub, GitLab, Gerrit",
     "cta": {
@@ -46,6 +46,14 @@
       "evidence": {
         "file": "README.md",
         "quote": "while consuming only **~1/9 of the tokens"
+      }
+    },
+    {
+      "id": "c4",
+      "text": "Structured review comments with line-level precision",
+      "evidence": {
+        "file": "README.md",
+        "quote": "generates structured review comments with line-level precision"
       }
     }
   ],
@@ -194,10 +202,12 @@
     "landscape"
   ],
   "render_formats": [
-    "landscape"
+    "landscape",
+    "square",
+    "vertical"
   ],
   "tone": "terminal",
-  "duration_s": 20,
+  "duration_s": 22,
   "loop": {
     "strategy": "callback",
     "note": "CTA brings back the lexicon marquee from the hook"
@@ -236,7 +246,7 @@
       "id": "s2",
       "role": "reveal",
       "start": 2.8,
-      "duration": 3.2,
+      "duration": 2.7,
       "sources": [
         "README.md",
         "imgs/logo-core.svg"
@@ -247,13 +257,13 @@
         0.6,
         1.2,
         1.8,
-        2.4
+        2.3
       ],
       "text": [
         {
           "content": "OpenCodeReview",
           "in": 0.2,
-          "out": 3.2,
+          "out": 2.7,
           "box": [
             0.08,
             0.36,
@@ -262,9 +272,9 @@
           ]
         },
         {
-          "content": "AI code review with deterministic precision",
-          "in": 0.6,
-          "out": 3.2,
+          "content": "Deterministic AI code review",
+          "in": 0.3,
+          "out": 2.7,
           "box": [
             0.08,
             0.48,
@@ -277,41 +287,48 @@
     {
       "id": "s3",
       "role": "demo",
-      "start": 6.0,
-      "duration": 5.5,
+      "start": 5.5,
+      "duration": 7.5,
       "sources": [
         "README.md"
       ],
-      "visual": "terminal types the README command; output lines arrive one by one",
+      "feature": {
+        "title": "Line-level review comments",
+        "claim": "c4"
+      },
+      "visual": "headline feature: You run (command) → Review (diff), built line by line",
       "events": [
         0.2,
-        0.8,
-        1.4,
-        1.9,
+        0.7,
+        1.2,
+        1.8,
         2.4,
-        2.9,
-        3.4,
-        3.9,
-        4.4,
-        4.9
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0,
+        5.6,
+        6.2,
+        6.8
       ],
       "text": [
         {
-          "content": "ocr review",
-          "illustrative": true,
+          "content": "Line-level review comments",
+          "claim": "c4",
           "in": 0.2,
-          "out": 2.9,
+          "out": 3.9,
           "box": [
             0.08,
-            0.2,
+            0.14,
             0.8,
             0.08
           ]
         },
         {
-          "content": "Reviews code with position accuracy",
-          "in": 3.0,
-          "out": 5.5,
+          "content": "Your diff in. Comments pinned to lines.",
+          "in": 4.0,
+          "out": 7.5,
           "box": [
             0.08,
             0.7,
@@ -324,7 +341,7 @@
     {
       "id": "s4",
       "role": "proof",
-      "start": 11.5,
+      "start": 13.0,
       "duration": 4.0,
       "sources": [
         "README.md"
@@ -369,8 +386,8 @@
     {
       "id": "s5",
       "role": "cta",
-      "start": 15.5,
-      "duration": 4.5,
+      "start": 17.0,
+      "duration": 5.0,
       "sources": [
         "README.md"
       ],
@@ -382,13 +399,14 @@
         1.9,
         2.5,
         3.1,
-        3.7
+        3.7,
+        4.3
       ],
       "text": [
         {
           "content": "Install and review now",
           "in": 0.1,
-          "out": 1.9,
+          "out": 2.0,
           "box": [
             0.08,
             0.3,
@@ -399,8 +417,8 @@
         {
           "content": "npm install -g @alibaba-group/open-code-review",
           "illustrative": true,
-          "in": 1.9,
-          "out": 4.5,
+          "in": 2.0,
+          "out": 5.0,
           "box": [
             0.08,
             0.48,
@@ -432,12 +450,26 @@
       "ink": "#ffffff"
     },
     "logo": "imgs/logo-core.svg",
-    "demo_output": [
-      "Scanning workspace changes...",
-      "Bundling related files for review",
-      "Checking review rules...",
-      "Generating precise comments"
-    ],
+    "feature": {
+      "input": {
+        "label": "You run",
+        "kind": "command",
+        "lines": [
+          "ocr review"
+        ]
+      },
+      "output": {
+        "label": "Review",
+        "kind": "diff",
+        "lines": [
+          "  function validateEmail(email) {",
+          "-   return email.includes('@');",
+          "# Too permissive: accepts 'a@' and '@b'",
+          "+   return /^[^@\\s]+@[^@\\s]+$/.test(email);",
+          "  }"
+        ]
+      }
+    },
     "stats_source": [
       "README.md",
       "README.md"

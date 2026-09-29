@@ -3,7 +3,7 @@
   "project": {
     "name": "Hindsight",
     "repo": "vectorize-io/hindsight",
-    "root": "https://github.com/vectorize-io/hindsight",
+    "root": "/tmp/showcase/hindsight",
     "one_liner": "Memory system enabling agents to recall and reflect across conversations",
     "audience": "AI engineers building long-running agents and multi-turn applications",
     "cta": {
@@ -46,6 +46,14 @@
       "evidence": {
         "file": "README.md",
         "quote": "Hindsight is the most accurate agent memory system ever tested"
+      }
+    },
+    {
+      "id": "c4",
+      "text": "Hindsight retains memories and recalls them",
+      "evidence": {
+        "file": "README.md",
+        "quote": "client.retain(bank_id=\"my-bank\", content=\"Alice works at Google as a software engineer\")"
       }
     }
   ],
@@ -193,10 +201,12 @@
     "landscape"
   ],
   "render_formats": [
-    "square"
+    "square",
+    "landscape",
+    "vertical"
   ],
   "tone": "terminal",
-  "duration_s": 20,
+  "duration_s": 22,
   "loop": {
     "strategy": "callback",
     "note": "CTA brings back the lexicon marquee from the hook"
@@ -235,7 +245,7 @@
       "id": "s2",
       "role": "reveal",
       "start": 2.8,
-      "duration": 3.2,
+      "duration": 2.7,
       "sources": [
         "README.md",
         "hindsight-favicon.png"
@@ -246,13 +256,13 @@
         0.6,
         1.2,
         1.8,
-        2.4
+        2.3
       ],
       "text": [
         {
           "content": "Hindsight",
           "in": 0.2,
-          "out": 3.2,
+          "out": 2.7,
           "box": [
             0.08,
             0.36,
@@ -262,8 +272,8 @@
         },
         {
           "content": "Agent memory that learns and improves",
-          "in": 0.6,
-          "out": 3.2,
+          "in": 0.3,
+          "out": 2.7,
           "box": [
             0.08,
             0.48,
@@ -276,41 +286,48 @@
     {
       "id": "s3",
       "role": "demo",
-      "start": 6.0,
-      "duration": 5.5,
+      "start": 5.5,
+      "duration": 7.5,
       "sources": [
         "README.md"
       ],
-      "visual": "terminal types the README command; output lines arrive one by one",
+      "feature": {
+        "title": "Retain, then recall",
+        "claim": "c4"
+      },
+      "visual": "headline feature: Retain (code) → Recall (chat), built line by line",
       "events": [
         0.2,
-        0.8,
-        1.4,
-        1.9,
+        0.7,
+        1.2,
+        1.8,
         2.4,
-        2.9,
-        3.4,
-        3.9,
-        4.4,
-        4.9
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0,
+        5.6,
+        6.2,
+        6.8
       ],
       "text": [
         {
-          "content": "pip install hindsight-api",
-          "illustrative": true,
+          "content": "Retain, then recall",
+          "claim": "c4",
           "in": 0.2,
-          "out": 2.9,
+          "out": 3.9,
           "box": [
             0.08,
-            0.2,
+            0.14,
             0.8,
             0.08
           ]
         },
         {
-          "content": "Retain. Recall. Reflect.",
-          "in": 3.0,
-          "out": 5.5,
+          "content": "It remembers what your agent learned.",
+          "in": 4.0,
+          "out": 7.5,
           "box": [
             0.08,
             0.7,
@@ -323,7 +340,7 @@
     {
       "id": "s4",
       "role": "proof",
-      "start": 11.5,
+      "start": 13.0,
       "duration": 4.0,
       "sources": [
         "README.md"
@@ -368,8 +385,8 @@
     {
       "id": "s5",
       "role": "cta",
-      "start": 15.5,
-      "duration": 4.5,
+      "start": 17.0,
+      "duration": 5.0,
       "sources": [
         "README.md"
       ],
@@ -381,13 +398,14 @@
         1.9,
         2.5,
         3.1,
-        3.7
+        3.7,
+        4.3
       ],
       "text": [
         {
           "content": "Install and start remembering",
           "in": 0.1,
-          "out": 1.9,
+          "out": 2.0,
           "box": [
             0.08,
             0.3,
@@ -398,8 +416,8 @@
         {
           "content": "pip install hindsight-api",
           "illustrative": true,
-          "in": 1.9,
-          "out": 4.5,
+          "in": 2.0,
+          "out": 5.0,
           "box": [
             0.08,
             0.48,
@@ -431,13 +449,26 @@
       "ink": "#e5e7eb"
     },
     "logo": "hindsight-favicon.png",
-    "demo_output": [
-      "Successfully installed hindsight-api",
-      "Start server: hindsight-api",
-      "API: http://localhost:8888",
-      "UI: http://localhost:9999",
-      "Ready to retain, recall, reflect"
-    ],
+    "feature": {
+      "input": {
+        "label": "Retain",
+        "kind": "code",
+        "lines": [
+          "client.retain(bank_id=\"my-bank\",",
+          "  content=\"Alice works at Google",
+          "  as a software engineer\")"
+        ]
+      },
+      "output": {
+        "label": "Recall",
+        "kind": "chat",
+        "lines": [
+          "user: What does Alice do?",
+          "agent: Alice works at Google as a",
+          "agent: software engineer."
+        ]
+      }
+    },
     "stats_source": [
       "README.md",
       "README.md"

@@ -256,8 +256,23 @@ def lint(plan: dict[str, Any], project_root: Path, plan_dir: Path) -> tuple[list
                        f"{share:.0%} of runtime sourced from product" +
                        (f"; missing sources: {missing_sources[:5]}" if missing_sources else ""),
                        round(share, 2), specs.PRODUCT_SCREEN_SHARE_MIN))
-    checks.append(make("plan.product_in_use", any(s.get("role") == "demo" and s.get("sources") for s in scenes),
-                       "needs a sourced scene with role=demo"))
+    demos = [s for s in scenes if s.get("role") == "demo" and s.get("sources")]
+    feature_issue = "needs a sourced scene with role=demo"
+    for s in demos:
+        feat = s.get("feature") or {}
+        title = _norm(feat.get("title", ""))
+        on_screen = any(title and title in _norm(t.get("content", "")) for t in s.get("text", []))
+        if not title:
+            feature_issue = f"{s.get('id')}: demo scene must name one headline feature (feature.title)"
+        elif feat.get("claim") not in verified:
+            feature_issue = f"{s.get('id')}: feature '{feat.get('title')}' needs a verified claim"
+        elif not on_screen:
+            feature_issue = f"{s.get('id')}: feature '{feat.get('title')}' is not shown as on-screen text"
+        else:
+            feature_issue = ""
+            break
+    checks.append(make("plan.product_in_use", not feature_issue,
+                       feature_issue or f"feature: {demos[0].get('feature', {}).get('title')}"))
 
     # Copy.
     corpus = [project.get("one_liner", "")] + [h.get("text", "") for h in live]

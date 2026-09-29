@@ -39,7 +39,7 @@ Plan gates are evaluated once and apply to every render. Media and caption gates
 | `plan.claims_evidence` | truth | blocker | verbatim | Claim quotes exist in evidence files |
 | `plan.numbers_backed` | truth | blocker | — | No unsourced numbers on screen, whether digits or number words ("fifty-four", "percent", "twice") |
 | `plan.show_the_thing` | truth | major | ≥ 40% | Runtime sourced from real product files |
-| `plan.product_in_use` | truth | major | — | A sourced `demo` scene exists |
+| `plan.product_in_use` | truth | major | — | The demo scene names one headline feature on screen, backed by a verified claim |
 | `plan.banned_phrases` | truth | major | — | No launch clichés |
 | `plan.one_liner` | truth | minor | ≤ 15 words | Clear to a stranger |
 | `plan.cta` | distribution | blocker | — | Last scene shows the exact CTA |

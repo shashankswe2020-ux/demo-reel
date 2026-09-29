@@ -5,71 +5,384 @@
     "root": "project",
     "one_liner": "Shipcast turns your git log into a changelog podcast your users finish.",
     "audience": "Developer-tool teams whose release notes go unread",
-    "cta": {"text": "npx shipcast init", "target": "npx shipcast init"},
-    "lexicon": ["git log", "changelog", "podcast", "episode", "release notes", "pull request", "shipcast"]
+    "cta": {
+      "text": "npx shipcast init",
+      "target": "npx shipcast init"
+    },
+    "lexicon": [
+      "git log",
+      "changelog",
+      "podcast",
+      "episode",
+      "release notes",
+      "pull request",
+      "shipcast"
+    ]
   },
   "claims": [
     {
       "id": "c1",
       "text": "Generates an episode from 500 commits in under 40 seconds",
-      "evidence": {"file": "README.md", "quote": "Generates an episode from 500 commits in under 40 seconds."}
+      "evidence": {
+        "file": "README.md",
+        "quote": "Generates an episode from 500 commits in under 40 seconds."
+      }
+    },
+    {
+      "id": "c2",
+      "text": "Every merged pull request becomes a spoken episode",
+      "evidence": {
+        "file": "README.md",
+        "quote": "every merged pull request becomes a"
+      }
     }
   ],
   "hooks": [
-    {"id": "h1", "type": "question", "text": "What if your git log had a podcast?", "visual": "git log scrolls, then a play button slams in",
-     "scores": {"curiosity": 5, "specificity": 4, "stakes": 3, "visual_proof": 4, "pattern_break": 4}},
-    {"id": "h2", "type": "negative", "text": "Stop writing release notes nobody reads", "visual": "release notes page fades to grey",
-     "scores": {"curiosity": 4, "specificity": 4, "stakes": 4, "visual_proof": 3, "pattern_break": 4}},
-    {"id": "h3", "type": "demo_first", "text": "Your git log, now a podcast", "visual": "terminal log morphs into the episode card",
-     "scores": {"curiosity": 4, "specificity": 5, "stakes": 3, "visual_proof": 5, "pattern_break": 4}},
-    {"id": "h4", "type": "statistic", "claim": "c1", "text": "500 commits. One episode. 40 seconds.", "visual": "counter races to 500",
-     "scores": {"curiosity": 4, "specificity": 5, "stakes": 4, "visual_proof": 4, "pattern_break": 3}},
-    {"id": "h5", "type": "bold_claim", "text": "Changelogs are dead. Episodes aren't.", "visual": "tombstone card",
-     "scores": {"curiosity": 3, "specificity": 3, "stakes": 3, "visual_proof": 2, "pattern_break": 4}},
-    {"id": "h6", "type": "pain_point", "text": "Nobody reads your changelog", "visual": "unread badge counter",
-     "scores": {"curiosity": 3, "specificity": 3, "stakes": 4, "visual_proof": 2, "pattern_break": 3}},
-    {"id": "h7", "type": "teaser", "text": "Listen to what you shipped", "visual": "headphones on a laptop",
-     "scores": {"curiosity": 3, "specificity": 2, "stakes": 2, "visual_proof": 3, "pattern_break": 2}},
-    {"id": "h8", "type": "before_after", "text": "Release notes, then an episode", "visual": "split screen",
-     "scores": {"curiosity": 3, "specificity": 4, "stakes": 2, "visual_proof": 4, "pattern_break": 3}},
-    {"id": "h9", "type": "contrarian", "text": "Release notes should be heard", "visual": "speaker icon over notes",
-     "scores": {"curiosity": 3, "specificity": 3, "stakes": 2, "visual_proof": 2, "pattern_break": 3}},
-    {"id": "h10", "type": "challenge", "text": "Can your changelog hold attention?", "visual": "stopwatch",
-     "scores": {"curiosity": 3, "specificity": 3, "stakes": 2, "visual_proof": 2, "pattern_break": 2}}
+    {
+      "id": "h1",
+      "type": "question",
+      "text": "What if your git log had a podcast?",
+      "visual": "git log scrolls, then a play button slams in",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 4,
+        "stakes": 3,
+        "visual_proof": 4,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h2",
+      "type": "negative",
+      "text": "Stop writing release notes nobody reads",
+      "visual": "release notes page fades to grey",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 3,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h3",
+      "type": "demo_first",
+      "text": "Your git log, now a podcast",
+      "visual": "terminal log morphs into the episode card",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 3,
+        "visual_proof": 5,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h4",
+      "type": "statistic",
+      "claim": "c1",
+      "text": "500 commits. One episode. 40 seconds.",
+      "visual": "counter races to 500",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 4,
+        "visual_proof": 4,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h5",
+      "type": "bold_claim",
+      "text": "Changelogs are dead. Episodes aren't.",
+      "visual": "tombstone card",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h6",
+      "type": "pain_point",
+      "text": "Nobody reads your changelog",
+      "visual": "unread badge counter",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 4,
+        "visual_proof": 2,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h7",
+      "type": "teaser",
+      "text": "Listen to what you shipped",
+      "visual": "headphones on a laptop",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 2,
+        "stakes": 2,
+        "visual_proof": 3,
+        "pattern_break": 2
+      }
+    },
+    {
+      "id": "h8",
+      "type": "before_after",
+      "text": "Release notes, then an episode",
+      "visual": "split screen",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 4,
+        "stakes": 2,
+        "visual_proof": 4,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h9",
+      "type": "contrarian",
+      "text": "Release notes should be heard",
+      "visual": "speaker icon over notes",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 2,
+        "visual_proof": 2,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h10",
+      "type": "challenge",
+      "text": "Can your changelog hold attention?",
+      "visual": "stopwatch",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 2,
+        "visual_proof": 2,
+        "pattern_break": 2
+      }
+    }
   ],
   "variants": [
-    {"id": "A", "hook": "h3"},
-    {"id": "B", "hook": "h4"},
-    {"id": "C", "hook": "h1"}
+    {
+      "id": "A",
+      "hook": "h3"
+    },
+    {
+      "id": "B",
+      "hook": "h4"
+    },
+    {
+      "id": "C",
+      "hook": "h1"
+    }
   ],
-  "formats": ["vertical", "square", "landscape"],
+  "formats": [
+    "vertical",
+    "square",
+    "landscape"
+  ],
   "tone": "default",
   "duration_s": 20,
-  "loop": {"strategy": "callback", "note": "CTA card ends on the play button the hook opened with"},
+  "loop": {
+    "strategy": "callback",
+    "note": "CTA card ends on the play button the hook opened with"
+  },
   "scenes": [
-    {"id": "s1", "role": "hook", "start": 0, "duration": 2.8, "visual": "git log scroll, hook line slams in",
-     "sources": ["README.md"], "events": [0.15, 1.2, 2.0],
-     "text": [{"slot": "hook", "in": 0.15, "out": 2.8, "box": [0.1, 0.35, 0.76, 0.2]}]},
-    {"id": "s2", "role": "reveal", "start": 2.8, "duration": 3.2, "visual": "logo lockup over the episode card",
-     "sources": ["README.md"], "events": [0.3, 1.0, 1.8, 2.6],
-     "text": [{"content": "Shipcast turns your git log into a podcast", "in": 0.3, "out": 3.2, "box": [0.1, 0.4, 0.76, 0.18]}]},
-    {"id": "s3", "role": "demo", "start": 6.0, "duration": 5.0, "visual": "type init, pick a voice, press play",
-     "sources": ["src/EpisodeCard.jsx"], "events": [0.5, 1.0, 1.5, 2.2, 2.8, 3.6, 4.3],
-     "text": [
-       {"content": "npx shipcast init", "in": 0.2, "out": 1.6, "box": [0.1, 0.2, 0.76, 0.1]},
-       {"content": "Pick a host voice", "in": 1.8, "out": 3.0, "box": [0.1, 0.2, 0.76, 0.1]},
-       {"content": "Play episode", "in": 3.2, "out": 5.0, "box": [0.1, 0.62, 0.76, 0.1]}
-     ]},
-    {"id": "s4", "role": "proof", "start": 11.0, "duration": 4.5, "visual": "commit counter races to 500",
-     "sources": ["README.md"], "events": [0.3, 1.2, 2.0, 2.8, 3.6],
-     "text": [{"content": "500 commits. One episode. Under 40 seconds.", "claim": "c1", "in": 0.3, "out": 4.5,
-               "box": [0.1, 0.4, 0.76, 0.2]}]},
-    {"id": "s5", "role": "cta", "start": 15.5, "duration": 4.5, "visual": "install command and play button",
-     "sources": ["README.md"], "events": [0.3, 1.0, 2.0, 3.0, 4.0],
-     "text": [
-       {"content": "Your changelog, finally heard.", "in": 0.3, "out": 2.2, "box": [0.1, 0.3, 0.76, 0.12]},
-       {"content": "npx shipcast init", "in": 2.3, "out": 4.5, "box": [0.1, 0.5, 0.76, 0.1]}
-     ]}
+    {
+      "id": "s1",
+      "role": "hook",
+      "start": 0,
+      "duration": 2.8,
+      "visual": "git log scroll, hook line slams in",
+      "sources": [
+        "README.md"
+      ],
+      "events": [
+        0.15,
+        1.2,
+        2.0
+      ],
+      "text": [
+        {
+          "slot": "hook",
+          "in": 0.15,
+          "out": 2.8,
+          "box": [
+            0.1,
+            0.35,
+            0.76,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "role": "reveal",
+      "start": 2.8,
+      "duration": 3.2,
+      "visual": "logo lockup over the episode card",
+      "sources": [
+        "README.md"
+      ],
+      "events": [
+        0.3,
+        1.0,
+        1.8,
+        2.6
+      ],
+      "text": [
+        {
+          "content": "Shipcast turns your git log into a podcast",
+          "in": 0.3,
+          "out": 3.2,
+          "box": [
+            0.1,
+            0.4,
+            0.76,
+            0.18
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "role": "demo",
+      "start": 6.0,
+      "duration": 5.0,
+      "visual": "type init, pick a voice, press play",
+      "sources": [
+        "src/EpisodeCard.jsx"
+      ],
+      "events": [
+        0.5,
+        1.0,
+        1.5,
+        2.2,
+        2.8,
+        3.6,
+        4.3
+      ],
+      "text": [
+        {
+          "content": "npx shipcast init",
+          "in": 0.2,
+          "out": 1.6,
+          "box": [
+            0.1,
+            0.2,
+            0.76,
+            0.1
+          ]
+        },
+        {
+          "content": "Pick a host voice",
+          "in": 1.8,
+          "out": 3.0,
+          "box": [
+            0.1,
+            0.2,
+            0.76,
+            0.1
+          ]
+        },
+        {
+          "content": "Play episode",
+          "in": 3.2,
+          "out": 5.0,
+          "box": [
+            0.1,
+            0.62,
+            0.76,
+            0.1
+          ]
+        }
+      ],
+      "feature": {
+        "title": "Play episode",
+        "claim": "c2"
+      }
+    },
+    {
+      "id": "s4",
+      "role": "proof",
+      "start": 11.0,
+      "duration": 4.5,
+      "visual": "commit counter races to 500",
+      "sources": [
+        "README.md"
+      ],
+      "events": [
+        0.3,
+        1.2,
+        2.0,
+        2.8,
+        3.6
+      ],
+      "text": [
+        {
+          "content": "500 commits. One episode. Under 40 seconds.",
+          "claim": "c1",
+          "in": 0.3,
+          "out": 4.5,
+          "box": [
+            0.1,
+            0.4,
+            0.76,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "role": "cta",
+      "start": 15.5,
+      "duration": 4.5,
+      "visual": "install command and play button",
+      "sources": [
+        "README.md"
+      ],
+      "events": [
+        0.3,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "text": [
+        {
+          "content": "Your changelog, finally heard.",
+          "in": 0.3,
+          "out": 2.2,
+          "box": [
+            0.1,
+            0.3,
+            0.76,
+            0.12
+          ]
+        },
+        {
+          "content": "npx shipcast init",
+          "in": 2.3,
+          "out": 4.5,
+          "box": [
+            0.1,
+            0.5,
+            0.76,
+            0.1
+          ]
+        }
+      ]
+    }
   ],
   "share": {
     "x": "Your git log, now a podcast. Shipcast turns merged pull requests into an episode your users actually finish.\n\nnpx shipcast init",
@@ -77,6 +390,10 @@
     "tiktok": "POV: your git log became a podcast\nnpx shipcast init",
     "instagram": "Your git log, now a podcast.\nShipcast turns merged pull requests into an episode.\nnpx shipcast init",
     "youtube_title": "Your git log, now a podcast (Shipcast)",
-    "hashtags": ["#buildinpublic", "#devtools", "#changelog"]
+    "hashtags": [
+      "#buildinpublic",
+      "#devtools",
+      "#changelog"
+    ]
   }
 }

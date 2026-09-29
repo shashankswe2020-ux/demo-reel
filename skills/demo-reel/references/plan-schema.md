@@ -56,7 +56,8 @@ The plan is the contract. Build, captions, and QA all read it, so write it befor
 - `box` is `[x, y, w, h]` in fractions of the **vertical** frame and must sit inside the safe zone: top 12%, bottom 22%, left 6%, right 11%. Other formats reuse the same relative layout intent.
 - Any text containing a digit needs `claim` (a verified claim id) or `"illustrative": true`.
 - `events` should include every visible change. Scene starts and text arrivals count automatically. The longest gap between events, including the one up to `duration_s`, must be ≤ 2.5 s, and there must be one event in (0, 0.5] s.
-- `sources` resolve against the project root, then the plan directory. They can't escape either one. Sourced scenes must cover ≥ 40% of runtime, and at least one `demo` scene must be sourced.
+- `sources` resolve against the project root, then the plan directory. They can't escape either one. Sourced scenes must cover ≥ 40% of runtime.
+- The `demo` scene carries `"feature": {"title": "Line-level review comments", "claim": "c2"}`: the one headline feature it shows working. The title must appear in that scene's on-screen text, and the claim must be verified. Show it as input → output using the project's own examples (a README before/after, a sample prompt and its result, a real API call). An install command is not a feature.
 - `loop.strategy`: `seamless` (last frame ≈ opening; checked by SSIM), `match_cut`, `callback`, or `none`.
 
 ## Commands

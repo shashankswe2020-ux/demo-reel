@@ -352,7 +352,11 @@
             0.08
           ]
         }
-      ]
+      ],
+      "feature": {
+        "title": "Hook lab",
+        "claim": "c3"
+      }
     },
     {
       "id": "s4",

@@ -51,6 +51,19 @@ class PlanLintTest(unittest.TestCase):
         checks, _ = run_lint(plan)
         self.assertFalse(checks["plan.numbers_backed"].passed)
 
+    def test_demo_must_showcase_one_backed_feature(self):
+        plan = load_plan()
+        demo = next(s for s in plan["scenes"] if s["role"] == "demo")
+        demo.pop("feature")
+        checks, _ = run_lint(plan)
+        self.assertFalse(checks["plan.product_in_use"].passed)
+        demo["feature"] = {"title": "Voice cloning", "claim": "c2"}
+        checks, _ = run_lint(plan)
+        self.assertFalse(checks["plan.product_in_use"].passed, "feature title must appear on screen")
+        demo["feature"] = {"title": "Play episode", "claim": "c9"}
+        checks, _ = run_lint(plan)
+        self.assertFalse(checks["plan.product_in_use"].passed, "feature must be claim-backed")
+
     def test_spelled_out_number_needs_a_claim(self):
         plan = load_plan()
         plan["scenes"][1]["text"][0]["content"] = "Six hundred teams ship with Shipcast"

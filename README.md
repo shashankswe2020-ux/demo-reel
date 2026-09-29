@@ -46,7 +46,7 @@ After launch, `reel.py learn` picks the winning hook from your real analytics.
 
 ## 12 launch reels, 12 trending AI repos
 
-Made by `/demo-reel` for 12 of this month's trending AI repositories on GitHub. Each reel was built from the repo itself, and every number on screen quotes its README. All 51 gates ran on each one with zero failures (VRS 100; 1–2 format-specific gates don't apply per render). Click a preview to watch with sound; the score opens the QA report.
+Made by `/demo-reel` for 12 of this month's trending AI repositories on GitHub. Each reel shows one headline feature using the repo's own site, screenshots, and demo footage, in its brand fonts and colors. Every number on screen quotes its README. Each repo was rendered in all three formats, and all 36 renders passed the 51 gates with zero failures (VRS 100; 1–2 format-specific gates don't apply per render). Click a preview to watch with sound; the score opens the QA report.
 
 <table>
 <tr><td colspan="4"><b>16:9 · landscape</b></td></tr>

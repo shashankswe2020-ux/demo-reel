@@ -1,13 +1,16 @@
 # demo-reel QA report: vectorize-io/hindsight
 
-- Format: square · Variant A hook: "Memory isn't history, it's learning"
-- Viral Readiness Score: **100.0** · blockers: none · shippable: **True**
-- Gates evaluated: 51 of 51 (skipped where not applicable: 2)
+- Hook (variant A): "Memory isn't history, it's learning"
+- Headline feature: **Retain, then recall**
+
+## square
+
+- Viral Readiness Score: **100.0** · blockers: none · shippable: **True** · 49 passed, 0 failed, 2 n/a
 
 | Gate | Result | Detail |
 |---|---|---|
 | `plan.schema` | PASS | schema=demo-reel/plan@1 |
-| `plan.claims_evidence` | PASS | 3 claims verified |
+| `plan.claims_evidence` | PASS | 4 claims verified |
 | `plan.lexicon_grounded` | PASS | 9 terms |
 | `plan.hook_candidates` | PASS | 10 candidates |
 | `plan.hook_type_diversity` | PASS | types=['before_after', 'challenge', 'contrarian', 'demo_first', 'pain_point', 'question', 'social_proof', 'statistic', 'teaser'] |
@@ -16,18 +19,18 @@
 | `plan.hook_brevity` | PASS | ok |
 | `plan.hook_selection` | PASS | cutoff 66.4 |
 | `plan.hook_grounded` | PASS | ok |
-| `plan.duration_sum` | PASS | sum=20.00s vs duration_s=20.00s |
-| `plan.duration_band` | PASS | 20.0s |
+| `plan.duration_sum` | PASS | sum=22.00s vs duration_s=22.00s |
+| `plan.duration_band` | PASS | 22.0s |
 | `plan.hook_scene_length` | PASS | scene 1 role=hook duration=2.8 |
 | `plan.first_event` | PASS | first event after t=0 at 0.15s |
 | `plan.pattern_interrupts` | PASS | longest gap 0.80s |
 | `plan.reading_time` | PASS | ok |
-| `plan.text_density` | PASS | 1.70 words/s |
+| `plan.text_density` | PASS | 1.68 words/s |
 | `plan.numbers_backed` | PASS | ok |
 | `plan.safe_zone` | PASS | ok |
 | `plan.loop` | PASS | strategy=callback |
 | `plan.show_the_thing` | PASS | 100% of runtime sourced from product |
-| `plan.product_in_use` | PASS | needs a sourced scene with role=demo |
+| `plan.product_in_use` | PASS | feature: Retain, then recall |
 | `plan.banned_phrases` | PASS | ok |
 | `plan.one_liner` | PASS | 10 words |
 | `plan.cta` | PASS | last role=cta, target='pip install hindsight-api' |
@@ -38,22 +41,139 @@
 | `media.container` | PASS | mov,mp4,m4a,3gp,3g2,mj2 / h264 yuv420p / aac |
 | `media.resolution` | PASS | 1080x1080 for square |
 | `media.fps` | PASS | avg=30.000 r=30.000 |
-| `media.duration` | PASS | 20.00s (plan 20.0) |
+| `media.duration` | PASS | 22.00s (plan 22.0) |
 | `media.faststart` | PASS | atoms=['ftyp', 'moov', 'free', 'mdat'] |
-| `media.file_size` | PASS | 2.9 MB |
+| `media.file_size` | PASS | 3.3 MB |
 | `media.audio_stream` | PASS | 2ch @ 48000 Hz |
-| `audio.loudness` | PASS | -14.3 LUFS |
-| `audio.true_peak` | PASS | -2.4 dBTP |
-| `audio.lra` | PASS | 1.7 LU |
+| `audio.loudness` | PASS | -14.0 LUFS |
+| `audio.true_peak` | PASS | -2.3 dBTP |
+| `audio.lra` | PASS | 3.1 LU |
 | `audio.leading_silence` | PASS | 0.00s |
 | `audio.dead_air` | PASS | longest silence 0.00s |
-| `visual.poster` | PASS | frame0 YAVG=57 contrast=91 |
+| `visual.poster` | PASS | frame0 YAVG=194 contrast=139 |
 | `visual.first_motion` | PASS | first motion at 0.0666667s |
 | `visual.black_frames` | PASS | 0 black frames (0.0%), 0 in hook |
-| `visual.static_stretch` | PASS | 1.83s frozen |
-| `visual.shot_length` | PASS | 4 cuts, avg shot 4.00s |
-| `visual.ui_clutter` | SKIP | not vertical |
-| `visual.loop_seam` | SKIP | loop strategy callback |
+| `visual.static_stretch` | PASS | 2.17s frozen |
+| `visual.shot_length` | PASS | 5 cuts, avg shot 3.67s |
+| `visual.ui_clutter` | n/a | not vertical |
+| `visual.loop_seam` | n/a | loop strategy callback |
 | `captions.present` | PASS | 8 cues |
 | `captions.timing` | PASS | ok |
 | `captions.readability` | PASS | ok |
+
+## landscape
+
+- Viral Readiness Score: **100.0** · blockers: none · shippable: **True** · 49 passed, 0 failed, 2 n/a
+
+| Gate | Result | Detail |
+|---|---|---|
+| `plan.schema` | PASS | schema=demo-reel/plan@1 |
+| `plan.claims_evidence` | PASS | 4 claims verified |
+| `plan.lexicon_grounded` | PASS | 9 terms |
+| `plan.hook_candidates` | PASS | 10 candidates |
+| `plan.hook_type_diversity` | PASS | types=['before_after', 'challenge', 'contrarian', 'demo_first', 'pain_point', 'question', 'social_proof', 'statistic', 'teaser'] |
+| `plan.variant_count` | PASS | 3 variants |
+| `plan.variant_diversity` | PASS | variant hook types=['contrarian', 'statistic', 'teaser'] |
+| `plan.hook_brevity` | PASS | ok |
+| `plan.hook_selection` | PASS | cutoff 66.4 |
+| `plan.hook_grounded` | PASS | ok |
+| `plan.duration_sum` | PASS | sum=22.00s vs duration_s=22.00s |
+| `plan.duration_band` | PASS | 22.0s |
+| `plan.hook_scene_length` | PASS | scene 1 role=hook duration=2.8 |
+| `plan.first_event` | PASS | first event after t=0 at 0.15s |
+| `plan.pattern_interrupts` | PASS | longest gap 0.80s |
+| `plan.reading_time` | PASS | ok |
+| `plan.text_density` | PASS | 1.68 words/s |
+| `plan.numbers_backed` | PASS | ok |
+| `plan.safe_zone` | PASS | ok |
+| `plan.loop` | PASS | strategy=callback |
+| `plan.show_the_thing` | PASS | 100% of runtime sourced from product |
+| `plan.product_in_use` | PASS | feature: Retain, then recall |
+| `plan.banned_phrases` | PASS | ok |
+| `plan.one_liner` | PASS | 10 words |
+| `plan.cta` | PASS | last role=cta, target='pip install hindsight-api' |
+| `plan.formats` | PASS | ['vertical', 'square', 'landscape'] |
+| `plan.share_limits` | PASS | ok |
+| `plan.share_fold` | PASS | ok |
+| `plan.hashtags` | PASS | ['#agents', '#memory', '#ai', '#learning', '#research'] |
+| `media.container` | PASS | mov,mp4,m4a,3gp,3g2,mj2 / h264 yuv420p / aac |
+| `media.resolution` | PASS | 1920x1080 for landscape |
+| `media.fps` | PASS | avg=30.000 r=30.000 |
+| `media.duration` | PASS | 22.00s (plan 22.0) |
+| `media.faststart` | PASS | atoms=['ftyp', 'moov', 'free', 'mdat'] |
+| `media.file_size` | PASS | 4.6 MB |
+| `media.audio_stream` | PASS | 2ch @ 48000 Hz |
+| `audio.loudness` | PASS | -14.0 LUFS |
+| `audio.true_peak` | PASS | -2.3 dBTP |
+| `audio.lra` | PASS | 3.1 LU |
+| `audio.leading_silence` | PASS | 0.00s |
+| `audio.dead_air` | PASS | longest silence 0.00s |
+| `visual.poster` | PASS | frame0 YAVG=193 contrast=139 |
+| `visual.first_motion` | PASS | first motion at 0.0666667s |
+| `visual.black_frames` | PASS | 0 black frames (0.0%), 0 in hook |
+| `visual.static_stretch` | PASS | 2.20s frozen |
+| `visual.shot_length` | PASS | 5 cuts, avg shot 3.67s |
+| `visual.ui_clutter` | n/a | not vertical |
+| `visual.loop_seam` | n/a | loop strategy callback |
+| `captions.present` | PASS | 8 cues |
+| `captions.timing` | PASS | ok |
+| `captions.readability` | PASS | ok |
+
+## vertical
+
+- Viral Readiness Score: **100.0** · blockers: none · shippable: **True** · 50 passed, 0 failed, 1 n/a
+
+| Gate | Result | Detail |
+|---|---|---|
+| `plan.schema` | PASS | schema=demo-reel/plan@1 |
+| `plan.claims_evidence` | PASS | 4 claims verified |
+| `plan.lexicon_grounded` | PASS | 9 terms |
+| `plan.hook_candidates` | PASS | 10 candidates |
+| `plan.hook_type_diversity` | PASS | types=['before_after', 'challenge', 'contrarian', 'demo_first', 'pain_point', 'question', 'social_proof', 'statistic', 'teaser'] |
+| `plan.variant_count` | PASS | 3 variants |
+| `plan.variant_diversity` | PASS | variant hook types=['contrarian', 'statistic', 'teaser'] |
+| `plan.hook_brevity` | PASS | ok |
+| `plan.hook_selection` | PASS | cutoff 66.4 |
+| `plan.hook_grounded` | PASS | ok |
+| `plan.duration_sum` | PASS | sum=22.00s vs duration_s=22.00s |
+| `plan.duration_band` | PASS | 22.0s |
+| `plan.hook_scene_length` | PASS | scene 1 role=hook duration=2.8 |
+| `plan.first_event` | PASS | first event after t=0 at 0.15s |
+| `plan.pattern_interrupts` | PASS | longest gap 0.80s |
+| `plan.reading_time` | PASS | ok |
+| `plan.text_density` | PASS | 1.68 words/s |
+| `plan.numbers_backed` | PASS | ok |
+| `plan.safe_zone` | PASS | ok |
+| `plan.loop` | PASS | strategy=callback |
+| `plan.show_the_thing` | PASS | 100% of runtime sourced from product |
+| `plan.product_in_use` | PASS | feature: Retain, then recall |
+| `plan.banned_phrases` | PASS | ok |
+| `plan.one_liner` | PASS | 10 words |
+| `plan.cta` | PASS | last role=cta, target='pip install hindsight-api' |
+| `plan.formats` | PASS | ['vertical', 'square', 'landscape'] |
+| `plan.share_limits` | PASS | ok |
+| `plan.share_fold` | PASS | ok |
+| `plan.hashtags` | PASS | ['#agents', '#memory', '#ai', '#learning', '#research'] |
+| `media.container` | PASS | mov,mp4,m4a,3gp,3g2,mj2 / h264 yuv420p / aac |
+| `media.resolution` | PASS | 1080x1920 for vertical |
+| `media.fps` | PASS | avg=30.000 r=30.000 |
+| `media.duration` | PASS | 22.00s (plan 22.0) |
+| `media.faststart` | PASS | atoms=['ftyp', 'moov', 'free', 'mdat'] |
+| `media.file_size` | PASS | 5.4 MB |
+| `media.audio_stream` | PASS | 2ch @ 48000 Hz |
+| `audio.loudness` | PASS | -14.0 LUFS |
+| `audio.true_peak` | PASS | -2.3 dBTP |
+| `audio.lra` | PASS | 3.1 LU |
+| `audio.leading_silence` | PASS | 0.00s |
+| `audio.dead_air` | PASS | longest silence 0.00s |
+| `visual.poster` | PASS | frame0 YAVG=204 contrast=139 |
+| `visual.first_motion` | PASS | first motion at 0.0666667s |
+| `visual.black_frames` | PASS | 0 black frames (0.0%), 0 in hook |
+| `visual.static_stretch` | PASS | 2.13s frozen |
+| `visual.shot_length` | PASS | 5 cuts, avg shot 3.67s |
+| `visual.ui_clutter` | PASS | ratio 0.01 |
+| `visual.loop_seam` | n/a | loop strategy callback |
+| `captions.present` | PASS | 8 cues |
+| `captions.timing` | PASS | ok |
+| `captions.readability` | PASS | ok |
+

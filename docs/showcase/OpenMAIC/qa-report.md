@@ -1,13 +1,16 @@
 # demo-reel QA report: THU-MAIC/OpenMAIC
 
-- Format: vertical · Variant A hook: "Describe a topic, get an interactive classroom"
-- Viral Readiness Score: **100.0** · blockers: none · shippable: **True**
-- Gates evaluated: 51 of 51 (skipped where not applicable: 1)
+- Hook (variant A): "Describe a topic, get an interactive classroom"
+- Headline feature: **A topic becomes a classroom**
+
+## vertical
+
+- Viral Readiness Score: **100.0** · blockers: none · shippable: **True** · 50 passed, 0 failed, 1 n/a
 
 | Gate | Result | Detail |
 |---|---|---|
 | `plan.schema` | PASS | schema=demo-reel/plan@1 |
-| `plan.claims_evidence` | PASS | 3 claims verified |
+| `plan.claims_evidence` | PASS | 4 claims verified |
 | `plan.lexicon_grounded` | PASS | 9 terms |
 | `plan.hook_candidates` | PASS | 10 candidates |
 | `plan.hook_type_diversity` | PASS | types=['before_after', 'bold_claim', 'challenge', 'contrarian', 'demo_first', 'negative', 'pain_point', 'question', 'statistic', 'teaser'] |
@@ -16,18 +19,18 @@
 | `plan.hook_brevity` | PASS | ok |
 | `plan.hook_selection` | PASS | cutoff 72.0 |
 | `plan.hook_grounded` | PASS | ok |
-| `plan.duration_sum` | PASS | sum=20.00s vs duration_s=20.00s |
-| `plan.duration_band` | PASS | 20.0s |
+| `plan.duration_sum` | PASS | sum=22.00s vs duration_s=22.00s |
+| `plan.duration_band` | PASS | 22.0s |
 | `plan.hook_scene_length` | PASS | scene 1 role=hook duration=2.8 |
 | `plan.first_event` | PASS | first event after t=0 at 0.15s |
 | `plan.pattern_interrupts` | PASS | longest gap 0.80s |
 | `plan.reading_time` | PASS | ok |
-| `plan.text_density` | PASS | 1.95 words/s |
+| `plan.text_density` | PASS | 1.86 words/s |
 | `plan.numbers_backed` | PASS | ok |
 | `plan.safe_zone` | PASS | ok |
 | `plan.loop` | PASS | strategy=callback |
 | `plan.show_the_thing` | PASS | 100% of runtime sourced from product |
-| `plan.product_in_use` | PASS | needs a sourced scene with role=demo |
+| `plan.product_in_use` | PASS | feature: A topic becomes a classroom |
 | `plan.banned_phrases` | PASS | ok |
 | `plan.one_liner` | PASS | 8 words |
 | `plan.cta` | PASS | last role=cta, target='git clone https://github.com/THU-MAIC/OpenMAIC.git' |
@@ -38,22 +41,139 @@
 | `media.container` | PASS | mov,mp4,m4a,3gp,3g2,mj2 / h264 yuv420p / aac |
 | `media.resolution` | PASS | 1080x1920 for vertical |
 | `media.fps` | PASS | avg=30.000 r=30.000 |
-| `media.duration` | PASS | 20.00s (plan 20.0) |
+| `media.duration` | PASS | 22.00s (plan 22.0) |
 | `media.faststart` | PASS | atoms=['ftyp', 'moov', 'free', 'mdat'] |
-| `media.file_size` | PASS | 4.4 MB |
+| `media.file_size` | PASS | 6.9 MB |
 | `media.audio_stream` | PASS | 2ch @ 48000 Hz |
-| `audio.loudness` | PASS | -14.4 LUFS |
-| `audio.true_peak` | PASS | -2.2 dBTP |
-| `audio.lra` | PASS | 2.0 LU |
+| `audio.loudness` | PASS | -14.0 LUFS |
+| `audio.true_peak` | PASS | -2.3 dBTP |
+| `audio.lra` | PASS | 3.2 LU |
 | `audio.leading_silence` | PASS | 0.00s |
 | `audio.dead_air` | PASS | longest silence 0.00s |
-| `visual.poster` | PASS | frame0 YAVG=201 contrast=114 |
+| `visual.poster` | PASS | frame0 YAVG=204 contrast=109 |
 | `visual.first_motion` | PASS | first motion at 0.0666667s |
 | `visual.black_frames` | PASS | 0 black frames (0.0%), 0 in hook |
-| `visual.static_stretch` | PASS | 1.60s frozen |
-| `visual.shot_length` | PASS | 4 cuts, avg shot 4.00s |
-| `visual.ui_clutter` | PASS | ratio 0.03 |
-| `visual.loop_seam` | SKIP | loop strategy callback |
+| `visual.static_stretch` | PASS | 1.87s frozen |
+| `visual.shot_length` | PASS | 5 cuts, avg shot 3.67s |
+| `visual.ui_clutter` | PASS | ratio 0.00 |
+| `visual.loop_seam` | n/a | loop strategy callback |
 | `captions.present` | PASS | 8 cues |
 | `captions.timing` | PASS | ok |
 | `captions.readability` | PASS | ok |
+
+## landscape
+
+- Viral Readiness Score: **100.0** · blockers: none · shippable: **True** · 49 passed, 0 failed, 2 n/a
+
+| Gate | Result | Detail |
+|---|---|---|
+| `plan.schema` | PASS | schema=demo-reel/plan@1 |
+| `plan.claims_evidence` | PASS | 4 claims verified |
+| `plan.lexicon_grounded` | PASS | 9 terms |
+| `plan.hook_candidates` | PASS | 10 candidates |
+| `plan.hook_type_diversity` | PASS | types=['before_after', 'bold_claim', 'challenge', 'contrarian', 'demo_first', 'negative', 'pain_point', 'question', 'statistic', 'teaser'] |
+| `plan.variant_count` | PASS | 3 variants |
+| `plan.variant_diversity` | PASS | variant hook types=['bold_claim', 'demo_first', 'teaser'] |
+| `plan.hook_brevity` | PASS | ok |
+| `plan.hook_selection` | PASS | cutoff 72.0 |
+| `plan.hook_grounded` | PASS | ok |
+| `plan.duration_sum` | PASS | sum=22.00s vs duration_s=22.00s |
+| `plan.duration_band` | PASS | 22.0s |
+| `plan.hook_scene_length` | PASS | scene 1 role=hook duration=2.8 |
+| `plan.first_event` | PASS | first event after t=0 at 0.15s |
+| `plan.pattern_interrupts` | PASS | longest gap 0.80s |
+| `plan.reading_time` | PASS | ok |
+| `plan.text_density` | PASS | 1.86 words/s |
+| `plan.numbers_backed` | PASS | ok |
+| `plan.safe_zone` | PASS | ok |
+| `plan.loop` | PASS | strategy=callback |
+| `plan.show_the_thing` | PASS | 100% of runtime sourced from product |
+| `plan.product_in_use` | PASS | feature: A topic becomes a classroom |
+| `plan.banned_phrases` | PASS | ok |
+| `plan.one_liner` | PASS | 8 words |
+| `plan.cta` | PASS | last role=cta, target='git clone https://github.com/THU-MAIC/OpenMAIC.git' |
+| `plan.formats` | PASS | ['vertical', 'square', 'landscape'] |
+| `plan.share_limits` | PASS | ok |
+| `plan.share_fold` | PASS | ok |
+| `plan.hashtags` | PASS | ['#education', '#ai', '#learning', '#courses', '#agents'] |
+| `media.container` | PASS | mov,mp4,m4a,3gp,3g2,mj2 / h264 yuv420p / aac |
+| `media.resolution` | PASS | 1920x1080 for landscape |
+| `media.fps` | PASS | avg=30.000 r=30.000 |
+| `media.duration` | PASS | 22.00s (plan 22.0) |
+| `media.faststart` | PASS | atoms=['ftyp', 'moov', 'free', 'mdat'] |
+| `media.file_size` | PASS | 6.6 MB |
+| `media.audio_stream` | PASS | 2ch @ 48000 Hz |
+| `audio.loudness` | PASS | -14.0 LUFS |
+| `audio.true_peak` | PASS | -2.3 dBTP |
+| `audio.lra` | PASS | 3.2 LU |
+| `audio.leading_silence` | PASS | 0.00s |
+| `audio.dead_air` | PASS | longest silence 0.00s |
+| `visual.poster` | PASS | frame0 YAVG=196 contrast=109 |
+| `visual.first_motion` | PASS | first motion at 0.0666667s |
+| `visual.black_frames` | PASS | 0 black frames (0.0%), 0 in hook |
+| `visual.static_stretch` | PASS | 1.47s frozen |
+| `visual.shot_length` | PASS | 6 cuts, avg shot 3.14s |
+| `visual.ui_clutter` | n/a | not vertical |
+| `visual.loop_seam` | n/a | loop strategy callback |
+| `captions.present` | PASS | 8 cues |
+| `captions.timing` | PASS | ok |
+| `captions.readability` | PASS | ok |
+
+## square
+
+- Viral Readiness Score: **100.0** · blockers: none · shippable: **True** · 49 passed, 0 failed, 2 n/a
+
+| Gate | Result | Detail |
+|---|---|---|
+| `plan.schema` | PASS | schema=demo-reel/plan@1 |
+| `plan.claims_evidence` | PASS | 4 claims verified |
+| `plan.lexicon_grounded` | PASS | 9 terms |
+| `plan.hook_candidates` | PASS | 10 candidates |
+| `plan.hook_type_diversity` | PASS | types=['before_after', 'bold_claim', 'challenge', 'contrarian', 'demo_first', 'negative', 'pain_point', 'question', 'statistic', 'teaser'] |
+| `plan.variant_count` | PASS | 3 variants |
+| `plan.variant_diversity` | PASS | variant hook types=['bold_claim', 'demo_first', 'teaser'] |
+| `plan.hook_brevity` | PASS | ok |
+| `plan.hook_selection` | PASS | cutoff 72.0 |
+| `plan.hook_grounded` | PASS | ok |
+| `plan.duration_sum` | PASS | sum=22.00s vs duration_s=22.00s |
+| `plan.duration_band` | PASS | 22.0s |
+| `plan.hook_scene_length` | PASS | scene 1 role=hook duration=2.8 |
+| `plan.first_event` | PASS | first event after t=0 at 0.15s |
+| `plan.pattern_interrupts` | PASS | longest gap 0.80s |
+| `plan.reading_time` | PASS | ok |
+| `plan.text_density` | PASS | 1.86 words/s |
+| `plan.numbers_backed` | PASS | ok |
+| `plan.safe_zone` | PASS | ok |
+| `plan.loop` | PASS | strategy=callback |
+| `plan.show_the_thing` | PASS | 100% of runtime sourced from product |
+| `plan.product_in_use` | PASS | feature: A topic becomes a classroom |
+| `plan.banned_phrases` | PASS | ok |
+| `plan.one_liner` | PASS | 8 words |
+| `plan.cta` | PASS | last role=cta, target='git clone https://github.com/THU-MAIC/OpenMAIC.git' |
+| `plan.formats` | PASS | ['vertical', 'square', 'landscape'] |
+| `plan.share_limits` | PASS | ok |
+| `plan.share_fold` | PASS | ok |
+| `plan.hashtags` | PASS | ['#education', '#ai', '#learning', '#courses', '#agents'] |
+| `media.container` | PASS | mov,mp4,m4a,3gp,3g2,mj2 / h264 yuv420p / aac |
+| `media.resolution` | PASS | 1080x1080 for square |
+| `media.fps` | PASS | avg=30.000 r=30.000 |
+| `media.duration` | PASS | 22.00s (plan 22.0) |
+| `media.faststart` | PASS | atoms=['ftyp', 'moov', 'free', 'mdat'] |
+| `media.file_size` | PASS | 5.3 MB |
+| `media.audio_stream` | PASS | 2ch @ 48000 Hz |
+| `audio.loudness` | PASS | -14.0 LUFS |
+| `audio.true_peak` | PASS | -2.3 dBTP |
+| `audio.lra` | PASS | 3.2 LU |
+| `audio.leading_silence` | PASS | 0.00s |
+| `audio.dead_air` | PASS | longest silence 0.00s |
+| `visual.poster` | PASS | frame0 YAVG=197 contrast=109 |
+| `visual.first_motion` | PASS | first motion at 0.0666667s |
+| `visual.black_frames` | PASS | 0 black frames (0.0%), 0 in hook |
+| `visual.static_stretch` | PASS | 1.47s frozen |
+| `visual.shot_length` | PASS | 6 cuts, avg shot 3.14s |
+| `visual.ui_clutter` | n/a | not vertical |
+| `visual.loop_seam` | n/a | loop strategy callback |
+| `captions.present` | PASS | 8 cues |
+| `captions.timing` | PASS | ok |
+| `captions.readability` | PASS | ok |
+

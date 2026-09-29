@@ -3,7 +3,7 @@
   "project": {
     "name": "AI Engineering from Scratch",
     "repo": "rohitg00/ai-engineering-from-scratch",
-    "root": "https://github.com/rohitg00/ai-engineering-from-scratch",
+    "root": "/tmp/showcase/ai-engineering-from-scratch",
     "one_liner": "Build AI systems with 523 lessons and hands-on projects",
     "audience": "Developers wanting to master AI engineering fundamentals",
     "cta": {
@@ -198,10 +198,12 @@
     "landscape"
   ],
   "render_formats": [
-    "landscape"
+    "landscape",
+    "square",
+    "vertical"
   ],
   "tone": "terminal",
-  "duration_s": 20,
+  "duration_s": 22,
   "loop": {
     "strategy": "callback",
     "note": "CTA brings back the lexicon marquee from the hook"
@@ -240,7 +242,7 @@
       "id": "s2",
       "role": "reveal",
       "start": 2.8,
-      "duration": 3.2,
+      "duration": 2.7,
       "sources": [
         "README.md",
         "assets/banner.svg"
@@ -251,13 +253,13 @@
         0.6,
         1.2,
         1.8,
-        2.4
+        2.3
       ],
       "text": [
         {
           "content": "AI Engineering from Scratch",
           "in": 0.2,
-          "out": 3.2,
+          "out": 2.7,
           "box": [
             0.08,
             0.36,
@@ -266,9 +268,9 @@
           ]
         },
         {
-          "content": "Learn AI end-to-end by hand",
-          "in": 0.6,
-          "out": 3.2,
+          "content": "Build AI by hand",
+          "in": 0.3,
+          "out": 2.7,
           "box": [
             0.08,
             0.48,
@@ -281,41 +283,48 @@
     {
       "id": "s3",
       "role": "demo",
-      "start": 6.0,
-      "duration": 5.5,
+      "start": 5.5,
+      "duration": 7.5,
       "sources": [
         "README.md"
       ],
-      "visual": "terminal types the README command; output lines arrive one by one",
+      "feature": {
+        "title": "Every lesson ships an artifact",
+        "claim": "c3"
+      },
+      "visual": "headline feature: You work through (steps) → You ship (cards), built line by line",
       "events": [
         0.2,
-        0.8,
-        1.4,
-        1.9,
+        0.7,
+        1.2,
+        1.8,
         2.4,
-        2.9,
-        3.4,
-        3.9,
-        4.4,
-        4.9
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0,
+        5.6,
+        6.2,
+        6.8
       ],
       "text": [
         {
-          "content": "npx skills add rohitg00/ai-engineering-from-scratch",
-          "illustrative": true,
+          "content": "Every lesson ships an artifact",
+          "claim": "c3",
           "in": 0.2,
-          "out": 2.9,
+          "out": 3.9,
           "box": [
             0.08,
-            0.2,
+            0.14,
             0.8,
             0.08
           ]
         },
         {
-          "content": "Environment verification complete",
-          "in": 3.0,
-          "out": 5.5,
+          "content": "Learn it. Build it. Ship it.",
+          "in": 4.0,
+          "out": 7.5,
           "box": [
             0.08,
             0.7,
@@ -328,7 +337,7 @@
     {
       "id": "s4",
       "role": "proof",
-      "start": 11.5,
+      "start": 13.0,
       "duration": 4.0,
       "sources": [
         "README.md"
@@ -373,8 +382,8 @@
     {
       "id": "s5",
       "role": "cta",
-      "start": 15.5,
-      "duration": 4.5,
+      "start": 17.0,
+      "duration": 5.0,
       "sources": [
         "README.md"
       ],
@@ -386,13 +395,14 @@
         1.9,
         2.5,
         3.1,
-        3.7
+        3.7,
+        4.3
       ],
       "text": [
         {
           "content": "Start learning AI engineering now",
           "in": 0.1,
-          "out": 1.9,
+          "out": 2.0,
           "box": [
             0.08,
             0.3,
@@ -403,8 +413,8 @@
         {
           "content": "https://aiengineeringfromscratch.com",
           "illustrative": true,
-          "in": 1.9,
-          "out": 4.5,
+          "in": 2.0,
+          "out": 5.0,
           "box": [
             0.08,
             0.48,
@@ -435,12 +445,27 @@
       "ink": "#1a1a1a"
     },
     "logo": "assets/banner.svg",
-    "demo_output": [
-      "Checking Python environment...",
-      "Verifying dependencies...",
-      "Setup successful",
-      "Ready for lessons"
-    ],
+    "feature": {
+      "input": {
+        "label": "You work through",
+        "kind": "steps",
+        "lines": [
+          "Read the concept",
+          "Build it by hand",
+          "Run it and check the output"
+        ]
+      },
+      "output": {
+        "label": "You ship",
+        "kind": "cards",
+        "lines": [
+          "A prompt",
+          "A skill",
+          "An agent",
+          "An MCP server"
+        ]
+      }
+    },
     "stats_source": [
       "README.md",
       "README.md"
