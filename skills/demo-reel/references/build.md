@@ -47,6 +47,13 @@ Choose `--poster-t` at the strongest **settled** hook frame. For variants, it's 
 - Music: generate it locally (for example with a small synth script) or use a track the user supplies **and has rights to**. Never pull unlicensed audio.
 - SFX in the same key and space as the music, sitting under it. Tie them to on-screen events (keypress ticks, card whooshes, a click on the CTA).
 - Something audible by 0.3 s. No silence longer than 1.5 s. `finish` handles loudness, but a hot master that clips before normalization will still sound bad.
+- **Easy on the ears.** Passing the loudness gates doesn't make a track pleasant. Synthesized soundtracks are harsh when:
+  - **Sounds start or stop abruptly.** Put a smooth attack (≥ 2 ms) and release (≥ 15 ms) on every sound, including the end of each pad.
+  - **Raw white noise is used for hats or bursts.** It hisses above 8 kHz. Low-pass it (≤ 3.5 kHz) and keep it quiet.
+  - **Pure high sines are used for ticks or beeps (≥ 1.5 kHz).** Use muted noise taps or chord tones an octave lower.
+  - **Quick reveals get one sound per item.** They machine-gun. Allow at most one SFX per 0.14 s.
+  - **`tanh` or clipping is used as a master.** Peak-normalize linearly instead, and let `finish` set the loudness.
+- Before muxing, compare the energy above 8 kHz with the full mix (a high-pass into `ebur128`). Aim for ≤ −25 LU. The first demo-reel soundtrack measured −15.9 LU and sounded harsh; the fix brought it to −32 LU.
 - `--voice`: record or synthesize narration that complements the visuals instead of reading them out. Captions then mirror the narration.
 
 ## Stills review (before the full render)

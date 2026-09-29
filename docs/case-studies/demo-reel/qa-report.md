@@ -72,9 +72,9 @@
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
 - PASS `media.file_size`: 4.2 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.6 LUFS
-- PASS `audio.true_peak`: -1.1 dBTP
-- PASS `audio.lra`: 0.5 LU
+- PASS `audio.loudness`: -14.4 LUFS
+- PASS `audio.true_peak`: -2.4 dBTP
+- PASS `audio.lra`: 1.9 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=69 contrast=154
@@ -96,9 +96,9 @@
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
 - PASS `media.file_size`: 2.9 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.6 LUFS
-- PASS `audio.true_peak`: -1.1 dBTP
-- PASS `audio.lra`: 0.5 LU
+- PASS `audio.loudness`: -14.4 LUFS
+- PASS `audio.true_peak`: -2.4 dBTP
+- PASS `audio.lra`: 1.9 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=84 contrast=156
@@ -119,9 +119,9 @@
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
 - PASS `media.file_size`: 3.7 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.6 LUFS
-- PASS `audio.true_peak`: -1.1 dBTP
-- PASS `audio.lra`: 0.5 LU
+- PASS `audio.loudness`: -14.4 LUFS
+- PASS `audio.true_peak`: -2.4 dBTP
+- PASS `audio.lra`: 1.9 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=72 contrast=154
@@ -142,9 +142,9 @@
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
 - PASS `media.file_size`: 4.2 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.6 LUFS
-- PASS `audio.true_peak`: -1.1 dBTP
-- PASS `audio.lra`: 0.5 LU
+- PASS `audio.loudness`: -14.4 LUFS
+- PASS `audio.true_peak`: -2.4 dBTP
+- PASS `audio.lra`: 1.9 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=70 contrast=154
@@ -166,9 +166,9 @@
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
 - PASS `media.file_size`: 2.9 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.6 LUFS
-- PASS `audio.true_peak`: -1.1 dBTP
-- PASS `audio.lra`: 0.5 LU
+- PASS `audio.loudness`: -14.4 LUFS
+- PASS `audio.true_peak`: -2.4 dBTP
+- PASS `audio.lra`: 1.9 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=84 contrast=156
@@ -189,9 +189,9 @@
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
 - PASS `media.file_size`: 3.7 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.6 LUFS
-- PASS `audio.true_peak`: -1.1 dBTP
-- PASS `audio.lra`: 0.5 LU
+- PASS `audio.loudness`: -14.4 LUFS
+- PASS `audio.true_peak`: -2.4 dBTP
+- PASS `audio.lra`: 1.9 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=73 contrast=154
@@ -212,9 +212,9 @@
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
 - PASS `media.file_size`: 4.2 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.6 LUFS
-- PASS `audio.true_peak`: -1.1 dBTP
-- PASS `audio.lra`: 0.5 LU
+- PASS `audio.loudness`: -14.4 LUFS
+- PASS `audio.true_peak`: -2.4 dBTP
+- PASS `audio.lra`: 1.9 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=66 contrast=90
@@ -236,9 +236,9 @@
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
 - PASS `media.file_size`: 2.9 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.6 LUFS
-- PASS `audio.true_peak`: -1.1 dBTP
-- PASS `audio.lra`: 0.5 LU
+- PASS `audio.loudness`: -14.4 LUFS
+- PASS `audio.true_peak`: -2.4 dBTP
+- PASS `audio.lra`: 1.9 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=77 contrast=155
@@ -259,9 +259,9 @@
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
 - PASS `media.file_size`: 3.7 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.6 LUFS
-- PASS `audio.true_peak`: -1.1 dBTP
-- PASS `audio.lra`: 0.5 LU
+- PASS `audio.loudness`: -14.4 LUFS
+- PASS `audio.true_peak`: -2.4 dBTP
+- PASS `audio.lra`: 1.9 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=74 contrast=154

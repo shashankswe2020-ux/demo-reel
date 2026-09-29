@@ -25,7 +25,8 @@ Watch: [reel-A-vertical.mp4](../../../docs/case-studies/demo-reel/reel-A-vertica
   - `audio.true_peak`: output hit 0.0 dBTP because loudnorm's linear mode added +5.4 dB with no limiter. This was a toolkit bug, now fixed and covered by a regression test.
   - `visual.black_frames`: the dark demo scene in the square cut measured as "black". This was a knock-on of the full-range bug.
   - `captions.readability`: the hook cue merged with an overlapping subline (24.5 chars/s), and the CTA cue held too briefly (23.3 chars/s). Fixed by editing the plan and composition.
-- **Final: 9/9 renders at VRS 100 over 227 gate evaluations.** Measured on every render: −14.6 LUFS, −1.1 dBTP, first motion at 0.07 s, longest static stretch ≤ 1.97 s, 2.9–4.3 MB.
+- **Final: 9/9 renders at VRS 100 over 227 gate evaluations.** Measured on every render: −14.4 LUFS, −2.4 dBTP, first motion at 0.07 s, longest static stretch ≤ 1.97 s, 2.9–4.2 MB.
+- **Sound fix after review:** the first soundtrack passed every audio gate but was unpleasant to listen to. It was rebuilt with smooth sound edges, a warm electric-piano bed, low-passed percussion, thinned SFX, and a small room reverb. The top band (above 8 kHz) dropped from −15.9 to −32.0 LU against the full mix, and click peaks above 12 kHz dropped from −17 to −37 dB.
 - Re-verify the plan against this repo: `python3 skills/demo-reel/scripts/reel.py lint docs/case-studies/demo-reel/reel-plan.json`
 
 ## 2. local-llmup (Rust CLI: "which local LLMs can your computer run?")

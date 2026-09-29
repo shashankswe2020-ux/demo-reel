@@ -32,8 +32,8 @@
       "id": "c2",
       "text": "3 hook variants x 3 native formats",
       "evidence": {
-        "file": "README.md",
-        "quote": "3 hook variants × 3 native formats (9:16, 1:1, 16:9)."
+        "file": "skills/demo-reel/references/metrics.md",
+        "quote": "**9** (3 hooks × 3 native formats)"
       }
     },
     {
@@ -56,8 +56,8 @@
       "id": "c5",
       "text": "9 shipped renders per run",
       "evidence": {
-        "file": "README.md",
-        "quote": "| Shipped renders per run | 1 | **9** |"
+        "file": "skills/demo-reel/references/metrics.md",
+        "quote": "**9** (3 hooks × 3 native formats)"
       }
     }
   ],
