@@ -1,0 +1,605 @@
+{
+  "repo": "miuuyy/codex-chatgpt-web",
+  "format": "vertical",
+  "video": "codex-chatgpt-web-vertical.mp4",
+  "score": {
+    "vrs": 100.0,
+    "categories": {
+      "platform": 100.0,
+      "truth": 100.0,
+      "hook": 100.0,
+      "distribution": 100.0,
+      "retention": 100.0,
+      "audio": 100.0
+    },
+    "blockers": [],
+    "failed": 0,
+    "passed": 50,
+    "skipped": 1,
+    "shippable": true
+  },
+  "gates": 51,
+  "evaluated": 51,
+  "measured": {
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.0,
+    "fps": 30.0,
+    "format": "vertical",
+    "size_mb": 3.54,
+    "loudness": {
+      "integrated": -14.6,
+      "lra": 1.8,
+      "true_peak": -1.5
+    },
+    "leading_silence_s": 0.0,
+    "longest_silence_s": 0.0,
+    "frames_analyzed": 600,
+    "poster": {
+      "yavg": 138.573,
+      "contrast": 120.0
+    },
+    "first_motion_s": 0.0666667,
+    "black_fraction": 0.0,
+    "longest_static_s": 1.83,
+    "cuts": 3,
+    "avg_shot_s": 5.0,
+    "edge_density": {
+      "bottom": 0.0,
+      "right": 0.25,
+      "center": 10.89
+    }
+  },
+  "hook_scores": {
+    "h4": 87.6,
+    "h3": 87.4,
+    "h8": 80.6,
+    "h2": 80.4,
+    "h5": 79.8,
+    "h1": 78.6,
+    "h9": 74.6,
+    "h6": 74.0,
+    "h7": 72.0,
+    "h10": 53.0
+  },
+  "checks": [
+    {
+      "id": "plan.schema",
+      "category": "platform",
+      "severity": "blocker",
+      "passed": true,
+      "message": "schema=demo-reel/plan@1",
+      "value": null,
+      "threshold": null,
+      "scope": ""
+    },
+    {
+      "id": "plan.claims_evidence",
+      "category": "truth",
+      "severity": "blocker",
+      "passed": true,
+      "message": "3 claims verified",
+      "value": 0,
+      "threshold": 0,
+      "scope": ""
+    },
+    {
+      "id": "plan.lexicon_grounded",
+      "category": "truth",
+      "severity": "major",
+      "passed": true,
+      "message": "10 terms",
+      "value": 0,
+      "threshold": 0,
+      "scope": ""
+    },
+    {
+      "id": "plan.hook_candidates",
+      "category": "hook",
+      "severity": "blocker",
+      "passed": true,
+      "message": "10 candidates",
+      "value": 10,
+      "threshold": 10,
+      "scope": ""
+    },
+    {
+      "id": "plan.hook_type_diversity",
+      "category": "hook",
+      "severity": "major",
+      "passed": true,
+      "message": "types=['before_after', 'bold_claim', 'challenge', 'contrarian', 'demo_first', 'pain_point', 'question', 'statistic', 'teaser']",
+      "value": 9,
+      "threshold": 4,
+      "scope": ""
+    },
+    {
+      "id": "plan.variant_count",
+      "category": "distribution",
+      "severity": "major",
+      "passed": true,
+      "message": "3 variants",
+      "value": 3,
+      "threshold": 3,
+      "scope": ""
+    },
+    {
+      "id": "plan.variant_diversity",
+      "category": "distribution",
+      "severity": "minor",
+      "passed": true,
+      "message": "variant hook types=['bold_claim', 'contrarian', 'demo_first']",
+      "value": null,
+      "threshold": null,
+      "scope": ""
+    },
+    {
+      "id": "plan.hook_brevity",
+      "category": "hook",
+      "severity": "major",
+      "passed": true,
+      "message": "ok",
+      "value": [],
+      "threshold": 8,
+      "scope": ""
+    },
+    {
+      "id": "plan.hook_selection",
+      "category": "hook",
+      "severity": "major",
+      "passed": true,
+      "message": "cutoff 80.6",
+      "value": [
+        87.6,
+        87.4,
+        80.6
+      ],
+      "threshold": 80.6,
+      "scope": ""
+    },
+    {
+      "id": "plan.hook_grounded",
+      "category": "hook",
+      "severity": "major",
+      "passed": true,
+      "message": "ok",
+      "value": null,
+      "threshold": null,
+      "scope": ""
+    },
+    {
+      "id": "plan.duration_sum",
+      "category": "retention",
+      "severity": "blocker",
+      "passed": true,
+      "message": "sum=20.00s vs duration_s=20.00s",
+      "value": 20.0,
+      "threshold": 20.0,
+      "scope": ""
+    },
+    {
+      "id": "plan.duration_band",
+      "category": "retention",
+      "severity": "major",
+      "passed": true,
+      "message": "20.0s",
+      "value": 20.0,
+      "threshold": [
+        15.0,
+        30.0
+      ],
+      "scope": ""
+    },
+    {
+      "id": "plan.hook_scene_length",
+      "category": "hook",
+      "severity": "major",
+      "passed": true,
+      "message": "scene 1 role=hook duration=2.8",
+      "value": 2.8,
+      "threshold": 3.0,
+      "scope": ""
+    },
+    {
+      "id": "plan.first_event",
+      "category": "hook",
+      "severity": "blocker",
+      "passed": true,
+      "message": "first event after t=0 at 0.15s",
+      "value": 0.15,
+      "threshold": 0.5,
+      "scope": ""
+    },
+    {
+      "id": "plan.pattern_interrupts",
+      "category": "retention",
+      "severity": "major",
+      "passed": true,
+      "message": "longest gap 0.80s",
+      "value": 0.8,
+      "threshold": 2.5,
+      "scope": ""
+    },
+    {
+      "id": "plan.reading_time",
+      "category": "retention",
+      "severity": "major",
+      "passed": true,
+      "message": "ok",
+      "value": 0,
+      "threshold": 0,
+      "scope": ""
+    },
+    {
+      "id": "plan.text_density",
+      "category": "retention",
+      "severity": "minor",
+      "passed": true,
+      "message": "1.70 words/s",
+      "value": 1.7,
+      "threshold": 2.5,
+      "scope": ""
+    },
+    {
+      "id": "plan.numbers_backed",
+      "category": "truth",
+      "severity": "blocker",
+      "passed": true,
+      "message": "ok",
+      "value": 0,
+      "threshold": 0,
+      "scope": ""
+    },
+    {
+      "id": "plan.safe_zone",
+      "category": "platform",
+      "severity": "major",
+      "passed": true,
+      "message": "ok",
+      "value": 0,
+      "threshold": 0,
+      "scope": ""
+    },
+    {
+      "id": "plan.loop",
+      "category": "retention",
+      "severity": "minor",
+      "passed": true,
+      "message": "strategy=callback",
+      "value": null,
+      "threshold": null,
+      "scope": ""
+    },
+    {
+      "id": "plan.show_the_thing",
+      "category": "truth",
+      "severity": "major",
+      "passed": true,
+      "message": "100% of runtime sourced from product",
+      "value": 1.0,
+      "threshold": 0.4,
+      "scope": ""
+    },
+    {
+      "id": "plan.product_in_use",
+      "category": "truth",
+      "severity": "major",
+      "passed": true,
+      "message": "needs a sourced scene with role=demo",
+      "value": null,
+      "threshold": null,
+      "scope": ""
+    },
+    {
+      "id": "plan.banned_phrases",
+      "category": "truth",
+      "severity": "major",
+      "passed": true,
+      "message": "ok",
+      "value": [],
+      "threshold": [],
+      "scope": ""
+    },
+    {
+      "id": "plan.one_liner",
+      "category": "truth",
+      "severity": "minor",
+      "passed": true,
+      "message": "6 words",
+      "value": 6,
+      "threshold": 15,
+      "scope": ""
+    },
+    {
+      "id": "plan.cta",
+      "category": "distribution",
+      "severity": "blocker",
+      "passed": true,
+      "message": "last role=cta, target='github.com/miuuyy/codex-chatgpt-web'",
+      "value": null,
+      "threshold": null,
+      "scope": ""
+    },
+    {
+      "id": "plan.formats",
+      "category": "platform",
+      "severity": "major",
+      "passed": true,
+      "message": "['vertical', 'square', 'landscape']",
+      "value": null,
+      "threshold": null,
+      "scope": ""
+    },
+    {
+      "id": "plan.share_limits",
+      "category": "distribution",
+      "severity": "major",
+      "passed": true,
+      "message": "ok",
+      "value": null,
+      "threshold": null,
+      "scope": ""
+    },
+    {
+      "id": "plan.share_fold",
+      "category": "distribution",
+      "severity": "minor",
+      "passed": true,
+      "message": "ok",
+      "value": null,
+      "threshold": null,
+      "scope": ""
+    },
+    {
+      "id": "plan.hashtags",
+      "category": "distribution",
+      "severity": "minor",
+      "passed": true,
+      "message": "['#codex', '#chatgpt', '#aitools', '#coding']",
+      "value": 4,
+      "threshold": [
+        3,
+        5
+      ],
+      "scope": ""
+    },
+    {
+      "id": "media.container",
+      "category": "platform",
+      "severity": "blocker",
+      "passed": true,
+      "message": "mov,mp4,m4a,3gp,3g2,mj2 / h264 yuv420p / aac",
+      "value": null,
+      "threshold": null,
+      "scope": "vertical"
+    },
+    {
+      "id": "media.resolution",
+      "category": "platform",
+      "severity": "blocker",
+      "passed": true,
+      "message": "1080x1920 for vertical",
+      "value": [
+        1080,
+        1920
+      ],
+      "threshold": [
+        1080,
+        1920
+      ],
+      "scope": "vertical"
+    },
+    {
+      "id": "media.fps",
+      "category": "platform",
+      "severity": "major",
+      "passed": true,
+      "message": "avg=30.000 r=30.000",
+      "value": 30.0,
+      "threshold": [
+        24.0,
+        60.0
+      ],
+      "scope": "vertical"
+    },
+    {
+      "id": "media.duration",
+      "category": "platform",
+      "severity": "major",
+      "passed": true,
+      "message": "20.00s (plan 20.0)",
+      "value": 20.0,
+      "threshold": 20.0,
+      "scope": "vertical"
+    },
+    {
+      "id": "media.faststart",
+      "category": "platform",
+      "severity": "major",
+      "passed": true,
+      "message": "atoms=['ftyp', 'moov', 'free', 'mdat']",
+      "value": null,
+      "threshold": null,
+      "scope": "vertical"
+    },
+    {
+      "id": "media.file_size",
+      "category": "platform",
+      "severity": "minor",
+      "passed": true,
+      "message": "3.5 MB",
+      "value": 3.5,
+      "threshold": 250.0,
+      "scope": "vertical"
+    },
+    {
+      "id": "media.audio_stream",
+      "category": "audio",
+      "severity": "major",
+      "passed": true,
+      "message": "2ch @ 48000 Hz",
+      "value": null,
+      "threshold": null,
+      "scope": "vertical"
+    },
+    {
+      "id": "audio.loudness",
+      "category": "audio",
+      "severity": "major",
+      "passed": true,
+      "message": "-14.6 LUFS",
+      "value": -14.6,
+      "threshold": -14.0,
+      "scope": "vertical"
+    },
+    {
+      "id": "audio.true_peak",
+      "category": "audio",
+      "severity": "major",
+      "passed": true,
+      "message": "-1.5 dBTP",
+      "value": -1.5,
+      "threshold": -1.0,
+      "scope": "vertical"
+    },
+    {
+      "id": "audio.lra",
+      "category": "audio",
+      "severity": "minor",
+      "passed": true,
+      "message": "1.8 LU",
+      "value": 1.8,
+      "threshold": 12.0,
+      "scope": "vertical"
+    },
+    {
+      "id": "audio.leading_silence",
+      "category": "hook",
+      "severity": "major",
+      "passed": true,
+      "message": "0.00s",
+      "value": 0.0,
+      "threshold": 0.3,
+      "scope": "vertical"
+    },
+    {
+      "id": "audio.dead_air",
+      "category": "retention",
+      "severity": "minor",
+      "passed": true,
+      "message": "longest silence 0.00s",
+      "value": 0.0,
+      "threshold": 1.5,
+      "scope": "vertical"
+    },
+    {
+      "id": "visual.poster",
+      "category": "distribution",
+      "severity": "major",
+      "passed": true,
+      "message": "frame0 YAVG=139 contrast=120",
+      "value": [
+        139,
+        120
+      ],
+      "threshold": [
+        30.0,
+        80.0
+      ],
+      "scope": "vertical"
+    },
+    {
+      "id": "visual.first_motion",
+      "category": "hook",
+      "severity": "blocker",
+      "passed": true,
+      "message": "first motion at 0.0666667s",
+      "value": 0.0666667,
+      "threshold": 0.567,
+      "scope": "vertical"
+    },
+    {
+      "id": "visual.black_frames",
+      "category": "retention",
+      "severity": "major",
+      "passed": true,
+      "message": "0 black frames (0.0%), 0 in hook",
+      "value": 0.0,
+      "threshold": 0.02,
+      "scope": "vertical"
+    },
+    {
+      "id": "visual.static_stretch",
+      "category": "retention",
+      "severity": "major",
+      "passed": true,
+      "message": "1.83s frozen",
+      "value": 1.83,
+      "threshold": 3.0,
+      "scope": "vertical"
+    },
+    {
+      "id": "visual.shot_length",
+      "category": "retention",
+      "severity": "minor",
+      "passed": true,
+      "message": "3 cuts, avg shot 5.00s",
+      "value": 5.0,
+      "threshold": [
+        0.8,
+        5.0
+      ],
+      "scope": "vertical"
+    },
+    {
+      "id": "visual.ui_clutter",
+      "category": "platform",
+      "severity": "minor",
+      "passed": true,
+      "message": "ratio 0.02",
+      "value": 0.02,
+      "threshold": 0.8,
+      "scope": "vertical"
+    },
+    {
+      "id": "visual.loop_seam",
+      "category": "retention",
+      "severity": "minor",
+      "passed": null,
+      "message": "loop strategy callback",
+      "value": null,
+      "threshold": null,
+      "scope": "vertical"
+    },
+    {
+      "id": "captions.present",
+      "category": "distribution",
+      "severity": "major",
+      "passed": true,
+      "message": "8 cues",
+      "value": 8,
+      "threshold": ">=1",
+      "scope": "vertical"
+    },
+    {
+      "id": "captions.timing",
+      "category": "distribution",
+      "severity": "major",
+      "passed": true,
+      "message": "ok",
+      "value": 0,
+      "threshold": 0,
+      "scope": "vertical"
+    },
+    {
+      "id": "captions.readability",
+      "category": "distribution",
+      "severity": "minor",
+      "passed": true,
+      "message": "ok",
+      "value": 0,
+      "threshold": 0,
+      "scope": "vertical"
+    }
+  ]
+}

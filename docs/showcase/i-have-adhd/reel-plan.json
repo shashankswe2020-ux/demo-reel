@@ -1,0 +1,441 @@
+{
+  "schema": "demo-reel/plan@1",
+  "project": {
+    "name": "i-have-adhd",
+    "repo": "ayghri/i-have-adhd",
+    "root": "https://github.com/ayghri/i-have-adhd",
+    "one_liner": "Transform AI agent responses into actionable ADHD-friendly format",
+    "audience": "Developers with ADHD seeking clearer AI outputs and reduced friction",
+    "cta": {
+      "line": "Enable ADHD mode for your agent",
+      "target": "https://github.com/ayghri/i-have-adhd",
+      "text": "Enable ADHD mode for your agent"
+    },
+    "lexicon": [
+      "ADHD-friendly",
+      "action first",
+      "numbered steps",
+      "restate state",
+      "working memory",
+      "dopamine",
+      "next step",
+      "i-have-adhd"
+    ]
+  },
+  "claims": [
+    {
+      "id": "c1",
+      "text": "10 rules reshape agent output for ADHD readers",
+      "evidence": {
+        "file": "README.md",
+        "quote": "10 rules. Full text in"
+      }
+    },
+    {
+      "id": "c2",
+      "text": "Lead with the next action, not context",
+      "evidence": {
+        "file": "skills/i-have-adhd/SKILL.md",
+        "quote": "Lead with the next action"
+      }
+    },
+    {
+      "id": "c3",
+      "text": "Number multi-step work for clarity",
+      "evidence": {
+        "file": "skills/i-have-adhd/SKILL.md",
+        "quote": "Number multi-step tasks"
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "h1",
+      "type": "pain_point",
+      "text": "AI buries the answer in paragraphs",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 5,
+        "visual_proof": 2,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h2",
+      "type": "bold_claim",
+      "text": "Action first. Context second. Always.",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 4,
+        "visual_proof": 3,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h3",
+      "type": "statistic",
+      "text": "10 rules. Action first.",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 5,
+        "stakes": 4,
+        "visual_proof": 2,
+        "pattern_break": 2
+      },
+      "claim": "c1"
+    },
+    {
+      "id": "h4",
+      "type": "question",
+      "text": "Does your AI output work for you",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 2,
+        "stakes": 4,
+        "visual_proof": 1,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h5",
+      "type": "before_after",
+      "text": "From prose to numbered action steps",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 4,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h6",
+      "type": "negative",
+      "text": "Stop your agent burying the answer",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 5,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h7",
+      "type": "teaser",
+      "text": "See wins visible in each response",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 3,
+        "stakes": 3,
+        "visual_proof": 5,
+        "pattern_break": 2
+      }
+    },
+    {
+      "id": "h8",
+      "type": "demo_first",
+      "text": "Numbered steps beat vague instructions",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 4,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h9",
+      "type": "negative",
+      "text": "Skip the preamble and recap text",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 4,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h10",
+      "type": "social_proof",
+      "text": "AI Made Simple broke down this skill",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 2
+      }
+    }
+  ],
+  "variants": [
+    {
+      "id": "A",
+      "hook": "h2"
+    },
+    {
+      "id": "B",
+      "hook": "h8"
+    },
+    {
+      "id": "C",
+      "hook": "h3"
+    }
+  ],
+  "formats": [
+    "vertical",
+    "square",
+    "landscape"
+  ],
+  "render_formats": [
+    "vertical"
+  ],
+  "tone": "terminal",
+  "duration_s": 20,
+  "loop": {
+    "strategy": "callback",
+    "note": "CTA brings back the lexicon marquee from the hook"
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "start": 0.0,
+      "duration": 2.8,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "product lexicon scrolls behind; hook slams in on an accent plate",
+      "events": [
+        0.15,
+        0.6,
+        1.4,
+        2.0
+      ],
+      "text": [
+        {
+          "slot": "hook",
+          "in": 0.15,
+          "out": 2.8,
+          "box": [
+            0.08,
+            0.3,
+            0.8,
+            0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "role": "reveal",
+      "start": 2.8,
+      "duration": 3.2,
+      "sources": [
+        "README.md",
+        "logo.png"
+      ],
+      "visual": "logo or hero image reveal, name, tagline",
+      "events": [
+        0.2,
+        0.6,
+        1.2,
+        1.8,
+        2.4
+      ],
+      "text": [
+        {
+          "content": "i-have-adhd",
+          "in": 0.2,
+          "out": 3.2,
+          "box": [
+            0.08,
+            0.36,
+            0.8,
+            0.1
+          ]
+        },
+        {
+          "content": "AI responses shaped for ADHD brains",
+          "in": 0.6,
+          "out": 3.2,
+          "box": [
+            0.08,
+            0.48,
+            0.8,
+            0.14
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "role": "demo",
+      "start": 6.0,
+      "duration": 5.5,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "terminal types the README command; output lines arrive one by one",
+      "events": [
+        0.2,
+        0.8,
+        1.4,
+        1.9,
+        2.4,
+        2.9,
+        3.4,
+        3.9,
+        4.4,
+        4.9
+      ],
+      "text": [
+        {
+          "content": "Install the i-have-adhd skill/plugin",
+          "illustrative": true,
+          "in": 0.2,
+          "out": 2.9,
+          "box": [
+            0.08,
+            0.2,
+            0.8,
+            0.08
+          ]
+        },
+        {
+          "content": "Numbered steps. Clear next action.",
+          "in": 3.0,
+          "out": 5.5,
+          "box": [
+            0.08,
+            0.7,
+            0.8,
+            0.07
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "role": "proof",
+      "start": 11.5,
+      "duration": 4.0,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "two stat cards slam in, each citing its source file",
+      "events": [
+        0.2,
+        0.7,
+        1.2,
+        1.95,
+        2.5,
+        3.1,
+        3.6
+      ],
+      "text": [
+        {
+          "content": "10 rules. Action first.",
+          "claim": "c1",
+          "in": 0.2,
+          "out": 1.9,
+          "box": [
+            0.08,
+            0.28,
+            0.8,
+            0.16
+          ]
+        },
+        {
+          "content": "Lead with the next action",
+          "claim": "c2",
+          "in": 1.95,
+          "out": 4.0,
+          "box": [
+            0.08,
+            0.5,
+            0.8,
+            0.16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "role": "cta",
+      "start": 15.5,
+      "duration": 4.5,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "CTA line, command pill, repo URL; lexicon marquee returns (callback to the hook)",
+      "events": [
+        0.1,
+        0.7,
+        1.3,
+        1.9,
+        2.5,
+        3.1,
+        3.7
+      ],
+      "text": [
+        {
+          "content": "Enable ADHD mode for your agent",
+          "in": 0.1,
+          "out": 1.9,
+          "box": [
+            0.08,
+            0.3,
+            0.8,
+            0.12
+          ]
+        },
+        {
+          "content": "https://github.com/ayghri/i-have-adhd",
+          "illustrative": true,
+          "in": 1.9,
+          "out": 4.5,
+          "box": [
+            0.08,
+            0.48,
+            0.8,
+            0.1
+          ]
+        }
+      ]
+    }
+  ],
+  "share": {
+    "x": "Your AI drowns you in context. i-have-adhd rewires it: action first, numbered steps, state always visible. Install the skill and say /i-have-adhd. Works with Claude Code, Cursor, Codex.",
+    "linkedin": "Reshape AI agent output for ADHD minds.\n\ni-have-adhd applies 10 rules: lead with action, number multi-step work, restate state every turn, suppress tangents, give time estimates, show wins, matter-of-fact errors, cap lists to 5, no preamble, no recap.\n\nResult: action becomes clear, dopamine registers wins, work gets done.\n\nWorks with Claude Code, Cursor, Codex, and more.\n\nInstall: https://github.com/ayghri/i-have-adhd",
+    "tiktok": "AI buries the answer in paragraphs you don't read.\n\ni-have-adhd: action first. Numbered steps. Progress visible.\n\nWorking memory is small. Friction kills work. Dopamine needs wins.\n\nTen rules reshape your AI agent output.\n\nInstall the skill now.",
+    "instagram": "Working memory is small. Action comes first.\n\nNo context preamble. Numbered steps. Visible progress. Clear next action.\n\ni-have-adhd rewires AI output for your brain.\n\nEnable it now.",
+    "youtube_title": "i-have-adhd: Action-First AI Output for ADHD Developers",
+    "hashtags": [
+      "#ADHD",
+      "#aiagents",
+      "#productivity",
+      "#adhdfriendly",
+      "#developer"
+    ]
+  },
+  "showcase": {
+    "palette": {
+      "bg": "#0F0F1E",
+      "accent": "#D946A6",
+      "ink": "#F8F8F8"
+    },
+    "logo": "logo.png",
+    "demo_output": [
+      "Run `npm install jsonwebtoken`, then edit src",
+      "Step one of five done. Next: paste failing line."
+    ],
+    "stats_source": [
+      "README.md",
+      "skills/i-have-adhd/SKILL.md"
+    ]
+  }
+}

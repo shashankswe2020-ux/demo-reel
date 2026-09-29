@@ -44,6 +44,36 @@ in Claude Code, Codex CLI, GitHub Copilot, Cursor, or any agent that supports sk
 
 After launch, `reel.py learn` picks the winning hook from your real analytics.
 
+## 12 launch reels, 12 trending AI repos
+
+Made by `/demo-reel` for 12 of this month's trending AI repositories on GitHub. Each reel was built from the repo itself, and every number on screen quotes its README. All 51 gates ran on each one with zero failures (VRS 100; 1–2 format-specific gates don't apply per render). Click a preview to watch with sound; the score opens the QA report.
+
+<table>
+<tr><td colspan="4"><b>16:9 · landscape</b></td></tr>
+<tr>
+<td align="center" width="25%"><a href="docs/showcase/archify/archify-landscape.mp4"><img src="docs/showcase/archify/preview.gif" width="100%" alt="Archify launch reel: See the interactive architecture map"></a><br><a href="https://github.com/tt-a1i/archify"><b>tt-a1i/archify</b></a><br><sub><a href="docs/showcase/archify/qa-report.md">VRS 100</a></sub></td>
+<td align="center" width="25%"><a href="docs/showcase/open-code-review/open-code-review-landscape.mp4"><img src="docs/showcase/open-code-review/preview.gif" width="100%" alt="OpenCodeReview launch reel: ~1/9 the tokens of general agents"></a><br><a href="https://github.com/alibaba/open-code-review"><b>alibaba/open-code-review</b></a><br><sub><a href="docs/showcase/open-code-review/qa-report.md">VRS 100</a></sub></td>
+<td align="center" width="25%"><a href="docs/showcase/paperclip/paperclip-landscape.mp4"><img src="docs/showcase/paperclip/preview.gif" width="100%" alt="Paperclip launch reel: How do agents run budgets autonomously?"></a><br><a href="https://github.com/paperclipai/paperclip"><b>paperclipai/paperclip</b></a><br><sub><a href="docs/showcase/paperclip/qa-report.md">VRS 100</a></sub></td>
+<td align="center" width="25%"><a href="docs/showcase/ai-engineering-from-scratch/ai-engineering-from-scratch-landscape.mp4"><img src="docs/showcase/ai-engineering-from-scratch/preview.gif" width="100%" alt="AI Engineering from Scratch launch reel: From confused copier to AI engineer"></a><br><a href="https://github.com/rohitg00/ai-engineering-from-scratch"><b>rohitg00/ai-engineering-from-scratch</b></a><br><sub><a href="docs/showcase/ai-engineering-from-scratch/qa-report.md">VRS 100</a></sub></td>
+</tr>
+<tr><td colspan="4"><b>1:1 · square</b></td></tr>
+<tr>
+<td align="center" width="25%"><a href="docs/showcase/ECC/ECC-square.mp4"><img src="docs/showcase/ECC/preview.gif" width="100%" alt="ECC launch reel: 68 agents. 292 skills."></a><br><a href="https://github.com/affaan-m/ECC"><b>affaan-m/ECC</b></a><br><sub><a href="docs/showcase/ECC/qa-report.md">VRS 100</a></sub></td>
+<td align="center" width="25%"><a href="docs/showcase/hindsight/hindsight-square.mp4"><img src="docs/showcase/hindsight/preview.gif" width="100%" alt="Hindsight launch reel: Memory isn't history, it's learning"></a><br><a href="https://github.com/vectorize-io/hindsight"><b>vectorize-io/hindsight</b></a><br><sub><a href="docs/showcase/hindsight/qa-report.md">VRS 100</a></sub></td>
+<td align="center" width="25%"><a href="docs/showcase/scientific-agent-skills/scientific-agent-skills-square.mp4"><img src="docs/showcase/scientific-agent-skills/preview.gif" width="100%" alt="Scientific Agent Skills launch reel: Query 78 public databases"></a><br><a href="https://github.com/K-Dense-AI/scientific-agent-skills"><b>K-Dense-AI/scientific-agent-skills</b></a><br><sub><a href="docs/showcase/scientific-agent-skills/qa-report.md">VRS 100</a></sub></td>
+<td align="center" width="25%"><a href="docs/showcase/VoiceStudio/VoiceStudio-square.mp4"><img src="docs/showcase/VoiceStudio/preview.gif" width="100%" alt="VoiceStudio launch reel: 646 languages. Fully local."></a><br><a href="https://github.com/debpalash/VoiceStudio"><b>debpalash/VoiceStudio</b></a><br><sub><a href="docs/showcase/VoiceStudio/qa-report.md">VRS 100</a></sub></td>
+</tr>
+<tr><td colspan="4"><b>9:16 · reel</b></td></tr>
+<tr>
+<td align="center" width="25%"><a href="docs/showcase/ponytail/ponytail-vertical.mp4"><img src="docs/showcase/ponytail/preview.gif" width="100%" alt="Ponytail launch reel: ~54% less code, same features"></a><br><a href="https://github.com/DietrichGebert/ponytail"><b>DietrichGebert/ponytail</b></a><br><sub><a href="docs/showcase/ponytail/qa-report.md">VRS 100</a></sub></td>
+<td align="center" width="25%"><a href="docs/showcase/i-have-adhd/i-have-adhd-vertical.mp4"><img src="docs/showcase/i-have-adhd/preview.gif" width="100%" alt="i-have-adhd launch reel: Action first. Context second. Always."></a><br><a href="https://github.com/ayghri/i-have-adhd"><b>ayghri/i-have-adhd</b></a><br><sub><a href="docs/showcase/i-have-adhd/qa-report.md">VRS 100</a></sub></td>
+<td align="center" width="25%"><a href="docs/showcase/OpenMAIC/OpenMAIC-vertical.mp4"><img src="docs/showcase/OpenMAIC/preview.gif" width="100%" alt="OpenMAIC launch reel: Describe a topic, get an interactive classroom"></a><br><a href="https://github.com/THU-MAIC/OpenMAIC"><b>THU-MAIC/OpenMAIC</b></a><br><sub><a href="docs/showcase/OpenMAIC/qa-report.md">VRS 100</a></sub></td>
+<td align="center" width="25%"><a href="docs/showcase/codex-chatgpt-web/codex-chatgpt-web-vertical.mp4"><img src="docs/showcase/codex-chatgpt-web/preview.gif" width="100%" alt="Codex ChatGPT Web launch reel: ChatGPT is your Codex model now"></a><br><a href="https://github.com/miuuyy/codex-chatgpt-web"><b>miuuyy/codex-chatgpt-web</b></a><br><sub><a href="docs/showcase/codex-chatgpt-web/qa-report.md">VRS 100</a></sub></td>
+</tr>
+</table>
+
+<sub>Independent demos made with demo-reel; not affiliated with or endorsed by these projects. Kits (plan, captions, poster, QA report) live in <a href="docs/showcase/">docs/showcase/</a>.</sub>
+
 ## Install
 
 ```sh

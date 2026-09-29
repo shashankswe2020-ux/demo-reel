@@ -14,6 +14,8 @@ from .ffmpeg import ToolError, media_path, probe, run, tool
 LOUDNORM_TP = -1.5  # headroom so AAC encoding stays under the -1 dBTP gate
 # loudnorm's linear mode cannot cap peaks when it adds gain; this limiter (-2.5 dBFS) does.
 PEAK_LIMITER = "alimiter=limit=0.75:attack=1:release=50:level=disabled"
+# Sub-30 Hz energy is inaudible on phones but makes AAC overshoot true peak by up to 4 dB after limiting.
+SUBSONIC_CUT = "highpass=f=30:poles=2"
 # Browser/PNG/JPEG sources arrive full-range; platforms expect limited-range yuv420p.
 TV_RANGE = "scale=out_range=tv,format=yuv420p"
 
@@ -34,7 +36,7 @@ def _video_graph(fmt: str, fit: str, fps: int, focus: tuple[float, float]) -> st
 
 def _measure_loudness(src: str) -> dict[str, str]:
     err = run([tool("ffmpeg"), "-hide_banner", "-nostats", "-i", src, "-vn", "-af",
-               f"loudnorm=I={specs.LOUDNESS_TARGET_LUFS}:TP={LOUDNORM_TP}:LRA=11:print_format=json",
+               f"{SUBSONIC_CUT},loudnorm=I={specs.LOUDNESS_TARGET_LUFS}:TP={LOUDNORM_TP}:LRA=11:print_format=json",
                "-f", "null", "-"]).stderr
     m = re.search(r"\{[^{}]*\"input_i\"[^{}]*\}", err, re.S)
     if not m:
@@ -60,7 +62,7 @@ def finish(src_path: Path, out_path: Path, fmt: str, *, poster_t: float | None =
         if has_audio:
             ln = _measure_loudness(src)
             args += ["-map", "0:a:0", "-af",
-                     f"loudnorm=I={specs.LOUDNESS_TARGET_LUFS}:TP={LOUDNORM_TP}:LRA=11:"
+                     f"{SUBSONIC_CUT},loudnorm=I={specs.LOUDNESS_TARGET_LUFS}:TP={LOUDNORM_TP}:LRA=11:"
                      f"measured_I={ln['input_i']}:measured_TP={ln['input_tp']}:measured_LRA={ln['input_lra']}:"
                      f"measured_thresh={ln['input_thresh']}:offset={ln['target_offset']}:linear=true,"
                      f"aresample=48000,{PEAK_LIMITER}"]

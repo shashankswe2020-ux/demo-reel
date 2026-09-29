@@ -1,0 +1,33 @@
+1
+00:00:00,150 --> 00:00:02,800
+From confused copier to AI engineer
+
+2
+00:00:03,000 --> 00:00:06,000
+AI Engineering from Scratch Learn AI
+end-to-end by hand
+
+3
+00:00:06,200 --> 00:00:08,900
+npx skills add
+rohitg00/ai-engineering-from-scratch
+
+4
+00:00:09,000 --> 00:00:11,500
+Environment verification complete
+
+5
+00:00:11,700 --> 00:00:13,400
+523 lessons. 20 phases.
+
+6
+00:00:13,450 --> 00:00:15,500
+114,584 readers in 30 days
+
+7
+00:00:15,600 --> 00:00:17,400
+Start learning AI engineering now
+
+8
+00:00:17,400 --> 00:00:20,000
+https://aiengineeringfromscratch.com

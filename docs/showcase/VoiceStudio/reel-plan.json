@@ -1,0 +1,446 @@
+{
+  "schema": "demo-reel/plan@1",
+  "project": {
+    "name": "VoiceStudio",
+    "repo": "debpalash/VoiceStudio",
+    "root": "https://github.com/debpalash/VoiceStudio",
+    "one_liner": "Local voice cloning, dubbing, and audio creation without subscriptions",
+    "audience": "Content creators, voice actors, audiobook producers, and podcasters",
+    "cta": {
+      "line": "Download VoiceStudio for free",
+      "target": "https://voicestudio.sh/install",
+      "text": "Download VoiceStudio for free"
+    },
+    "lexicon": [
+      "voice cloning",
+      "voice design",
+      "video dubbing",
+      "dictation",
+      "transcription",
+      "multilingual",
+      "local-first",
+      "speech synthesis",
+      "VoiceStudio"
+    ]
+  },
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Supports 646 languages for voice and dubbing",
+      "evidence": {
+        "file": "README.md",
+        "quote": "voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages"
+      }
+    },
+    {
+      "id": "c2",
+      "text": "Runs locally without subscriptions or usage meters",
+      "evidence": {
+        "file": "docs/branding.md",
+        "quote": "Promise: local-first creation without a subscription or usage meter"
+      }
+    },
+    {
+      "id": "c3",
+      "text": "Clone voices, design new ones, dub videos",
+      "evidence": {
+        "file": "README.md",
+        "quote": "Clone a voice or design your own"
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "h1",
+      "type": "statistic",
+      "text": "646 languages. Fully local.",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 5,
+        "stakes": 4,
+        "visual_proof": 2,
+        "pattern_break": 3
+      },
+      "claim": "c1"
+    },
+    {
+      "id": "h2",
+      "type": "bold_claim",
+      "text": "VoiceStudio: no subscription, no usage meter",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 5,
+        "visual_proof": 2,
+        "pattern_break": 4
+      },
+      "claim": "c2"
+    },
+    {
+      "id": "h3",
+      "type": "demo_first",
+      "text": "Clone a voice or design your own",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 4,
+        "stakes": 3,
+        "visual_proof": 5,
+        "pattern_break": 2
+      }
+    },
+    {
+      "id": "h4",
+      "type": "pain_point",
+      "text": "Online dubbing tools cost per minute",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 4,
+        "stakes": 5,
+        "visual_proof": 2,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h5",
+      "type": "before_after",
+      "text": "From text to video dubbing, local-first",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 5,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h6",
+      "type": "question",
+      "text": "Want professional dubbing without borders",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 3,
+        "stakes": 4,
+        "visual_proof": 3,
+        "pattern_break": 2
+      }
+    },
+    {
+      "id": "h7",
+      "type": "contrarian",
+      "text": "Run voice AI on your own hardware",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 3,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h8",
+      "type": "negative",
+      "text": "Stop paying per minute for dubbing",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 2
+      }
+    },
+    {
+      "id": "h9",
+      "type": "teaser",
+      "text": "Design a voice that sounds like you",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 4,
+        "stakes": 3,
+        "visual_proof": 4,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h10",
+      "type": "challenge",
+      "text": "Transcribe and dub your entire audio",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 3,
+        "visual_proof": 4,
+        "pattern_break": 2
+      }
+    }
+  ],
+  "variants": [
+    {
+      "id": "A",
+      "hook": "h1"
+    },
+    {
+      "id": "B",
+      "hook": "h5"
+    },
+    {
+      "id": "C",
+      "hook": "h2"
+    }
+  ],
+  "formats": [
+    "vertical",
+    "square",
+    "landscape"
+  ],
+  "render_formats": [
+    "square"
+  ],
+  "tone": "terminal",
+  "duration_s": 20,
+  "loop": {
+    "strategy": "callback",
+    "note": "CTA brings back the lexicon marquee from the hook"
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "start": 0.0,
+      "duration": 2.8,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "product lexicon scrolls behind; hook slams in on an accent plate",
+      "events": [
+        0.15,
+        0.6,
+        1.4,
+        2.0
+      ],
+      "text": [
+        {
+          "slot": "hook",
+          "in": 0.15,
+          "out": 2.8,
+          "box": [
+            0.08,
+            0.3,
+            0.8,
+            0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "role": "reveal",
+      "start": 2.8,
+      "duration": 3.2,
+      "sources": [
+        "README.md",
+        "docs/logo.png"
+      ],
+      "visual": "logo or hero image reveal, name, tagline",
+      "events": [
+        0.2,
+        0.6,
+        1.2,
+        1.8,
+        2.4
+      ],
+      "text": [
+        {
+          "content": "VoiceStudio",
+          "in": 0.2,
+          "out": 3.2,
+          "box": [
+            0.08,
+            0.36,
+            0.8,
+            0.1
+          ]
+        },
+        {
+          "content": "Voice cloning and dubbing in every language",
+          "in": 0.6,
+          "out": 3.2,
+          "box": [
+            0.08,
+            0.48,
+            0.8,
+            0.14
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "role": "demo",
+      "start": 6.0,
+      "duration": 5.5,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "terminal types the README command; output lines arrive one by one",
+      "events": [
+        0.2,
+        0.8,
+        1.4,
+        1.9,
+        2.4,
+        2.9,
+        3.4,
+        3.9,
+        4.4,
+        4.9
+      ],
+      "text": [
+        {
+          "content": "curl -fsSL https://voicestudio.sh/install | sh",
+          "illustrative": true,
+          "in": 0.2,
+          "out": 2.9,
+          "box": [
+            0.08,
+            0.2,
+            0.8,
+            0.08
+          ]
+        },
+        {
+          "content": "Create professional audio locally",
+          "in": 3.0,
+          "out": 5.5,
+          "box": [
+            0.08,
+            0.7,
+            0.8,
+            0.07
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "role": "proof",
+      "start": 11.5,
+      "duration": 4.0,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "two stat cards slam in, each citing its source file",
+      "events": [
+        0.2,
+        0.7,
+        1.2,
+        1.95,
+        2.5,
+        3.1,
+        3.6
+      ],
+      "text": [
+        {
+          "content": "646 languages",
+          "claim": "c1",
+          "in": 0.2,
+          "out": 1.9,
+          "box": [
+            0.08,
+            0.28,
+            0.8,
+            0.16
+          ]
+        },
+        {
+          "content": "No subscription. No usage meter.",
+          "claim": "c2",
+          "in": 1.95,
+          "out": 4.0,
+          "box": [
+            0.08,
+            0.5,
+            0.8,
+            0.16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "role": "cta",
+      "start": 15.5,
+      "duration": 4.5,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "CTA line, command pill, repo URL; lexicon marquee returns (callback to the hook)",
+      "events": [
+        0.1,
+        0.7,
+        1.3,
+        1.9,
+        2.5,
+        3.1,
+        3.7
+      ],
+      "text": [
+        {
+          "content": "Download VoiceStudio for free",
+          "in": 0.1,
+          "out": 1.9,
+          "box": [
+            0.08,
+            0.3,
+            0.8,
+            0.12
+          ]
+        },
+        {
+          "content": "https://voicestudio.sh/install",
+          "illustrative": true,
+          "in": 1.9,
+          "out": 4.5,
+          "box": [
+            0.08,
+            0.48,
+            0.8,
+            0.1
+          ]
+        }
+      ]
+    }
+  ],
+  "share": {
+    "x": "Voice cloning, dubbing, and transcription in 646 languages. No subscriptions. No API keys. Runs on your computer. Clone voices, design new ones, dub videos. Open-source. Download: https://voicestudio.sh/install",
+    "linkedin": "VoiceStudio brings professional voice tools to every creator.\n\nSupports 646 languages for voice cloning, voice design, video dubbing, transcription, and audiobook generation.\n\nLocal-first: runs on your hardware without subscriptions or usage meters. Clone voices, design new personas, dub video projects. Batch processing for large scale work.\n\nDownload free: https://voicestudio.sh/install",
+    "tiktok": "Clone your voice in any language. Dub videos without subscriptions.\n\nSix hundred forty-six languages. Local AI. No API keys. No quotas.\n\nVoiceStudio: voice cloning, video dubbing, transcription, audiobooks.\n\nOpen-source. Download: https://voicestudio.sh/install",
+    "instagram": "Create voice content at scale.\n\nClone voices. Design new ones. Dub videos.\n646 languages. No subscriptions.\n\nLocal audio creation for creators, podcasters, audiobook authors.\n\nDownload for free.",
+    "youtube_title": "VoiceStudio: 646 Languages of Voice Cloning and Video Dubbing",
+    "hashtags": [
+      "#voicecloning",
+      "#videodubbing",
+      "#contentcreation",
+      "#opensource",
+      "#voiceai"
+    ]
+  },
+  "showcase": {
+    "palette": {
+      "bg": "#120F18",
+      "accent": "#F47FA3",
+      "ink": "#F8FAFC"
+    },
+    "logo": "docs/logo.png",
+    "demo_output": [
+      "Open Voice cloning workspace",
+      "Choose or add a reference voice recording",
+      "Type your text and generate speech",
+      "Model installs automatically when needed",
+      "Export audio, dub videos, batch process"
+    ],
+    "stats_source": [
+      "README.md",
+      "docs/branding.md"
+    ]
+  }
+}

@@ -76,7 +76,7 @@ CATALOG: dict[str, tuple[str, str, str]] = {
     "plan.loop": ("retention", "minor", "A loop strategy is declared"),
     "plan.lexicon_grounded": ("truth", "major", "Every lexicon term occurs in the project files"),
     "plan.claims_evidence": ("truth", "blocker", "Every claim quote exists verbatim in its evidence file"),
-    "plan.numbers_backed": ("truth", "blocker", "Every on-screen number is backed by a claim or marked illustrative"),
+    "plan.numbers_backed": ("truth", "blocker", "Every on-screen number (digits or number words) is backed by a claim or marked illustrative"),
     "plan.show_the_thing": ("truth", "major", "Product-sourced scenes cover enough runtime; sources exist"),
     "plan.product_in_use": ("truth", "major", "At least one demo scene shows the product doing its job"),
     "plan.banned_phrases": ("truth", "major", "No generic launch clichés in text or share copy"),

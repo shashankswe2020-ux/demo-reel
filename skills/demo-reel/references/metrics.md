@@ -37,7 +37,7 @@ Plan gates are evaluated once and apply to every render. Media and caption gates
 | `plan.loop` | retention | minor | — | Loop strategy declared |
 | `plan.lexicon_grounded` | truth | major | — | Lexicon terms exist in source |
 | `plan.claims_evidence` | truth | blocker | verbatim | Claim quotes exist in evidence files |
-| `plan.numbers_backed` | truth | blocker | — | No unsourced numbers on screen |
+| `plan.numbers_backed` | truth | blocker | — | No unsourced numbers on screen, whether digits or number words ("fifty-four", "percent", "twice") |
 | `plan.show_the_thing` | truth | major | ≥ 40% | Runtime sourced from real product files |
 | `plan.product_in_use` | truth | major | — | A sourced `demo` scene exists |
 | `plan.banned_phrases` | truth | major | — | No launch clichés |

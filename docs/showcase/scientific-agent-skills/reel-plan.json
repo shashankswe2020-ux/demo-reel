@@ -1,0 +1,447 @@
+{
+  "schema": "demo-reel/plan@1",
+  "project": {
+    "name": "Scientific Agent Skills",
+    "repo": "K-Dense-AI/scientific-agent-skills",
+    "root": "https://github.com/K-Dense-AI/scientific-agent-skills",
+    "one_liner": "Access 166 skills for scientific research and analysis",
+    "audience": "Scientists and AI researchers in biology, chemistry, medicine",
+    "cta": {
+      "line": "Add research skills to your agent",
+      "target": "npx skills add K-Dense-AI/scientific-agent-skills",
+      "text": "Add research skills to your agent"
+    },
+    "lexicon": [
+      "skill",
+      "scientific",
+      "research",
+      "database",
+      "biology",
+      "chemistry",
+      "medicine",
+      "Python",
+      "workflow",
+      "bioinformatics",
+      "Scientific Agent Skills"
+    ]
+  },
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Collection of 166 scientific and research skills",
+      "evidence": {
+        "file": "README.md",
+        "quote": "166 scientific and research skills"
+      }
+    },
+    {
+      "id": "c2",
+      "text": "Unified access to 78+ public databases",
+      "evidence": {
+        "file": "README.md",
+        "quote": "A unified database-lookup skill provides deterministic, provenance-rich access to 78 public databases"
+      }
+    },
+    {
+      "id": "c3",
+      "text": "70+ optimized Python package integrations",
+      "evidence": {
+        "file": "README.md",
+        "quote": "**70+ Optimized Python Package Skills**"
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "h1",
+      "type": "statistic",
+      "text": "166 research skills, ready to run",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 4,
+        "visual_proof": 3,
+        "pattern_break": 2
+      },
+      "claim": "c1"
+    },
+    {
+      "id": "h2",
+      "type": "pain_point",
+      "text": "Biology, chemistry, genomics research takes days",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 5,
+        "visual_proof": 2,
+        "pattern_break": 2
+      }
+    },
+    {
+      "id": "h3",
+      "type": "demo_first",
+      "text": "Query 78 public databases",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 5,
+        "stakes": 5,
+        "visual_proof": 4,
+        "pattern_break": 4
+      },
+      "claim": "c2"
+    },
+    {
+      "id": "h4",
+      "type": "question",
+      "text": "Can your agent access ChEMBL data?",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 2,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h5",
+      "type": "bold_claim",
+      "text": "Your agent just became a scientist",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 3,
+        "stakes": 4,
+        "visual_proof": 3,
+        "pattern_break": 5
+      }
+    },
+    {
+      "id": "h6",
+      "type": "teaser",
+      "text": "What does automated genomics analysis look like?",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 2,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h7",
+      "type": "challenge",
+      "text": "Run drug discovery workflows end-to-end",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 5,
+        "visual_proof": 2,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h8",
+      "type": "contrarian",
+      "text": "Not just Python packages—curated research workflows",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h9",
+      "type": "before_after",
+      "text": "From literature hunting to instant answers",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 3,
+        "stakes": 4,
+        "visual_proof": 4,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h10",
+      "type": "statistic",
+      "text": "70+ optimized Python package skills",
+      "scores": {
+        "curiosity": 2,
+        "specificity": 3,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 2
+      },
+      "claim": "c3"
+    }
+  ],
+  "variants": [
+    {
+      "id": "A",
+      "hook": "h3"
+    },
+    {
+      "id": "B",
+      "hook": "h1"
+    },
+    {
+      "id": "C",
+      "hook": "h8"
+    }
+  ],
+  "formats": [
+    "vertical",
+    "square",
+    "landscape"
+  ],
+  "render_formats": [
+    "square"
+  ],
+  "tone": "terminal",
+  "duration_s": 20,
+  "loop": {
+    "strategy": "callback",
+    "note": "CTA brings back the lexicon marquee from the hook"
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "start": 0.0,
+      "duration": 2.8,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "product lexicon scrolls behind; hook slams in on an accent plate",
+      "events": [
+        0.15,
+        0.6,
+        1.4,
+        2.0
+      ],
+      "text": [
+        {
+          "slot": "hook",
+          "in": 0.15,
+          "out": 2.8,
+          "box": [
+            0.08,
+            0.3,
+            0.8,
+            0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "role": "reveal",
+      "start": 2.8,
+      "duration": 3.2,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "logo or hero image reveal, name, tagline",
+      "events": [
+        0.2,
+        0.6,
+        1.2,
+        1.8,
+        2.4
+      ],
+      "text": [
+        {
+          "content": "Scientific Agent Skills",
+          "in": 0.2,
+          "out": 3.2,
+          "box": [
+            0.08,
+            0.36,
+            0.8,
+            0.1
+          ]
+        },
+        {
+          "content": "Research skills for AI agents",
+          "in": 0.6,
+          "out": 3.2,
+          "box": [
+            0.08,
+            0.48,
+            0.8,
+            0.14
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "role": "demo",
+      "start": 6.0,
+      "duration": 5.5,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "terminal types the README command; output lines arrive one by one",
+      "events": [
+        0.2,
+        0.8,
+        1.4,
+        1.9,
+        2.4,
+        2.9,
+        3.4,
+        3.9,
+        4.4,
+        4.9
+      ],
+      "text": [
+        {
+          "content": "npx skills add K-Dense-AI/scientific-agent-skills",
+          "illustrative": true,
+          "in": 0.2,
+          "out": 2.9,
+          "box": [
+            0.08,
+            0.2,
+            0.8,
+            0.08
+          ]
+        },
+        {
+          "content": "Skills install and activate",
+          "in": 3.0,
+          "out": 5.5,
+          "box": [
+            0.08,
+            0.7,
+            0.8,
+            0.07
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "role": "proof",
+      "start": 11.5,
+      "duration": 4.0,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "two stat cards slam in, each citing its source file",
+      "events": [
+        0.2,
+        0.7,
+        1.2,
+        1.95,
+        2.5,
+        3.1,
+        3.6
+      ],
+      "text": [
+        {
+          "content": "166 research skills",
+          "claim": "c1",
+          "in": 0.2,
+          "out": 1.9,
+          "box": [
+            0.08,
+            0.28,
+            0.8,
+            0.16
+          ]
+        },
+        {
+          "content": "78 public databases",
+          "claim": "c2",
+          "in": 1.95,
+          "out": 4.0,
+          "box": [
+            0.08,
+            0.5,
+            0.8,
+            0.16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "role": "cta",
+      "start": 15.5,
+      "duration": 4.5,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "CTA line, command pill, repo URL; lexicon marquee returns (callback to the hook)",
+      "events": [
+        0.1,
+        0.7,
+        1.3,
+        1.9,
+        2.5,
+        3.1,
+        3.7
+      ],
+      "text": [
+        {
+          "content": "Add research skills to your agent",
+          "in": 0.1,
+          "out": 1.9,
+          "box": [
+            0.08,
+            0.3,
+            0.8,
+            0.12
+          ]
+        },
+        {
+          "content": "npx skills add K-Dense-AI/scientific-agent-skills",
+          "illustrative": true,
+          "in": 1.9,
+          "out": 4.5,
+          "box": [
+            0.08,
+            0.48,
+            0.8,
+            0.1
+          ]
+        }
+      ]
+    }
+  ],
+  "share": {
+    "x": "Your AI agent just learned biology, chemistry, and drug discovery. Scientific Agent Skills gives 166 research workflows + 78 databases. Transform your agent into a scientist: https://github.com/K-Dense-AI/scientific-agent-skills",
+    "linkedin": "Accelerate your research with AI agents.\n\nScientific Agent Skills brings 166 research workflows and access to 78+ scientific databases directly to your AI agent. From genomics to drug discovery, chemistry to clinical research—your agent can now execute complex scientific pipelines.\n\nWorks with Cursor, Claude Code, Codex, and more.\n\nhttps://github.com/K-Dense-AI/scientific-agent-skills",
+    "tiktok": "AI agents can now do research.\nScientific Agent Skills unlocks 166 workflows across biology, chemistry, medicine, and more. Your agent just became a scientist: https://github.com/K-Dense-AI/scientific-agent-skills",
+    "instagram": "Your AI agent just got a biology degree.\nAccess 166 research skills and query 78 scientific databases instantly: https://github.com/K-Dense-AI/scientific-agent-skills",
+    "youtube_title": "Turn Your AI Agent Into a Research Scientist",
+    "hashtags": [
+      "#aiscience",
+      "#research",
+      "#biotech",
+      "#drugdiscovery"
+    ]
+  },
+  "showcase": {
+    "palette": {
+      "bg": "#0d1b2a",
+      "accent": "#06b6d4",
+      "ink": "#ecf0f1"
+    },
+    "logo": null,
+    "demo_output": [
+      "Installing Scientific Agent Skills...",
+      "Configuring agent hosts...",
+      "Learning genomics workflows",
+      "Setting up chemistry database access",
+      "Ready for research tasks"
+    ],
+    "stats_source": [
+      "README.md",
+      "README.md"
+    ]
+  }
+}

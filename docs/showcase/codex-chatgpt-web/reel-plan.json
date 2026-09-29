@@ -1,0 +1,451 @@
+{
+  "schema": "demo-reel/plan@1",
+  "project": {
+    "name": "Codex ChatGPT Web",
+    "repo": "miuuyy/codex-chatgpt-web",
+    "root": "https://github.com/miuuyy/codex-chatgpt-web",
+    "one_liner": "Access ChatGPT natively in Codex tasks",
+    "audience": "Codex users wanting ChatGPT model access",
+    "cta": {
+      "line": "Install the launcher now",
+      "target": "github.com/miuuyy/codex-chatgpt-web",
+      "text": "Install the launcher now"
+    },
+    "lexicon": [
+      "Codex",
+      "ChatGPT",
+      "launcher",
+      "MCP",
+      "browser",
+      "model",
+      "harness",
+      "tool",
+      "workflow",
+      "automation"
+    ]
+  },
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Run ChatGPT Web models from Codex picker",
+      "evidence": {
+        "file": "README.md",
+        "quote": "Use the ChatGPT Web models available on your account, including Pro, from Codex"
+      }
+    },
+    {
+      "id": "c2",
+      "text": "Full harness mode connects tools through MCP",
+      "evidence": {
+        "file": "README.md",
+        "quote": "Full harness mode connects ChatGPT to the current task"
+      }
+    },
+    {
+      "id": "c3",
+      "text": "Supports multiple reasoning models and effort levels",
+      "evidence": {
+        "file": "README.md",
+        "quote": ". Accounts with reasoning controls →"
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "h1",
+      "type": "pain_point",
+      "text": "Switching between ChatGPT and Codex constantly",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 4,
+        "visual_proof": 3,
+        "pattern_break": 2
+      }
+    },
+    {
+      "id": "h2",
+      "type": "question",
+      "text": "What if Codex had native ChatGPT models?",
+      "claim": "c1",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 2,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h3",
+      "type": "demo_first",
+      "text": "See ChatGPT run Codex tools live",
+      "claim": "c2",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 5,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h4",
+      "type": "bold_claim",
+      "text": "ChatGPT is your Codex model now",
+      "claim": "c1",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 4,
+        "visual_proof": 4,
+        "pattern_break": 5
+      }
+    },
+    {
+      "id": "h5",
+      "type": "teaser",
+      "text": "What happens when ChatGPT reads your files?",
+      "claim": "c2",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 3,
+        "stakes": 4,
+        "visual_proof": 3,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h6",
+      "type": "challenge",
+      "text": "Run terminal automation with GPT reasoning",
+      "claim": "c3",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 2,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h7",
+      "type": "before_after",
+      "text": "From tab switching to integrated workflow",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 4,
+        "visual_proof": 4,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h8",
+      "type": "contrarian",
+      "text": "Codex, without spending Codex quota",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 5
+      }
+    },
+    {
+      "id": "h9",
+      "type": "statistic",
+      "text": "MCP tools work through ChatGPT",
+      "claim": "c2",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 3,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h10",
+      "type": "bold_claim",
+      "text": "Your ChatGPT Pro models, inside Codex",
+      "scores": {
+        "curiosity": 2,
+        "specificity": 2,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 2
+      },
+      "claim": "c1"
+    }
+  ],
+  "variants": [
+    {
+      "id": "A",
+      "hook": "h4"
+    },
+    {
+      "id": "B",
+      "hook": "h3"
+    },
+    {
+      "id": "C",
+      "hook": "h8"
+    }
+  ],
+  "formats": [
+    "vertical",
+    "square",
+    "landscape"
+  ],
+  "render_formats": [
+    "vertical"
+  ],
+  "tone": "terminal",
+  "duration_s": 20,
+  "loop": {
+    "strategy": "callback",
+    "note": "CTA brings back the lexicon marquee from the hook"
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "start": 0.0,
+      "duration": 2.8,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "product lexicon scrolls behind; hook slams in on an accent plate",
+      "events": [
+        0.15,
+        0.6,
+        1.4,
+        2.0
+      ],
+      "text": [
+        {
+          "slot": "hook",
+          "in": 0.15,
+          "out": 2.8,
+          "box": [
+            0.08,
+            0.3,
+            0.8,
+            0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "role": "reveal",
+      "start": 2.8,
+      "duration": 3.2,
+      "sources": [
+        "README.md",
+        "assets/readme/hero.svg"
+      ],
+      "visual": "logo or hero image reveal, name, tagline",
+      "events": [
+        0.2,
+        0.6,
+        1.2,
+        1.8,
+        2.4
+      ],
+      "text": [
+        {
+          "content": "Codex ChatGPT Web",
+          "in": 0.2,
+          "out": 3.2,
+          "box": [
+            0.08,
+            0.36,
+            0.8,
+            0.1
+          ]
+        },
+        {
+          "content": "ChatGPT models inside Codex",
+          "in": 0.6,
+          "out": 3.2,
+          "box": [
+            0.08,
+            0.48,
+            0.8,
+            0.14
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "role": "demo",
+      "start": 6.0,
+      "duration": 5.5,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "terminal types the README command; output lines arrive one by one",
+      "events": [
+        0.2,
+        0.8,
+        1.4,
+        1.9,
+        2.4,
+        2.9,
+        3.4,
+        3.9,
+        4.4,
+        4.9
+      ],
+      "text": [
+        {
+          "content": "install-launcher.sh | sh",
+          "illustrative": true,
+          "in": 0.2,
+          "out": 2.9,
+          "box": [
+            0.08,
+            0.2,
+            0.8,
+            0.08
+          ]
+        },
+        {
+          "content": "Installation and model loading",
+          "in": 3.0,
+          "out": 5.5,
+          "box": [
+            0.08,
+            0.7,
+            0.8,
+            0.07
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "role": "proof",
+      "start": 11.5,
+      "duration": 4.0,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "two stat cards slam in, each citing its source file",
+      "events": [
+        0.2,
+        0.7,
+        1.2,
+        1.95,
+        2.5,
+        3.1,
+        3.6
+      ],
+      "text": [
+        {
+          "content": "ChatGPT Web models, from Codex",
+          "claim": "c1",
+          "in": 0.2,
+          "out": 1.9,
+          "box": [
+            0.08,
+            0.28,
+            0.8,
+            0.16
+          ]
+        },
+        {
+          "content": "Full harness mode",
+          "claim": "c2",
+          "in": 1.95,
+          "out": 4.0,
+          "box": [
+            0.08,
+            0.5,
+            0.8,
+            0.16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "role": "cta",
+      "start": 15.5,
+      "duration": 4.5,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "CTA line, command pill, repo URL; lexicon marquee returns (callback to the hook)",
+      "events": [
+        0.1,
+        0.7,
+        1.3,
+        1.9,
+        2.5,
+        3.1,
+        3.7
+      ],
+      "text": [
+        {
+          "content": "Install the launcher now",
+          "in": 0.1,
+          "out": 1.9,
+          "box": [
+            0.08,
+            0.3,
+            0.8,
+            0.12
+          ]
+        },
+        {
+          "content": "github.com/miuuyy/codex-chatgpt-web",
+          "illustrative": true,
+          "in": 1.9,
+          "out": 4.5,
+          "box": [
+            0.08,
+            0.48,
+            0.8,
+            0.1
+          ]
+        }
+      ]
+    }
+  ],
+  "share": {
+    "x": "Stop switching tabs between Codex and ChatGPT. Now run ChatGPT models natively in Codex with full tool access. Browser automation meets native integration: https://github.com/miuuyy/codex-chatgpt-web",
+    "linkedin": "Developers now have ChatGPT running natively inside Codex.\n\nCodex ChatGPT Web bridges the gap with full harness mode—your ChatGPT tasks can access Codex files, terminals, and tools through MCP, all without leaving your editor.\n\nNo separate browser. No quota conflicts. Just seamless workflow integration.\n\nhttps://github.com/miuuyy/codex-chatgpt-web",
+    "tiktok": "ChatGPT just got a Codex address bar.\nRun your ChatGPT models natively in Codex with full file and tool access. No switching tabs: https://github.com/miuuyy/codex-chatgpt-web",
+    "instagram": "Your ChatGPT is now inside Codex.\nNative model access + Codex tools = unstoppable: https://github.com/miuuyy/codex-chatgpt-web",
+    "youtube_title": "Running ChatGPT Models Natively in Codex",
+    "hashtags": [
+      "#codex",
+      "#chatgpt",
+      "#aitools",
+      "#coding"
+    ]
+  },
+  "showcase": {
+    "palette": {
+      "bg": "#10a37f",
+      "accent": "#ffffff",
+      "ink": "#000000"
+    },
+    "logo": "assets/readme/hero.svg",
+    "demo_output": [
+      "Downloading launcher...",
+      "Installing codex-chatgpt-web...",
+      "Browser ready for ChatGPT login",
+      "Models detected and loaded",
+      "Launcher ready at localhost"
+    ],
+    "stats_source": [
+      "README.md",
+      "README.md"
+    ]
+  }
+}

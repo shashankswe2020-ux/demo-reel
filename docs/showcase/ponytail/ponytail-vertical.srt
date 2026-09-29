@@ -1,0 +1,32 @@
+1
+00:00:00,150 --> 00:00:02,800
+~54% less code, same features
+
+2
+00:00:03,000 --> 00:00:06,000
+Ponytail Minimal code through intelligent
+agent rules
+
+3
+00:00:06,200 --> 00:00:08,900
+/plugin install ponytail@ponytail
+
+4
+00:00:09,000 --> 00:00:11,500
+Write the code that matters
+
+5
+00:00:11,700 --> 00:00:13,400
+~54% less code on average
+
+6
+00:00:13,450 --> 00:00:15,500
+Up to 94% less code
+
+7
+00:00:15,600 --> 00:00:17,400
+Start with Ponytail today
+
+8
+00:00:17,400 --> 00:00:20,000
+/plugin install ponytail@ponytail

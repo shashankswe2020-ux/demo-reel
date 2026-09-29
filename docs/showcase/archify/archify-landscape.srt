@@ -1,0 +1,32 @@
+1
+00:00:00,150 --> 00:00:02,800
+See the interactive architecture map
+
+2
+00:00:03,000 --> 00:00:06,000
+Archify Turn ideas into interactive visual
+diagrams
+
+3
+00:00:06,200 --> 00:00:08,900
+npx skills add tt-a1i/archify -g
+
+4
+00:00:09,000 --> 00:00:11,500
+Describe it. Get an interactive diagram.
+
+5
+00:00:11,700 --> 00:00:13,400
+#1 on GitHub Trending weekly
+
+6
+00:00:13,450 --> 00:00:15,500
+11 checked-in example scenarios
+
+7
+00:00:15,600 --> 00:00:17,400
+Install the Archify skill now
+
+8
+00:00:17,400 --> 00:00:20,000
+npx skills add tt-a1i/archify -g

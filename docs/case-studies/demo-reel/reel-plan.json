@@ -431,7 +431,8 @@
             0.16,
             0.78,
             0.12
-          ]
+          ],
+          "claim": "c2"
         },
         {
           "content": "npx skills add shashankswe2020-ux/demo-reel",

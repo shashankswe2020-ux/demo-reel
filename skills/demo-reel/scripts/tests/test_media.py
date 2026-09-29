@@ -66,6 +66,16 @@ class MediaTest(unittest.TestCase):
         for cid in ("media.container", "audio.true_peak"):
             self.assertTrue(by_id[cid].passed, f"{cid}: {by_id[cid].message}")
 
+    def test_sub_bass_master_stays_under_true_peak_ceiling(self):
+        deep = self.tmp / "deep.mp4"
+        ffmpeg("-f", "lavfi", "-i", "testsrc2=s=1080x1920:r=30:d=16",
+               "-f", "lavfi", "-i", "aevalsrc='0.5*sin(2*PI*24*t)+0.2*sin(2*PI*330*t)*exp(-6*mod(t,0.5))':s=48000:d=16",
+               "-c:v", "libx264", "-preset", "ultrafast", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "256k",
+               "-shortest", str(deep))
+        out = finish(deep, self.tmp / "deep-out.mp4", "vertical")
+        by_id = {c.id: c for c in analyze(out, "vertical", 16.0, None, None)[0]}
+        self.assertTrue(by_id["audio.true_peak"].passed, by_id["audio.true_peak"].message)
+
     def test_dead_open_fails_hook_gates(self):
         bad = self.tmp / "bad.mp4"
         ffmpeg("-f", "lavfi", "-i", "testsrc2=s=1080x1920:r=30:d=20",

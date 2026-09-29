@@ -1,0 +1,31 @@
+1
+00:00:00,150 --> 00:00:02,800
+68 agents. 292 skills.
+
+2
+00:00:03,000 --> 00:00:06,000
+ECC Agent engineering system for code
+
+3
+00:00:06,200 --> 00:00:08,900
+npx ecc-universal@2.2.2 setup
+
+4
+00:00:09,000 --> 00:00:11,500
+Guided setup installs agent system
+
+5
+00:00:11,700 --> 00:00:13,400
+68 agents. 292 skills.
+
+6
+00:00:13,450 --> 00:00:15,500
+Ships across 7 harnesses
+
+7
+00:00:15,600 --> 00:00:17,400
+Install ECC now
+
+8
+00:00:17,400 --> 00:00:20,000
+npx ecc-universal@2.2.2 setup

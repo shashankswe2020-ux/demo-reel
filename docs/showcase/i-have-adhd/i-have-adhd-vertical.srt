@@ -1,0 +1,32 @@
+1
+00:00:00,150 --> 00:00:02,800
+Action first. Context second. Always.
+
+2
+00:00:03,000 --> 00:00:06,000
+i-have-adhd AI responses shaped for ADHD
+brains
+
+3
+00:00:06,200 --> 00:00:08,900
+Install the i-have-adhd skill/plugin
+
+4
+00:00:09,000 --> 00:00:11,500
+Numbered steps. Clear next action.
+
+5
+00:00:11,700 --> 00:00:13,400
+10 rules. Action first.
+
+6
+00:00:13,450 --> 00:00:15,500
+Lead with the next action
+
+7
+00:00:15,600 --> 00:00:17,400
+Enable ADHD mode for your agent
+
+8
+00:00:17,400 --> 00:00:20,000
+https://github.com/ayghri/i-have-adhd

@@ -23,6 +23,19 @@ def words(text: str) -> list[str]:
     return re.findall(r"[\w'’%$#@.+-]+", text)
 
 
+# "one" and "zero" are left out: too common in ordinary copy to treat as quantities.
+NUMBER_RE = re.compile(
+    r"\d|\b(two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|"
+    r"seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundreds?|"
+    r"thousands?|millions?|billions?|dozens?|percent|twice|double|triple|half|tenfold|ninefold)\b",
+    re.IGNORECASE,
+)
+
+
+def has_number(text: str) -> bool:
+    return bool(NUMBER_RE.search(text))
+
+
 class Resolver:
     """Resolves plan-relative references without letting them escape the allowed roots."""
 
@@ -197,14 +210,14 @@ def lint(plan: dict[str, Any], project_root: Path, plan_dir: Path) -> tuple[list
                                    f"{t_out - t_in:.2f}s, needs {need:.2f}s")
             if t_out > float(s.get("duration", 0)) + 1e-6:
                 read_issues.append(f"{s.get('id')}: text outlives its scene")
-            if (item.get("slot") != "hook" and re.search(r"\d", item.get("content", ""))
+            if (item.get("slot") != "hook" and has_number(item.get("content", ""))
                     and item.get("claim") not in verified and not item.get("illustrative")):
                 number_issues.append(f"{s.get('id')}: '{item.get('content', '')[:40]}'")
             box = item.get("box")
             if "vertical" in plan["formats"] and not _in_safe_zone(box):
                 box_issues.append(f"{s.get('id')}: {box}")
     for h in live:
-        if re.search(r"\d", h.get("text", "")) and h.get("claim") not in verified and not h.get("illustrative"):
+        if has_number(h.get("text", "")) and h.get("claim") not in verified and not h.get("illustrative"):
             number_issues.append(f"hook {h.get('id')}: '{h.get('text', '')[:40]}'")
 
     events = sorted(e for e in events if 0 <= e <= duration)

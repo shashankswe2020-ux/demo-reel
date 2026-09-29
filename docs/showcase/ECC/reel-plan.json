@@ -1,0 +1,447 @@
+{
+  "schema": "demo-reel/plan@1",
+  "project": {
+    "name": "ECC",
+    "repo": "affaan-m/ECC",
+    "root": "https://github.com/affaan-m/ECC",
+    "one_liner": "Operating system for coding agents, coordinating planning, testing, reviews",
+    "audience": "Developers using AI coding assistants like Claude Code, Codex, Cursor",
+    "cta": {
+      "line": "Install ECC now",
+      "target": "npx ecc-universal@2.2.2 setup",
+      "text": "Install ECC now"
+    },
+    "lexicon": [
+      "agents",
+      "skills",
+      "hooks",
+      "rules",
+      "AgentShield",
+      "memory",
+      "TDD",
+      "commands",
+      "ECC"
+    ]
+  },
+  "claims": [
+    {
+      "id": "c1",
+      "text": "68 agents for planning, review, build repair, security, and architecture",
+      "evidence": {
+        "file": "README.md",
+        "quote": "Access to 68 agents, 292 skills, and 94 legacy command shims"
+      }
+    },
+    {
+      "id": "c2",
+      "text": "292 skills covering TDD, research, security, docs, frontend, data, ML",
+      "evidence": {
+        "file": "README.md",
+        "quote": "Skills | 292 skills | TDD, research, security, docs, frontend, data, ML"
+      }
+    },
+    {
+      "id": "c3",
+      "text": "Single maintainer ships weekly across harnesses",
+      "evidence": {
+        "file": "README.md",
+        "quote": "a single maintainer ships weekly across 7 harnesses"
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "h1",
+      "type": "statistic",
+      "text": "68 agents. 292 skills.",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 2
+      },
+      "claim": "c1"
+    },
+    {
+      "id": "h2",
+      "type": "pain_point",
+      "text": "Your agent writes code, not systems",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 4,
+        "visual_proof": 2,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h3",
+      "type": "demo_first",
+      "text": "Plan, test, review, verify, remember, improve",
+      "scores": {
+        "curiosity": 2,
+        "specificity": 4,
+        "stakes": 3,
+        "visual_proof": 3,
+        "pattern_break": 2
+      }
+    },
+    {
+      "id": "h4",
+      "type": "question",
+      "text": "Does your agent waste context repeating work?",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 3,
+        "stakes": 4,
+        "visual_proof": 1,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h5",
+      "type": "statistic",
+      "text": "One maintainer ships agents weekly",
+      "claim": "c3",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 4,
+        "stakes": 2,
+        "visual_proof": 2,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h6",
+      "type": "social_proof",
+      "text": "Ships weekly across 7 harnesses",
+      "scores": {
+        "curiosity": 2,
+        "specificity": 3,
+        "stakes": 2,
+        "visual_proof": 2,
+        "pattern_break": 1
+      },
+      "claim": "c3"
+    },
+    {
+      "id": "h7",
+      "type": "before_after",
+      "text": "Before: rebuild agent workflows every prompt",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 4,
+        "visual_proof": 2,
+        "pattern_break": 2
+      }
+    },
+    {
+      "id": "h8",
+      "type": "contrarian",
+      "text": "Agents need rules, hooks, memory, not more tokens",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h9",
+      "type": "teaser",
+      "text": "AgentShield security scanning built in",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 2
+      }
+    },
+    {
+      "id": "h10",
+      "type": "challenge",
+      "text": "Test your agent once, run it everywhere",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 2
+      }
+    }
+  ],
+  "variants": [
+    {
+      "id": "A",
+      "hook": "h1"
+    },
+    {
+      "id": "B",
+      "hook": "h8"
+    },
+    {
+      "id": "C",
+      "hook": "h5"
+    }
+  ],
+  "formats": [
+    "vertical",
+    "square",
+    "landscape"
+  ],
+  "render_formats": [
+    "square"
+  ],
+  "tone": "terminal",
+  "duration_s": 20,
+  "loop": {
+    "strategy": "callback",
+    "note": "CTA brings back the lexicon marquee from the hook"
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "start": 0.0,
+      "duration": 2.8,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "product lexicon scrolls behind; hook slams in on an accent plate",
+      "events": [
+        0.15,
+        0.6,
+        1.4,
+        2.0
+      ],
+      "text": [
+        {
+          "slot": "hook",
+          "in": 0.15,
+          "out": 2.8,
+          "box": [
+            0.08,
+            0.3,
+            0.8,
+            0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "role": "reveal",
+      "start": 2.8,
+      "duration": 3.2,
+      "sources": [
+        "README.md",
+        "assets/ecc-icon.svg"
+      ],
+      "visual": "logo or hero image reveal, name, tagline",
+      "events": [
+        0.2,
+        0.6,
+        1.2,
+        1.8,
+        2.4
+      ],
+      "text": [
+        {
+          "content": "ECC",
+          "in": 0.2,
+          "out": 3.2,
+          "box": [
+            0.08,
+            0.36,
+            0.8,
+            0.1
+          ]
+        },
+        {
+          "content": "Agent engineering system for code",
+          "in": 0.6,
+          "out": 3.2,
+          "box": [
+            0.08,
+            0.48,
+            0.8,
+            0.14
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "role": "demo",
+      "start": 6.0,
+      "duration": 5.5,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "terminal types the README command; output lines arrive one by one",
+      "events": [
+        0.2,
+        0.8,
+        1.4,
+        1.9,
+        2.4,
+        2.9,
+        3.4,
+        3.9,
+        4.4,
+        4.9
+      ],
+      "text": [
+        {
+          "content": "npx ecc-universal@2.2.2 setup",
+          "illustrative": true,
+          "in": 0.2,
+          "out": 2.9,
+          "box": [
+            0.08,
+            0.2,
+            0.8,
+            0.08
+          ]
+        },
+        {
+          "content": "Guided setup installs agent system",
+          "in": 3.0,
+          "out": 5.5,
+          "box": [
+            0.08,
+            0.7,
+            0.8,
+            0.07
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "role": "proof",
+      "start": 11.5,
+      "duration": 4.0,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "two stat cards slam in, each citing its source file",
+      "events": [
+        0.2,
+        0.7,
+        1.2,
+        1.95,
+        2.5,
+        3.1,
+        3.6
+      ],
+      "text": [
+        {
+          "content": "68 agents. 292 skills.",
+          "claim": "c1",
+          "in": 0.2,
+          "out": 1.9,
+          "box": [
+            0.08,
+            0.28,
+            0.8,
+            0.16
+          ]
+        },
+        {
+          "content": "Ships across 7 harnesses",
+          "claim": "c3",
+          "in": 1.95,
+          "out": 4.0,
+          "box": [
+            0.08,
+            0.5,
+            0.8,
+            0.16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "role": "cta",
+      "start": 15.5,
+      "duration": 4.5,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "CTA line, command pill, repo URL; lexicon marquee returns (callback to the hook)",
+      "events": [
+        0.1,
+        0.7,
+        1.3,
+        1.9,
+        2.5,
+        3.1,
+        3.7
+      ],
+      "text": [
+        {
+          "content": "Install ECC now",
+          "in": 0.1,
+          "out": 1.9,
+          "box": [
+            0.08,
+            0.3,
+            0.8,
+            0.12
+          ]
+        },
+        {
+          "content": "npx ecc-universal@2.2.2 setup",
+          "illustrative": true,
+          "in": 1.9,
+          "out": 4.5,
+          "box": [
+            0.08,
+            0.48,
+            0.8,
+            0.1
+          ]
+        }
+      ]
+    }
+  ],
+  "share": {
+    "x": "68 agents + 292 skills + hooks + memory = coordinated agent engineering. ECC gives coding agents a system, not just skills. npx ecc-universal@2.2.2 setup",
+    "linkedin": "Your agent can write code, but ECC gives it a coordinated engineering system.\n\nAccess 68 agents, 292 skills, and enterprise security scanning. Plan before building. Test before shipping. Review from fresh context. Remember what matters.\n\nInstead of rebuilding this process in every prompt, install it once.",
+    "tiktok": "Agent writing bad code? ECC changes the game.\n\n68 agents. 292 skills. One system.\n\nPlan → Test → Implement → Review → Verify → Remember → Improve\n\nYour agent isn't just smarter. It's engineered.",
+    "instagram": "Engineering agents right 🔧\n\n68 agents. 292 skills. Hooks, rules, memory.\n\nNo more rebuilding workflows. No more losing context.\n\nOne install. Seven platforms. Weekly updates.",
+    "youtube_title": "ECC: The Operating System Your Coding Agent Needs",
+    "hashtags": [
+      "#agents",
+      "#coding",
+      "#engineering",
+      "#ai",
+      "#claude"
+    ]
+  },
+  "showcase": {
+    "palette": {
+      "bg": "#0f1419",
+      "accent": "#e07856",
+      "ink": "#ffffff"
+    },
+    "logo": "assets/ecc-icon.svg",
+    "demo_output": [
+      "Select a harness: Claude Code, Codex, Kimi Code",
+      "Choose scope: Global user, Project, Local",
+      "Select hook profile: Standard, Minimal, Full",
+      "Installing ecc@ecc plugin...",
+      "Verify: /plugin list"
+    ],
+    "stats_source": [
+      "README.md",
+      "README.md"
+    ]
+  }
+}

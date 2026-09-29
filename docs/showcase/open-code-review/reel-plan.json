@@ -1,0 +1,446 @@
+{
+  "schema": "demo-reel/plan@1",
+  "project": {
+    "name": "OpenCodeReview",
+    "repo": "alibaba/open-code-review",
+    "root": "https://github.com/alibaba/open-code-review",
+    "one_liner": "CLI tool combining AI and engineering to find real code defects",
+    "audience": "Developers and teams reviewing pull requests on GitHub, GitLab, Gerrit",
+    "cta": {
+      "line": "Install and review now",
+      "target": "npm install -g @alibaba-group/open-code-review",
+      "text": "Install and review now"
+    },
+    "lexicon": [
+      "code review",
+      "precision",
+      "defects",
+      "diff",
+      "scan",
+      "deterministic",
+      "AI-powered",
+      "rules",
+      "OpenCodeReview"
+    ]
+  },
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Benchmark built from real-world data: 50 repos, 200 PRs, 10 languages",
+      "evidence": {
+        "file": "README.md",
+        "quote": "**50** popular open-source repositories, **200** real Pull Requests, and **10** programming languages"
+      }
+    },
+    {
+      "id": "c2",
+      "text": "1505 annotated ground-truth issues from senior engineers",
+      "evidence": {
+        "file": "README.md",
+        "quote": "cross-validated by 80+ senior engineers (**1,505** annotated ground-truth issues)"
+      }
+    },
+    {
+      "id": "c3",
+      "text": "Consumes only one-ninth the tokens of general-purpose agents",
+      "evidence": {
+        "file": "README.md",
+        "quote": "while consuming only **~1/9 of the tokens"
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "h1",
+      "type": "bold_claim",
+      "text": "~1/9 the tokens of general agents",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 5,
+        "visual_proof": 2,
+        "pattern_break": 3
+      },
+      "claim": "c3"
+    },
+    {
+      "id": "h2",
+      "type": "statistic",
+      "text": "1,505 annotated ground-truth issues",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 5,
+        "stakes": 4,
+        "visual_proof": 2,
+        "pattern_break": 2
+      },
+      "claim": "c2"
+    },
+    {
+      "id": "h3",
+      "type": "pain_point",
+      "text": "Agents miss files, drift line numbers, miss defects",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 5,
+        "visual_proof": 2,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h4",
+      "type": "demo_first",
+      "text": "Precise file selection, smart bundling, line accuracy",
+      "scores": {
+        "curiosity": 2,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 3,
+        "pattern_break": 2
+      }
+    },
+    {
+      "id": "h5",
+      "type": "contrarian",
+      "text": "Engineering plus AI, not AI alone",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 3,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 5
+      }
+    },
+    {
+      "id": "h6",
+      "type": "question",
+      "text": "What if reviews found real issues, not noise?",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 3,
+        "stakes": 4,
+        "visual_proof": 1,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h7",
+      "type": "before_after",
+      "text": "Position drift fixed via deterministic modules",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 4,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 2
+      }
+    },
+    {
+      "id": "h8",
+      "type": "social_proof",
+      "text": "Benchmarked on 200 real pull requests",
+      "scores": {
+        "curiosity": 2,
+        "specificity": 3,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 1
+      },
+      "claim": "c1"
+    },
+    {
+      "id": "h9",
+      "type": "negative",
+      "text": "Generic code review agents cut corners",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 4,
+        "visual_proof": 2,
+        "pattern_break": 2
+      }
+    },
+    {
+      "id": "h10",
+      "type": "challenge",
+      "text": "Scan full files, not just diffs",
+      "scores": {
+        "curiosity": 2,
+        "specificity": 3,
+        "stakes": 2,
+        "visual_proof": 2,
+        "pattern_break": 2
+      }
+    }
+  ],
+  "variants": [
+    {
+      "id": "A",
+      "hook": "h1"
+    },
+    {
+      "id": "B",
+      "hook": "h2"
+    },
+    {
+      "id": "C",
+      "hook": "h3"
+    }
+  ],
+  "formats": [
+    "vertical",
+    "square",
+    "landscape"
+  ],
+  "render_formats": [
+    "landscape"
+  ],
+  "tone": "terminal",
+  "duration_s": 20,
+  "loop": {
+    "strategy": "callback",
+    "note": "CTA brings back the lexicon marquee from the hook"
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "start": 0.0,
+      "duration": 2.8,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "product lexicon scrolls behind; hook slams in on an accent plate",
+      "events": [
+        0.15,
+        0.6,
+        1.4,
+        2.0
+      ],
+      "text": [
+        {
+          "slot": "hook",
+          "in": 0.15,
+          "out": 2.8,
+          "box": [
+            0.08,
+            0.3,
+            0.8,
+            0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "role": "reveal",
+      "start": 2.8,
+      "duration": 3.2,
+      "sources": [
+        "README.md",
+        "imgs/logo-core.svg"
+      ],
+      "visual": "logo or hero image reveal, name, tagline",
+      "events": [
+        0.2,
+        0.6,
+        1.2,
+        1.8,
+        2.4
+      ],
+      "text": [
+        {
+          "content": "OpenCodeReview",
+          "in": 0.2,
+          "out": 3.2,
+          "box": [
+            0.08,
+            0.36,
+            0.8,
+            0.1
+          ]
+        },
+        {
+          "content": "AI code review with deterministic precision",
+          "in": 0.6,
+          "out": 3.2,
+          "box": [
+            0.08,
+            0.48,
+            0.8,
+            0.14
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "role": "demo",
+      "start": 6.0,
+      "duration": 5.5,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "terminal types the README command; output lines arrive one by one",
+      "events": [
+        0.2,
+        0.8,
+        1.4,
+        1.9,
+        2.4,
+        2.9,
+        3.4,
+        3.9,
+        4.4,
+        4.9
+      ],
+      "text": [
+        {
+          "content": "ocr review",
+          "illustrative": true,
+          "in": 0.2,
+          "out": 2.9,
+          "box": [
+            0.08,
+            0.2,
+            0.8,
+            0.08
+          ]
+        },
+        {
+          "content": "Reviews code with position accuracy",
+          "in": 3.0,
+          "out": 5.5,
+          "box": [
+            0.08,
+            0.7,
+            0.8,
+            0.07
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "role": "proof",
+      "start": 11.5,
+      "duration": 4.0,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "two stat cards slam in, each citing its source file",
+      "events": [
+        0.2,
+        0.7,
+        1.2,
+        1.95,
+        2.5,
+        3.1,
+        3.6
+      ],
+      "text": [
+        {
+          "content": "1,505 annotated issues",
+          "claim": "c2",
+          "in": 0.2,
+          "out": 1.9,
+          "box": [
+            0.08,
+            0.28,
+            0.8,
+            0.16
+          ]
+        },
+        {
+          "content": "~1/9 of the tokens",
+          "claim": "c3",
+          "in": 1.95,
+          "out": 4.0,
+          "box": [
+            0.08,
+            0.5,
+            0.8,
+            0.16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "role": "cta",
+      "start": 15.5,
+      "duration": 4.5,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "CTA line, command pill, repo URL; lexicon marquee returns (callback to the hook)",
+      "events": [
+        0.1,
+        0.7,
+        1.3,
+        1.9,
+        2.5,
+        3.1,
+        3.7
+      ],
+      "text": [
+        {
+          "content": "Install and review now",
+          "in": 0.1,
+          "out": 1.9,
+          "box": [
+            0.08,
+            0.3,
+            0.8,
+            0.12
+          ]
+        },
+        {
+          "content": "npm install -g @alibaba-group/open-code-review",
+          "illustrative": true,
+          "in": 1.9,
+          "out": 4.5,
+          "box": [
+            0.08,
+            0.48,
+            0.8,
+            0.1
+          ]
+        }
+      ]
+    }
+  ],
+  "share": {
+    "x": "Code reviews from general-purpose agents miss files, drift line numbers, cost tokens. OpenCodeReview: deterministic engineering + AI = real defects found. ocr review",
+    "linkedin": "General-purpose agents miss files, misreport lines, and drift in quality on code review.\n\nOpenCodeReview solves this by combining deterministic engineering with AI. Precise file selection. Smart bundling. Independent positioning modules.\n\n1505 real issues validated. ~1/9 the tokens.",
+    "tiktok": "Your code review agent is costing you defects.\n\nFine-grained rules. Precise positioning. Smart bundling.\n\nOpenCodeReview: engineering + AI, not AI alone.\n\n1505 validated issues. Proven on thousands of real PRs.",
+    "instagram": "Better code reviews 🔍\n\nDeterministic positioning. Rule-based bundling. Precision first.\n\n1505 real defects validated.\nNinefold token savings.\n\nThe review agent that doesn't cut corners.",
+    "youtube_title": "OpenCodeReview: Deterministic AI Code Review at Scale",
+    "hashtags": [
+      "#codereview",
+      "#ai",
+      "#defects",
+      "#engineering",
+      "#alibaba"
+    ]
+  },
+  "showcase": {
+    "palette": {
+      "bg": "#0a0e27",
+      "accent": "#ff7a00",
+      "ink": "#ffffff"
+    },
+    "logo": "imgs/logo-core.svg",
+    "demo_output": [
+      "Scanning workspace changes...",
+      "Bundling related files for review",
+      "Checking review rules...",
+      "Generating precise comments"
+    ],
+    "stats_source": [
+      "README.md",
+      "README.md"
+    ]
+  }
+}

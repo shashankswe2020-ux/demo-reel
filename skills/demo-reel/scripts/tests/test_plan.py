@@ -51,6 +51,15 @@ class PlanLintTest(unittest.TestCase):
         checks, _ = run_lint(plan)
         self.assertFalse(checks["plan.numbers_backed"].passed)
 
+    def test_spelled_out_number_needs_a_claim(self):
+        plan = load_plan()
+        plan["scenes"][1]["text"][0]["content"] = "Six hundred teams ship with Shipcast"
+        checks, _ = run_lint(plan)
+        self.assertFalse(checks["plan.numbers_backed"].passed)
+        plan["scenes"][1]["text"][0]["content"] = "One command. Your changelog, heard."
+        checks, _ = run_lint(plan)
+        self.assertTrue(checks["plan.numbers_backed"].passed)
+
     def test_weak_variant_hook_fails_selection(self):
         plan = load_plan()
         plan["variants"][2]["hook"] = "h7"

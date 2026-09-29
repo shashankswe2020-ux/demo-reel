@@ -1,0 +1,34 @@
+1
+00:00:00,150 --> 00:00:02,800
+Describe a topic, get an interactive
+classroom
+
+2
+00:00:03,000 --> 00:00:06,000
+OpenMAIC Interactive classroom generation
+with agents
+
+3
+00:00:06,200 --> 00:00:08,900
+pnpm dev
+
+4
+00:00:09,000 --> 00:00:11,500
+Describe a topic. Get a classroom.
+
+5
+00:00:11,700 --> 00:00:13,400
+24 built-in skills
+
+6
+00:00:13,450 --> 00:00:15,500
+AI teachers and peers interact
+
+7
+00:00:15,600 --> 00:00:17,400
+Clone and start building
+
+8
+00:00:17,400 --> 00:00:20,000
+git clone
+https://github.com/THU-MAIC/OpenMAIC.git

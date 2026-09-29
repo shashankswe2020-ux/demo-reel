@@ -1,0 +1,445 @@
+{
+  "schema": "demo-reel/plan@1",
+  "project": {
+    "name": "Ponytail",
+    "repo": "DietrichGebert/ponytail",
+    "root": "https://github.com/DietrichGebert/ponytail",
+    "one_liner": "Write only necessary code with AI agents through smart filtering",
+    "audience": "Developers using AI coding assistants who want less over-engineering and bloat",
+    "cta": {
+      "line": "Start with Ponytail today",
+      "target": "/plugin install ponytail@ponytail",
+      "text": "Start with Ponytail today"
+    },
+    "lexicon": [
+      "minimal code",
+      "YAGNI",
+      "native platform",
+      "lazy",
+      "one-liner",
+      "skill",
+      "over-build",
+      "Ponytail"
+    ]
+  },
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Cuts 54 percent code on average across real tasks",
+      "evidence": {
+        "file": "README.md",
+        "quote": "~54% is the mean across 12 feature tasks"
+      }
+    },
+    {
+      "id": "c2",
+      "text": "Reduces to 94 percent less on over-built features",
+      "evidence": {
+        "file": "README.md",
+        "quote": "it reaches 94% where an agent over-builds (a date picker)"
+      }
+    },
+    {
+      "id": "c3",
+      "text": "Works with 20 different AI agents",
+      "evidence": {
+        "file": "README.md",
+        "quote": "works with 20 agents"
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "h1",
+      "type": "contrarian",
+      "text": "Your agent is building too much code",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 5,
+        "visual_proof": 2,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h2",
+      "type": "statistic",
+      "text": "~54% less code, same features",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 5,
+        "stakes": 4,
+        "visual_proof": 3,
+        "pattern_break": 3
+      },
+      "claim": "c1"
+    },
+    {
+      "id": "h3",
+      "type": "bold_claim",
+      "text": "Ponytail: the browser already has a date picker",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 3,
+        "visual_proof": 4,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h4",
+      "type": "demo_first",
+      "text": "Watch Ponytail delete the dependency",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 4,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h5",
+      "type": "social_proof",
+      "text": "Works with 20 agents",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 5,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 2
+      },
+      "claim": "c3"
+    },
+    {
+      "id": "h6",
+      "type": "pain_point",
+      "text": "Flatpickr brings stylesheet and setup friction",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 2,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h7",
+      "type": "question",
+      "text": "Does your agent respect YAGNI principle",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 3,
+        "stakes": 3,
+        "visual_proof": 1,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h8",
+      "type": "before_after",
+      "text": "From bloated component to native input",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 4,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h9",
+      "type": "negative",
+      "text": "Skip the dependencies you never needed",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 3,
+        "stakes": 4,
+        "visual_proof": 2,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h10",
+      "type": "teaser",
+      "text": "Lazy developer mode for smarter agents",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 3,
+        "stakes": 3,
+        "visual_proof": 2,
+        "pattern_break": 4
+      }
+    }
+  ],
+  "variants": [
+    {
+      "id": "A",
+      "hook": "h2"
+    },
+    {
+      "id": "B",
+      "hook": "h4"
+    },
+    {
+      "id": "C",
+      "hook": "h3"
+    }
+  ],
+  "formats": [
+    "vertical",
+    "square",
+    "landscape"
+  ],
+  "render_formats": [
+    "vertical"
+  ],
+  "tone": "terminal",
+  "duration_s": 20,
+  "loop": {
+    "strategy": "callback",
+    "note": "CTA brings back the lexicon marquee from the hook"
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "start": 0.0,
+      "duration": 2.8,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "product lexicon scrolls behind; hook slams in on an accent plate",
+      "events": [
+        0.15,
+        0.6,
+        1.4,
+        2.0
+      ],
+      "text": [
+        {
+          "slot": "hook",
+          "in": 0.15,
+          "out": 2.8,
+          "box": [
+            0.08,
+            0.3,
+            0.8,
+            0.26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "role": "reveal",
+      "start": 2.8,
+      "duration": 3.2,
+      "sources": [
+        "README.md",
+        "assets/logo.png"
+      ],
+      "visual": "logo or hero image reveal, name, tagline",
+      "events": [
+        0.2,
+        0.6,
+        1.2,
+        1.8,
+        2.4
+      ],
+      "text": [
+        {
+          "content": "Ponytail",
+          "in": 0.2,
+          "out": 3.2,
+          "box": [
+            0.08,
+            0.36,
+            0.8,
+            0.1
+          ]
+        },
+        {
+          "content": "Minimal code through intelligent agent rules",
+          "in": 0.6,
+          "out": 3.2,
+          "box": [
+            0.08,
+            0.48,
+            0.8,
+            0.14
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "role": "demo",
+      "start": 6.0,
+      "duration": 5.5,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "terminal types the README command; output lines arrive one by one",
+      "events": [
+        0.2,
+        0.8,
+        1.4,
+        1.9,
+        2.4,
+        2.9,
+        3.4,
+        3.9,
+        4.4,
+        4.9
+      ],
+      "text": [
+        {
+          "content": "/plugin install ponytail@ponytail",
+          "illustrative": true,
+          "in": 0.2,
+          "out": 2.9,
+          "box": [
+            0.08,
+            0.2,
+            0.8,
+            0.08
+          ]
+        },
+        {
+          "content": "Write the code that matters",
+          "in": 3.0,
+          "out": 5.5,
+          "box": [
+            0.08,
+            0.7,
+            0.8,
+            0.07
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "role": "proof",
+      "start": 11.5,
+      "duration": 4.0,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "two stat cards slam in, each citing its source file",
+      "events": [
+        0.2,
+        0.7,
+        1.2,
+        1.95,
+        2.5,
+        3.1,
+        3.6
+      ],
+      "text": [
+        {
+          "content": "~54% less code on average",
+          "claim": "c1",
+          "in": 0.2,
+          "out": 1.9,
+          "box": [
+            0.08,
+            0.28,
+            0.8,
+            0.16
+          ]
+        },
+        {
+          "content": "Up to 94% less code",
+          "claim": "c2",
+          "in": 1.95,
+          "out": 4.0,
+          "box": [
+            0.08,
+            0.5,
+            0.8,
+            0.16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "role": "cta",
+      "start": 15.5,
+      "duration": 4.5,
+      "sources": [
+        "README.md"
+      ],
+      "visual": "CTA line, command pill, repo URL; lexicon marquee returns (callback to the hook)",
+      "events": [
+        0.1,
+        0.7,
+        1.3,
+        1.9,
+        2.5,
+        3.1,
+        3.7
+      ],
+      "text": [
+        {
+          "content": "Start with Ponytail today",
+          "in": 0.1,
+          "out": 1.9,
+          "box": [
+            0.08,
+            0.3,
+            0.8,
+            0.12
+          ]
+        },
+        {
+          "content": "/plugin install ponytail@ponytail",
+          "illustrative": true,
+          "in": 1.9,
+          "out": 4.5,
+          "box": [
+            0.08,
+            0.48,
+            0.8,
+            0.1
+          ]
+        }
+      ]
+    }
+  ],
+  "share": {
+    "x": "Your AI agent over-builds. Ponytail cuts 54% code (up to 94% on bloat). Works with 20 agents. One line instead of flatpickr. /plugin install ponytail@ponytail",
+    "linkedin": "Ponytail reduces over-engineered code in AI agents.\n\nAverage: 54% fewer lines across real coding tasks. Reaches 94% reduction on over-built components like date pickers. Keeps every safety guard while cutting bloat.\n\nWorks with Claude Code, Cursor, Codex, Devin, and 15 more.\n\nSet your mode: lite, full, ultra.\n\nInstall: /plugin install ponytail@ponytail",
+    "tiktok": "Stop writing 400 lines for a date picker.\n\nPonytail: AI agent skill that cuts unnecessary code. 54% reduction on real work. 94% on over-built features. Uses native browser APIs first.\n\nBrowse has <input type=\"date\"> already.\n\n/plugin install ponytail@ponytail",
+    "instagram": "Minimal code through intelligent filters.\n\n54% less code. 100% safe. Works with your AI agent.\n\nUse what the platform provides. Reuse what's in the codebase. Only then: the minimum that works.\n\nGet Ponytail now.",
+    "youtube_title": "Ponytail: Reduce AI Agent Code by 54% with One Skill",
+    "hashtags": [
+      "#ponytail",
+      "#aiagents",
+      "#codequality",
+      "#minimal_code",
+      "#developer"
+    ]
+  },
+  "showcase": {
+    "palette": {
+      "bg": "#111111",
+      "accent": "#d9822b",
+      "ink": "#FFFFFF"
+    },
+    "logo": "assets/logo.png",
+    "demo_output": [
+      "Agent asks for a date picker component",
+      "<!-- ponytail: browser has one -->",
+      "<input type=\"date\">",
+      "Forty-six percent fewer lines than without ponytail",
+      "All safety checks and validation remain"
+    ],
+    "stats_source": [
+      "README.md",
+      "README.md"
+    ]
+  }
+}
