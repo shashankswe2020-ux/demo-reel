@@ -89,8 +89,8 @@
          "acceptedAnswer": {"@type": "Answer", "text": "Vertical 9:16 for TikTok, Instagram Reels, and YouTube Shorts; square 1:1 for LinkedIn and X; landscape 16:9 for X, YouTube, and websites. Each render ships with SRT captions and a poster image."}},
         {"@type": "Question", "name": "Does it need a paid API or cloud rendering?",
          "acceptedAnswer": {"@type": "Answer", "text": "No. The toolkit is stdlib-only Python plus FFmpeg, and rendering runs on your machine."}},
-        {"@type": "Question", "name": "How is it different from /brag?",
-         "acceptedAnswer": {"@type": "Answer", "text": "/brag makes one landscape video behind one lint gate. demo-reel makes 9 renders per run, runs 227 gate evaluations, verifies claims against source, and picks the winning hook from real analytics."}}
+        {"@type": "Question", "name": "Can it put made-up numbers on screen?",
+         "acceptedAnswer": {"@type": "Answer", "text": "No. Every number on screen must quote the project's own source verbatim, and the linter checks each quote before anything renders."}}
       ]
     }
   ]
@@ -226,20 +226,6 @@
         <div class="stat"><b>9</b><span>renders: 3 hooks × 3 formats</span></div>
         <div class="stat"><b>0</b><span>unsourced numbers allowed on screen</span></div>
       </div>
-      <div class="table-scroll">
-      <table>
-        <caption class="sub" style="text-align:left;caption-side:top">Scorecard against <a href="https://github.com/latent-spaces/brag">/brag</a></caption>
-        <thead><tr><th scope="col">Metric</th><th scope="col">/brag</th><th scope="col">demo-reel</th></tr></thead>
-        <tbody>
-          <tr><td>Machine-verified gate types</td><td>~5</td><td class="us">51</td></tr>
-          <tr><td>Gate evaluations per run</td><td>~5</td><td class="us">227</td></tr>
-          <tr><td>Hooks generated and scored</td><td>1</td><td class="us">≥ 10</td></tr>
-          <tr><td>Shipped renders per run</td><td>1</td><td class="us">9</td></tr>
-          <tr><td>Claims checked verbatim against source</td><td>0</td><td class="us">all</td></tr>
-          <tr><td>Post-launch winner selection</td><td>none</td><td class="us">P(best) ≥ 95%</td></tr>
-        </tbody>
-      </table>
-      </div>
     </section>
 
     <section id="case-studies" aria-labelledby="cs-h">
@@ -297,12 +283,12 @@
       <details><summary>Which platforms and formats does it produce?</summary><p>Vertical 9:16 (1080×1920) for TikTok, Instagram Reels, and YouTube Shorts. Square 1:1 for LinkedIn and X feeds. Landscape 16:9 for X, YouTube, and your website. Each render comes with SRT captions and a poster image.</p></details>
       <details><summary>Which AI agents does it work with?</summary><p>Any agent that loads Agent Skills: Claude Code, OpenAI Codex CLI, GitHub Copilot, Cursor, Gemini CLI, and opencode.</p></details>
       <details><summary>Does it need a paid API or cloud rendering?</summary><p>No. The toolkit is stdlib-only Python plus FFmpeg, and rendering runs on your machine.</p></details>
-      <details><summary>How is it different from /brag?</summary><p>/brag makes one landscape video behind one lint gate. demo-reel makes 9 renders per run, runs 227 gate evaluations, verifies claims, and picks the winning hook from real analytics.</p></details>
+      <details><summary>Can it put made-up numbers on screen?</summary><p>No. Every number on screen must quote the project's own source verbatim, and the linter checks each quote before anything renders.</p></details>
     </section>
   </main>
 
   <footer>
-    <p>demo-reel is open source under the Apache 2.0 license. It builds on <a href="https://github.com/latent-spaces/brag">/brag</a> and yt-clipper-server. · <a href="https://github.com/shashankswe2020-ux/demo-reel">GitHub</a></p>
+    <p>demo-reel is open source under the Apache 2.0 license. · <a href="https://github.com/shashankswe2020-ux/demo-reel">GitHub</a></p>
   </footer>
 </div>
 <script>
