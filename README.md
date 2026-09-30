@@ -26,6 +26,7 @@
 </p>
 
 <p align="center">
+  <a href="https://shashankswe2020-ux.github.io/demo-reel/">Website</a> ·
   <a href="#install">Install</a> ·
   <a href="#use">Use</a> ·
   <a href="skills/demo-reel/references/case-studies.md">Case studies</a> ·
