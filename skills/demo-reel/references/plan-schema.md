@@ -27,6 +27,15 @@ The plan is the contract. Build, captions, and QA all read it, so write it befor
   "formats": ["vertical", "square", "landscape"],
   "tone": "default",
   "duration_s": 20,
+  "music": {"bpm": 120, "offset_s": 0.0},   // optional: beat grid of the soundtrack (first beat at offset_s)
+  "treatment": {                            // summary of reel-output/treatment.md (see treatment.md)
+    "file": "treatment.md",
+    "idea": "the changelog is a printed proof sheet; the cursor is the editor's red pen",
+    "motif": "the red pen: underlines the hook, ticks the diff, signs the CTA",
+    "constraints": ["type is the image", "every big change on a beat", "only real UI"],
+    "palette": ["#111214", "#1C1D21", "#EEE9DF", "#FF4D12"],
+    "revisions": ["R1: moved the commit counter from a corner badge into the git log itself"]
+  },
   "loop": {"strategy": "callback", "note": "how the end returns to the start"},
   "scenes": [
     {
@@ -59,6 +68,8 @@ The plan is the contract. Build, captions, and QA all read it, so write it befor
 - `sources` resolve against the project root, then the plan directory. They can't escape either one. Sourced scenes must cover ≥ 40% of runtime.
 - The `demo` scene carries `"feature": {"title": "Line-level review comments", "claim": "c2"}`: the one headline feature it shows working. The title must appear in that scene's on-screen text, and the claim must be verified. Show it as input → output using the project's own examples (a README before/after, a sample prompt and its result, a real API call). An install command is not a feature.
 - `loop.strategy`: `seamless` (last frame ≈ opening; checked by SSIM), `match_cut`, `callback`, or `none`.
+- `music` (optional): when `bpm` is set, `lint` lists every scene start more than one frame (34 ms) off the beat grid. It's advisory, not a gate. Derive cut times from the grid (`offset_s + k × 60 / bpm`, snapped to the beat at or just before the text it introduces) instead of hand-typing them.
+- `treatment`: `lint` prints an advisory (not a gate) when it's missing, the file doesn't resolve, `idea` or `motif` is empty, there are fewer than 3 `constraints`, `palette` isn't 2–6 hex colors, or there are fewer than 2 `revisions` (expected after the director passes, so lint flags it until they're done).
 
 ## Commands
 

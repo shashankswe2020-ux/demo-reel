@@ -79,6 +79,12 @@ CUT_SCORE = 10.0
 SHOT_LENGTH_RANGE_S = (0.8, 5.0)
 UI_CLUTTER_MAX_RATIO = 0.8
 LOOP_SEAM_MIN_SSIM = 0.5
+# Advisory (lint info, not a gate): a scene cut within one 30 fps frame of a beat counts as on the beat.
+BEAT_SNAP_TOLERANCE_S = 0.034
+# Advisory treatment checks (references/treatment.md), not gates.
+TREATMENT_MIN_CONSTRAINTS = 3
+TREATMENT_PALETTE_RANGE = (2, 6)
+TREATMENT_MIN_REVISIONS = 2
 
 CAPTION_MAX_LINE_CHARS = 42
 CAPTION_MAX_LINES = 2

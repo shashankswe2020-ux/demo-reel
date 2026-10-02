@@ -98,6 +98,7 @@ You get `reel-output/` with 9 videos, posters, captions, share copy, a posting p
 | Topic | Reference |
 |---|---|
 | Workflow and creative laws | [SKILL.md](skills/demo-reel/SKILL.md) |
+| Treatment, style bible, and director passes | [treatment.md](skills/demo-reel/references/treatment.md) |
 | All 51 gates and scoring | [metrics.md](skills/demo-reel/references/metrics.md) |
 | CLI commands and tests | [toolkit.md](skills/demo-reel/references/toolkit.md) |
 | Case studies: demo-reel and local-llmup | [case-studies.md](skills/demo-reel/references/case-studies.md) |

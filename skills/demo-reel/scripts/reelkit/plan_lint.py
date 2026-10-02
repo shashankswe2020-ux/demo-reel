@@ -242,6 +242,20 @@ def lint(plan: dict[str, Any], project_root: Path, plan_dir: Path) -> tuple[list
     loop = (plan.get("loop") or {}).get("strategy")
     checks.append(make("plan.loop", loop in specs.LOOP_STRATEGIES, f"strategy={loop}"))
 
+    # Advisory, not a gate: cuts that land on the music's beat grid read as intentional.
+    music = plan.get("music") or {}
+    if float(music.get("bpm") or 0) > 0:
+        period, offset = 60.0 / float(music["bpm"]), float(music.get("offset_s") or 0)
+        off_beat = []
+        for s in scenes[1:]:
+            t = float(s.get("start", 0))
+            delta = t - (offset + round((t - offset) / period) * period)
+            if abs(delta) > specs.BEAT_SNAP_TOLERANCE_S:
+                off_beat.append(f"{s.get('id')} @ {t:.2f}s ({delta:+.2f}s)")
+        info["beat_grid"] = {"bpm": float(music["bpm"]), "offset_s": offset, "off_beat": off_beat}
+
+    info["treatment"] = _treatment_notes(plan.get("treatment"), resolver)
+
     # Show the thing.
     shown, missing_sources = 0.0, []
     for s in scenes:
@@ -314,6 +328,26 @@ def lint(plan: dict[str, Any], project_root: Path, plan_dir: Path) -> tuple[list
     tags_ok = lo_t <= len(tags) <= hi_t and all(re.fullmatch(r"#\w+", t or "") for t in tags)
     checks.append(make("plan.hashtags", tags_ok, f"{tags}", len(tags), [lo_t, hi_t]))
     return checks, info
+
+
+def _treatment_notes(t: Any, resolver: Resolver) -> list[str]:
+    """Advisory only: what the director's treatment is still missing."""
+    if not isinstance(t, dict):
+        return ["no treatment: write treatment.md and summarize it in plan.treatment (references/treatment.md)"]
+    notes = []
+    if not (t.get("file") and resolver.find(t["file"])):
+        notes.append(f"treatment file not found: {t.get('file')!r}")
+    notes += [f"empty {k}" for k in ("idea", "motif") if not str(t.get(k) or "").strip()]
+    if len(t.get("constraints") or []) < specs.TREATMENT_MIN_CONSTRAINTS:
+        notes.append(f"{len(t.get('constraints') or [])} constraints, want >= {specs.TREATMENT_MIN_CONSTRAINTS}")
+    palette = t.get("palette") or []
+    lo, hi = specs.TREATMENT_PALETTE_RANGE
+    if not (lo <= len(palette) <= hi and all(re.fullmatch(r"#[0-9A-Fa-f]{6}", str(c)) for c in palette)):
+        notes.append(f"palette must be {lo}-{hi} hex colors, got {palette}")
+    if len(t.get("revisions") or []) < specs.TREATMENT_MIN_REVISIONS:
+        notes.append(f"{len(t.get('revisions') or [])} director revisions logged, want >= "
+                     f"{specs.TREATMENT_MIN_REVISIONS}")
+    return notes
 
 
 def _in_safe_zone(box: Any) -> bool:

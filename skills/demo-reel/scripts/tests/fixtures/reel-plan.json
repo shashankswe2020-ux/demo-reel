@@ -191,6 +191,17 @@
   ],
   "tone": "default",
   "duration_s": 20,
+  "treatment": {
+    "file": "treatment.md",
+    "idea": "The changelog is a radio script; the episode card is the studio's ON AIR sign.",
+    "motif": "One waveform line: it underlines the hook, scrubs the git log, and becomes the play button.",
+    "constraints": ["type is the image", "every big change on a beat", "only real Shipcast UI"],
+    "palette": ["#111214", "#1C1D21", "#EEE9DF", "#FF4D12"],
+    "revisions": [
+      "R1: moved the commit count from a corner badge into the git log scroll",
+      "R2: the CTA command is typed by the waveform cursor instead of fading in"
+    ]
+  },
   "loop": {
     "strategy": "callback",
     "note": "CTA card ends on the play button the hook opened with"

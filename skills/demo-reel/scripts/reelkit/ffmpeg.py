@@ -21,10 +21,15 @@ def tool(name: str) -> str:
     return path
 
 
-def run(args: list[str], cwd: Path | None = None) -> subprocess.CompletedProcess[str]:
-    proc = subprocess.run(args, capture_output=True, text=True, errors="replace", cwd=cwd, check=False)
+def run(args: list[str], cwd: Path | None = None, binary: bool = False) -> subprocess.CompletedProcess:
+    if binary:
+        proc = subprocess.run(args, capture_output=True, cwd=cwd, check=False)
+        err = proc.stderr.decode(errors="replace")
+    else:
+        proc = subprocess.run(args, capture_output=True, text=True, errors="replace", cwd=cwd, check=False)
+        err = proc.stderr
     if proc.returncode != 0:
-        raise ToolError(f"{Path(args[0]).name} exited {proc.returncode}: {proc.stderr.strip()[-1500:]}")
+        raise ToolError(f"{Path(args[0]).name} exited {proc.returncode}: {err.strip()[-1500:]}")
     return proc
 
 

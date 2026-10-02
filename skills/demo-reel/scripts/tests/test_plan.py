@@ -80,6 +80,27 @@ class PlanLintTest(unittest.TestCase):
         self.assertFalse(checks["plan.hook_selection"].passed)
         self.assertFalse(checks["plan.hook_grounded"].passed)
 
+    def test_beat_grid_flags_off_beat_cuts_without_gating(self):
+        plan = load_plan()
+        self.assertNotIn("beat_grid", run_lint(plan)[1])
+        plan["music"] = {"bpm": 120}
+        checks, info = run_lint(plan)
+        self.assertEqual(len(info["beat_grid"]["off_beat"]), 1, info["beat_grid"])
+        self.assertIn("@ 2.80s (-0.20s)", info["beat_grid"]["off_beat"][0])
+        self.assertEqual({k: c.message for k, c in checks.items() if c.passed is False}, {})
+        plan["music"]["offset_s"] = 0.3
+        self.assertEqual(len(run_lint(plan)[1]["beat_grid"]["off_beat"]), 3)
+
+    def test_treatment_advisory_flags_gaps_without_gating(self):
+        plan = load_plan()
+        self.assertEqual(run_lint(plan)[1]["treatment"], [])
+        plan["treatment"].update(file="missing.md", motif=" ", palette=["#111214", "red"], revisions=["R1"])
+        checks, info = run_lint(plan)
+        self.assertEqual(len(info["treatment"]), 4, info["treatment"])
+        self.assertEqual({k: c.message for k, c in checks.items() if c.passed is False}, {})
+        del plan["treatment"]
+        self.assertIn("no treatment", run_lint(plan)[1]["treatment"][0])
+
     def test_rushed_text_fails_reading_time(self):
         plan = load_plan()
         plan["scenes"][1]["text"][0]["out"] = 1.0
