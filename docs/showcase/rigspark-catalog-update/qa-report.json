@@ -27,6 +27,12 @@
       "h5": 75.6,
       "h4": 67.4
     },
+    "beat_grid": {
+      "bpm": 120.0,
+      "offset_s": 0.0,
+      "off_beat": []
+    },
+    "treatment": [],
     "checks": [
       {
         "id": "plan.schema",
@@ -160,8 +166,8 @@
         "category": "hook",
         "severity": "major",
         "passed": true,
-        "message": "scene 1 role=hook duration=2.7",
-        "value": 2.7,
+        "message": "scene 1 role=hook duration=3.0",
+        "value": 3.0,
         "threshold": 3.0,
         "scope": ""
       },
@@ -180,8 +186,8 @@
         "category": "retention",
         "severity": "major",
         "passed": true,
-        "message": "longest gap 0.85s",
-        "value": 0.85,
+        "message": "longest gap 0.90s",
+        "value": 0.9,
         "threshold": 2.5,
         "scope": ""
       },
@@ -357,28 +363,28 @@
         "duration": 20.1,
         "fps": 30.0,
         "format": "vertical",
-        "size_mb": 2.78,
+        "size_mb": 2.74,
         "loudness": {
-          "integrated": -14.4,
-          "lra": 1.9,
-          "true_peak": -2.4
+          "integrated": -14.5,
+          "lra": 1.8,
+          "true_peak": -2.3
         },
         "leading_silence_s": 0.0,
         "longest_silence_s": 0.0,
         "frames_analyzed": 600,
         "poster": {
-          "yavg": 57.7364,
+          "yavg": 57.7563,
           "contrast": 199.0
         },
         "first_motion_s": 0.0666667,
         "black_fraction": 0.0,
-        "longest_static_s": 2.2,
+        "longest_static_s": 2.1,
         "cuts": 4,
         "avg_shot_s": 4.02,
         "edge_density": {
           "bottom": 0.0,
-          "right": 0.25,
-          "center": 5.97
+          "right": 0.28,
+          "center": 6.32
         }
       },
       "checks": [
@@ -446,8 +452,8 @@
           "category": "platform",
           "severity": "minor",
           "passed": true,
-          "message": "2.8 MB",
-          "value": 2.8,
+          "message": "2.7 MB",
+          "value": 2.7,
           "threshold": 250.0,
           "scope": "A/vertical"
         },
@@ -466,8 +472,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-14.4 LUFS",
-          "value": -14.4,
+          "message": "-14.5 LUFS",
+          "value": -14.5,
           "threshold": -14.0,
           "scope": "A/vertical"
         },
@@ -476,8 +482,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-2.4 dBTP",
-          "value": -2.4,
+          "message": "-2.3 dBTP",
+          "value": -2.3,
           "threshold": -1.0,
           "scope": "A/vertical"
         },
@@ -486,8 +492,8 @@
           "category": "audio",
           "severity": "minor",
           "passed": true,
-          "message": "1.9 LU",
-          "value": 1.9,
+          "message": "1.8 LU",
+          "value": 1.8,
           "threshold": 12.0,
           "scope": "A/vertical"
         },
@@ -552,8 +558,8 @@
           "category": "retention",
           "severity": "major",
           "passed": true,
-          "message": "2.20s frozen",
-          "value": 2.2,
+          "message": "2.10s frozen",
+          "value": 2.1,
           "threshold": 3.0,
           "scope": "A/vertical"
         },
@@ -575,8 +581,8 @@
           "category": "platform",
           "severity": "minor",
           "passed": true,
-          "message": "ratio 0.04",
-          "value": 0.04,
+          "message": "ratio 0.05",
+          "value": 0.05,
           "threshold": 0.8,
           "scope": "A/vertical"
         },
@@ -648,22 +654,22 @@
         "duration": 20.1,
         "fps": 30.0,
         "format": "square",
-        "size_mb": 2.51,
+        "size_mb": 2.2,
         "loudness": {
-          "integrated": -14.4,
-          "lra": 1.9,
-          "true_peak": -2.4
+          "integrated": -14.5,
+          "lra": 1.8,
+          "true_peak": -2.3
         },
         "leading_silence_s": 0.0,
         "longest_silence_s": 0.0,
         "frames_analyzed": 600,
         "poster": {
-          "yavg": 73.0577,
+          "yavg": 73.0971,
           "contrast": 199.0
         },
         "first_motion_s": 0.0666667,
         "black_fraction": 0.0,
-        "longest_static_s": 2.2,
+        "longest_static_s": 2.07,
         "cuts": 4,
         "avg_shot_s": 4.02
       },
@@ -732,8 +738,8 @@
           "category": "platform",
           "severity": "minor",
           "passed": true,
-          "message": "2.5 MB",
-          "value": 2.5,
+          "message": "2.2 MB",
+          "value": 2.2,
           "threshold": 250.0,
           "scope": "A/square"
         },
@@ -752,8 +758,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-14.4 LUFS",
-          "value": -14.4,
+          "message": "-14.5 LUFS",
+          "value": -14.5,
           "threshold": -14.0,
           "scope": "A/square"
         },
@@ -762,8 +768,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-2.4 dBTP",
-          "value": -2.4,
+          "message": "-2.3 dBTP",
+          "value": -2.3,
           "threshold": -1.0,
           "scope": "A/square"
         },
@@ -772,8 +778,8 @@
           "category": "audio",
           "severity": "minor",
           "passed": true,
-          "message": "1.9 LU",
-          "value": 1.9,
+          "message": "1.8 LU",
+          "value": 1.8,
           "threshold": 12.0,
           "scope": "A/square"
         },
@@ -838,8 +844,8 @@
           "category": "retention",
           "severity": "major",
           "passed": true,
-          "message": "2.20s frozen",
-          "value": 2.2,
+          "message": "2.07s frozen",
+          "value": 2.07,
           "threshold": 3.0,
           "scope": "A/square"
         },
@@ -934,22 +940,22 @@
         "duration": 20.1,
         "fps": 30.0,
         "format": "landscape",
-        "size_mb": 3.03,
+        "size_mb": 2.89,
         "loudness": {
-          "integrated": -14.4,
-          "lra": 1.9,
-          "true_peak": -2.4
+          "integrated": -14.5,
+          "lra": 1.8,
+          "true_peak": -2.3
         },
         "leading_silence_s": 0.0,
         "longest_silence_s": 0.0,
         "frames_analyzed": 600,
         "poster": {
-          "yavg": 62.1417,
+          "yavg": 62.1822,
           "contrast": 199.0
         },
         "first_motion_s": 0.0666667,
         "black_fraction": 0.0,
-        "longest_static_s": 2.2,
+        "longest_static_s": 2.1,
         "cuts": 4,
         "avg_shot_s": 4.02
       },
@@ -1018,8 +1024,8 @@
           "category": "platform",
           "severity": "minor",
           "passed": true,
-          "message": "3.0 MB",
-          "value": 3.0,
+          "message": "2.9 MB",
+          "value": 2.9,
           "threshold": 250.0,
           "scope": "A/landscape"
         },
@@ -1038,8 +1044,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-14.4 LUFS",
-          "value": -14.4,
+          "message": "-14.5 LUFS",
+          "value": -14.5,
           "threshold": -14.0,
           "scope": "A/landscape"
         },
@@ -1048,8 +1054,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-2.4 dBTP",
-          "value": -2.4,
+          "message": "-2.3 dBTP",
+          "value": -2.3,
           "threshold": -1.0,
           "scope": "A/landscape"
         },
@@ -1058,8 +1064,8 @@
           "category": "audio",
           "severity": "minor",
           "passed": true,
-          "message": "1.9 LU",
-          "value": 1.9,
+          "message": "1.8 LU",
+          "value": 1.8,
           "threshold": 12.0,
           "scope": "A/landscape"
         },
@@ -1124,8 +1130,8 @@
           "category": "retention",
           "severity": "major",
           "passed": true,
-          "message": "2.20s frozen",
-          "value": 2.2,
+          "message": "2.10s frozen",
+          "value": 2.1,
           "threshold": 3.0,
           "scope": "A/landscape"
         },
@@ -1220,28 +1226,28 @@
         "duration": 20.1,
         "fps": 30.0,
         "format": "vertical",
-        "size_mb": 2.78,
+        "size_mb": 2.75,
         "loudness": {
-          "integrated": -14.4,
-          "lra": 1.9,
-          "true_peak": -2.4
+          "integrated": -14.5,
+          "lra": 1.8,
+          "true_peak": -2.3
         },
         "leading_silence_s": 0.0,
         "longest_silence_s": 0.0,
         "frames_analyzed": 600,
         "poster": {
-          "yavg": 51.1328,
+          "yavg": 51.1697,
           "contrast": 199.0
         },
         "first_motion_s": 0.0666667,
         "black_fraction": 0.0,
-        "longest_static_s": 2.2,
+        "longest_static_s": 2.1,
         "cuts": 4,
         "avg_shot_s": 4.02,
         "edge_density": {
           "bottom": 0.0,
-          "right": 0.2,
-          "center": 5.83
+          "right": 0.23,
+          "center": 6.17
         }
       },
       "checks": [
@@ -1329,8 +1335,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-14.4 LUFS",
-          "value": -14.4,
+          "message": "-14.5 LUFS",
+          "value": -14.5,
           "threshold": -14.0,
           "scope": "B/vertical"
         },
@@ -1339,8 +1345,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-2.4 dBTP",
-          "value": -2.4,
+          "message": "-2.3 dBTP",
+          "value": -2.3,
           "threshold": -1.0,
           "scope": "B/vertical"
         },
@@ -1349,8 +1355,8 @@
           "category": "audio",
           "severity": "minor",
           "passed": true,
-          "message": "1.9 LU",
-          "value": 1.9,
+          "message": "1.8 LU",
+          "value": 1.8,
           "threshold": 12.0,
           "scope": "B/vertical"
         },
@@ -1415,8 +1421,8 @@
           "category": "retention",
           "severity": "major",
           "passed": true,
-          "message": "2.20s frozen",
-          "value": 2.2,
+          "message": "2.10s frozen",
+          "value": 2.1,
           "threshold": 3.0,
           "scope": "B/vertical"
         },
@@ -1438,8 +1444,8 @@
           "category": "platform",
           "severity": "minor",
           "passed": true,
-          "message": "ratio 0.03",
-          "value": 0.03,
+          "message": "ratio 0.04",
+          "value": 0.04,
           "threshold": 0.8,
           "scope": "B/vertical"
         },
@@ -1511,22 +1517,22 @@
         "duration": 20.1,
         "fps": 30.0,
         "format": "square",
-        "size_mb": 2.5,
+        "size_mb": 2.19,
         "loudness": {
-          "integrated": -14.4,
-          "lra": 1.9,
-          "true_peak": -2.4
+          "integrated": -14.5,
+          "lra": 1.8,
+          "true_peak": -2.3
         },
         "leading_silence_s": 0.0,
         "longest_silence_s": 0.0,
         "frames_analyzed": 600,
         "poster": {
-          "yavg": 73.8153,
+          "yavg": 73.8587,
           "contrast": 199.0
         },
         "first_motion_s": 0.0666667,
         "black_fraction": 0.0,
-        "longest_static_s": 2.2,
+        "longest_static_s": 2.07,
         "cuts": 4,
         "avg_shot_s": 4.02
       },
@@ -1595,8 +1601,8 @@
           "category": "platform",
           "severity": "minor",
           "passed": true,
-          "message": "2.5 MB",
-          "value": 2.5,
+          "message": "2.2 MB",
+          "value": 2.2,
           "threshold": 250.0,
           "scope": "B/square"
         },
@@ -1615,8 +1621,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-14.4 LUFS",
-          "value": -14.4,
+          "message": "-14.5 LUFS",
+          "value": -14.5,
           "threshold": -14.0,
           "scope": "B/square"
         },
@@ -1625,8 +1631,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-2.4 dBTP",
-          "value": -2.4,
+          "message": "-2.3 dBTP",
+          "value": -2.3,
           "threshold": -1.0,
           "scope": "B/square"
         },
@@ -1635,8 +1641,8 @@
           "category": "audio",
           "severity": "minor",
           "passed": true,
-          "message": "1.9 LU",
-          "value": 1.9,
+          "message": "1.8 LU",
+          "value": 1.8,
           "threshold": 12.0,
           "scope": "B/square"
         },
@@ -1701,8 +1707,8 @@
           "category": "retention",
           "severity": "major",
           "passed": true,
-          "message": "2.20s frozen",
-          "value": 2.2,
+          "message": "2.07s frozen",
+          "value": 2.07,
           "threshold": 3.0,
           "scope": "B/square"
         },
@@ -1797,22 +1803,22 @@
         "duration": 20.1,
         "fps": 30.0,
         "format": "landscape",
-        "size_mb": 3.02,
+        "size_mb": 2.9,
         "loudness": {
-          "integrated": -14.4,
-          "lra": 1.9,
-          "true_peak": -2.4
+          "integrated": -14.5,
+          "lra": 1.8,
+          "true_peak": -2.3
         },
         "leading_silence_s": 0.0,
         "longest_silence_s": 0.0,
         "frames_analyzed": 600,
         "poster": {
-          "yavg": 50.9253,
-          "contrast": 194.0
+          "yavg": 50.9691,
+          "contrast": 195.0
         },
         "first_motion_s": 0.0666667,
         "black_fraction": 0.0,
-        "longest_static_s": 2.2,
+        "longest_static_s": 2.1,
         "cuts": 4,
         "avg_shot_s": 4.02
       },
@@ -1881,8 +1887,8 @@
           "category": "platform",
           "severity": "minor",
           "passed": true,
-          "message": "3.0 MB",
-          "value": 3.0,
+          "message": "2.9 MB",
+          "value": 2.9,
           "threshold": 250.0,
           "scope": "B/landscape"
         },
@@ -1901,8 +1907,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-14.4 LUFS",
-          "value": -14.4,
+          "message": "-14.5 LUFS",
+          "value": -14.5,
           "threshold": -14.0,
           "scope": "B/landscape"
         },
@@ -1911,8 +1917,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-2.4 dBTP",
-          "value": -2.4,
+          "message": "-2.3 dBTP",
+          "value": -2.3,
           "threshold": -1.0,
           "scope": "B/landscape"
         },
@@ -1921,8 +1927,8 @@
           "category": "audio",
           "severity": "minor",
           "passed": true,
-          "message": "1.9 LU",
-          "value": 1.9,
+          "message": "1.8 LU",
+          "value": 1.8,
           "threshold": 12.0,
           "scope": "B/landscape"
         },
@@ -1951,10 +1957,10 @@
           "category": "distribution",
           "severity": "major",
           "passed": true,
-          "message": "frame0 YAVG=51 contrast=194",
+          "message": "frame0 YAVG=51 contrast=195",
           "value": [
             51,
-            194
+            195
           ],
           "threshold": [
             30.0,
@@ -1987,8 +1993,8 @@
           "category": "retention",
           "severity": "major",
           "passed": true,
-          "message": "2.20s frozen",
-          "value": 2.2,
+          "message": "2.10s frozen",
+          "value": 2.1,
           "threshold": 3.0,
           "scope": "B/landscape"
         },
@@ -2083,28 +2089,28 @@
         "duration": 20.1,
         "fps": 30.0,
         "format": "vertical",
-        "size_mb": 2.78,
+        "size_mb": 2.76,
         "loudness": {
-          "integrated": -14.4,
-          "lra": 1.9,
-          "true_peak": -2.4
+          "integrated": -14.5,
+          "lra": 1.8,
+          "true_peak": -2.3
         },
         "leading_silence_s": 0.0,
         "longest_silence_s": 0.0,
         "frames_analyzed": 600,
         "poster": {
-          "yavg": 50.7811,
+          "yavg": 50.8068,
           "contrast": 199.0
         },
         "first_motion_s": 0.0666667,
         "black_fraction": 0.0,
-        "longest_static_s": 2.2,
+        "longest_static_s": 2.1,
         "cuts": 4,
         "avg_shot_s": 4.02,
         "edge_density": {
           "bottom": 0.0,
-          "right": 0.2,
-          "center": 5.94
+          "right": 0.23,
+          "center": 6.28
         }
       },
       "checks": [
@@ -2192,8 +2198,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-14.4 LUFS",
-          "value": -14.4,
+          "message": "-14.5 LUFS",
+          "value": -14.5,
           "threshold": -14.0,
           "scope": "C/vertical"
         },
@@ -2202,8 +2208,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-2.4 dBTP",
-          "value": -2.4,
+          "message": "-2.3 dBTP",
+          "value": -2.3,
           "threshold": -1.0,
           "scope": "C/vertical"
         },
@@ -2212,8 +2218,8 @@
           "category": "audio",
           "severity": "minor",
           "passed": true,
-          "message": "1.9 LU",
-          "value": 1.9,
+          "message": "1.8 LU",
+          "value": 1.8,
           "threshold": 12.0,
           "scope": "C/vertical"
         },
@@ -2278,8 +2284,8 @@
           "category": "retention",
           "severity": "major",
           "passed": true,
-          "message": "2.20s frozen",
-          "value": 2.2,
+          "message": "2.10s frozen",
+          "value": 2.1,
           "threshold": 3.0,
           "scope": "C/vertical"
         },
@@ -2301,8 +2307,8 @@
           "category": "platform",
           "severity": "minor",
           "passed": true,
-          "message": "ratio 0.03",
-          "value": 0.03,
+          "message": "ratio 0.04",
+          "value": 0.04,
           "threshold": 0.8,
           "scope": "C/vertical"
         },
@@ -2374,22 +2380,22 @@
         "duration": 20.1,
         "fps": 30.0,
         "format": "square",
-        "size_mb": 2.51,
+        "size_mb": 2.19,
         "loudness": {
-          "integrated": -14.4,
-          "lra": 1.9,
-          "true_peak": -2.4
+          "integrated": -14.5,
+          "lra": 1.8,
+          "true_peak": -2.3
         },
         "leading_silence_s": 0.0,
         "longest_silence_s": 0.0,
         "frames_analyzed": 600,
         "poster": {
-          "yavg": 73.2084,
+          "yavg": 73.2434,
           "contrast": 199.0
         },
         "first_motion_s": 0.0666667,
         "black_fraction": 0.0,
-        "longest_static_s": 2.2,
+        "longest_static_s": 2.07,
         "cuts": 4,
         "avg_shot_s": 4.02
       },
@@ -2458,8 +2464,8 @@
           "category": "platform",
           "severity": "minor",
           "passed": true,
-          "message": "2.5 MB",
-          "value": 2.5,
+          "message": "2.2 MB",
+          "value": 2.2,
           "threshold": 250.0,
           "scope": "C/square"
         },
@@ -2478,8 +2484,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-14.4 LUFS",
-          "value": -14.4,
+          "message": "-14.5 LUFS",
+          "value": -14.5,
           "threshold": -14.0,
           "scope": "C/square"
         },
@@ -2488,8 +2494,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-2.4 dBTP",
-          "value": -2.4,
+          "message": "-2.3 dBTP",
+          "value": -2.3,
           "threshold": -1.0,
           "scope": "C/square"
         },
@@ -2498,8 +2504,8 @@
           "category": "audio",
           "severity": "minor",
           "passed": true,
-          "message": "1.9 LU",
-          "value": 1.9,
+          "message": "1.8 LU",
+          "value": 1.8,
           "threshold": 12.0,
           "scope": "C/square"
         },
@@ -2564,8 +2570,8 @@
           "category": "retention",
           "severity": "major",
           "passed": true,
-          "message": "2.20s frozen",
-          "value": 2.2,
+          "message": "2.07s frozen",
+          "value": 2.07,
           "threshold": 3.0,
           "scope": "C/square"
         },
@@ -2660,22 +2666,22 @@
         "duration": 20.1,
         "fps": 30.0,
         "format": "landscape",
-        "size_mb": 3.03,
+        "size_mb": 2.9,
         "loudness": {
-          "integrated": -14.4,
-          "lra": 1.9,
-          "true_peak": -2.4
+          "integrated": -14.5,
+          "lra": 1.8,
+          "true_peak": -2.3
         },
         "leading_silence_s": 0.0,
         "longest_silence_s": 0.0,
         "frames_analyzed": 600,
         "poster": {
-          "yavg": 62.2094,
+          "yavg": 62.2483,
           "contrast": 199.0
         },
         "first_motion_s": 0.0666667,
         "black_fraction": 0.0,
-        "longest_static_s": 2.2,
+        "longest_static_s": 2.1,
         "cuts": 4,
         "avg_shot_s": 4.02
       },
@@ -2744,8 +2750,8 @@
           "category": "platform",
           "severity": "minor",
           "passed": true,
-          "message": "3.0 MB",
-          "value": 3.0,
+          "message": "2.9 MB",
+          "value": 2.9,
           "threshold": 250.0,
           "scope": "C/landscape"
         },
@@ -2764,8 +2770,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-14.4 LUFS",
-          "value": -14.4,
+          "message": "-14.5 LUFS",
+          "value": -14.5,
           "threshold": -14.0,
           "scope": "C/landscape"
         },
@@ -2774,8 +2780,8 @@
           "category": "audio",
           "severity": "major",
           "passed": true,
-          "message": "-2.4 dBTP",
-          "value": -2.4,
+          "message": "-2.3 dBTP",
+          "value": -2.3,
           "threshold": -1.0,
           "scope": "C/landscape"
         },
@@ -2784,8 +2790,8 @@
           "category": "audio",
           "severity": "minor",
           "passed": true,
-          "message": "1.9 LU",
-          "value": 1.9,
+          "message": "1.8 LU",
+          "value": 1.8,
           "threshold": 12.0,
           "scope": "C/landscape"
         },
@@ -2850,8 +2856,8 @@
           "category": "retention",
           "severity": "major",
           "passed": true,
-          "message": "2.20s frozen",
-          "value": 2.2,
+          "message": "2.10s frozen",
+          "value": 2.1,
           "threshold": 3.0,
           "scope": "C/landscape"
         },

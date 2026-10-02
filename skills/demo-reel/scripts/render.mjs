@@ -88,6 +88,7 @@ async function renderJob(job) {
   await page.goto(url);
   await page.evaluate(cfg => window.setup(cfg),
     { variant: job.v, hook: job.hook, hooks, format: job.f, width: w, height: h, fps: o.fps, plan, events });
+  await page.evaluate(() => document.fonts.ready);
   const shot = async t => {
     await page.evaluate(t => window.seek(t), t);
     return page.screenshot(o.png ? { type: "png" } : { type: "jpeg", quality: 95 });

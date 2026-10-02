@@ -30,9 +30,9 @@
 - PASS `plan.hook_grounded` (major): ok
 - PASS `plan.duration_sum` (blocker): sum=20.00s vs duration_s=20.00s
 - PASS `plan.duration_band` (major): 20.0s
-- PASS `plan.hook_scene_length` (major): scene 1 role=hook duration=2.7
+- PASS `plan.hook_scene_length` (major): scene 1 role=hook duration=3.0
 - PASS `plan.first_event` (blocker): first event after t=0 at 0.15s
-- PASS `plan.pattern_interrupts` (major): longest gap 0.85s
+- PASS `plan.pattern_interrupts` (major): longest gap 0.90s
 - PASS `plan.reading_time` (major): ok
 - PASS `plan.text_density` (minor): 1.80 words/s
 - PASS `plan.numbers_backed` (blocker): ok
@@ -70,19 +70,19 @@
 - PASS `media.fps`: avg=30.000 r=30.000
 - PASS `media.duration`: 20.10s (plan 20.0)
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
-- PASS `media.file_size`: 2.8 MB
+- PASS `media.file_size`: 2.7 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.4 LUFS
-- PASS `audio.true_peak`: -2.4 dBTP
-- PASS `audio.lra`: 1.9 LU
+- PASS `audio.loudness`: -14.5 LUFS
+- PASS `audio.true_peak`: -2.3 dBTP
+- PASS `audio.lra`: 1.8 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=58 contrast=199
 - PASS `visual.first_motion`: first motion at 0.0666667s
 - PASS `visual.black_frames`: 0 black frames (0.0%), 0 in hook
-- PASS `visual.static_stretch`: 2.20s frozen
+- PASS `visual.static_stretch`: 2.10s frozen
 - PASS `visual.shot_length`: 4 cuts, avg shot 4.02s
-- PASS `visual.ui_clutter`: ratio 0.04
+- PASS `visual.ui_clutter`: ratio 0.05
 - PASS `captions.present`: 9 cues
 - PASS `captions.timing`: ok
 - PASS `captions.readability`: ok
@@ -94,17 +94,17 @@
 - PASS `media.fps`: avg=30.000 r=30.000
 - PASS `media.duration`: 20.10s (plan 20.0)
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
-- PASS `media.file_size`: 2.5 MB
+- PASS `media.file_size`: 2.2 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.4 LUFS
-- PASS `audio.true_peak`: -2.4 dBTP
-- PASS `audio.lra`: 1.9 LU
+- PASS `audio.loudness`: -14.5 LUFS
+- PASS `audio.true_peak`: -2.3 dBTP
+- PASS `audio.lra`: 1.8 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=73 contrast=199
 - PASS `visual.first_motion`: first motion at 0.0666667s
 - PASS `visual.black_frames`: 0 black frames (0.0%), 0 in hook
-- PASS `visual.static_stretch`: 2.20s frozen
+- PASS `visual.static_stretch`: 2.07s frozen
 - PASS `visual.shot_length`: 4 cuts, avg shot 4.02s
 - PASS `captions.present`: 9 cues
 - PASS `captions.timing`: ok
@@ -117,17 +117,17 @@
 - PASS `media.fps`: avg=30.000 r=30.000
 - PASS `media.duration`: 20.10s (plan 20.0)
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
-- PASS `media.file_size`: 3.0 MB
+- PASS `media.file_size`: 2.9 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.4 LUFS
-- PASS `audio.true_peak`: -2.4 dBTP
-- PASS `audio.lra`: 1.9 LU
+- PASS `audio.loudness`: -14.5 LUFS
+- PASS `audio.true_peak`: -2.3 dBTP
+- PASS `audio.lra`: 1.8 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=62 contrast=199
 - PASS `visual.first_motion`: first motion at 0.0666667s
 - PASS `visual.black_frames`: 0 black frames (0.0%), 0 in hook
-- PASS `visual.static_stretch`: 2.20s frozen
+- PASS `visual.static_stretch`: 2.10s frozen
 - PASS `visual.shot_length`: 4 cuts, avg shot 4.02s
 - PASS `captions.present`: 9 cues
 - PASS `captions.timing`: ok
@@ -142,17 +142,17 @@
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
 - PASS `media.file_size`: 2.8 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.4 LUFS
-- PASS `audio.true_peak`: -2.4 dBTP
-- PASS `audio.lra`: 1.9 LU
+- PASS `audio.loudness`: -14.5 LUFS
+- PASS `audio.true_peak`: -2.3 dBTP
+- PASS `audio.lra`: 1.8 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=51 contrast=199
 - PASS `visual.first_motion`: first motion at 0.0666667s
 - PASS `visual.black_frames`: 0 black frames (0.0%), 0 in hook
-- PASS `visual.static_stretch`: 2.20s frozen
+- PASS `visual.static_stretch`: 2.10s frozen
 - PASS `visual.shot_length`: 4 cuts, avg shot 4.02s
-- PASS `visual.ui_clutter`: ratio 0.03
+- PASS `visual.ui_clutter`: ratio 0.04
 - PASS `captions.present`: 9 cues
 - PASS `captions.timing`: ok
 - PASS `captions.readability`: ok
@@ -164,17 +164,17 @@
 - PASS `media.fps`: avg=30.000 r=30.000
 - PASS `media.duration`: 20.10s (plan 20.0)
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
-- PASS `media.file_size`: 2.5 MB
+- PASS `media.file_size`: 2.2 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.4 LUFS
-- PASS `audio.true_peak`: -2.4 dBTP
-- PASS `audio.lra`: 1.9 LU
+- PASS `audio.loudness`: -14.5 LUFS
+- PASS `audio.true_peak`: -2.3 dBTP
+- PASS `audio.lra`: 1.8 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=74 contrast=199
 - PASS `visual.first_motion`: first motion at 0.0666667s
 - PASS `visual.black_frames`: 0 black frames (0.0%), 0 in hook
-- PASS `visual.static_stretch`: 2.20s frozen
+- PASS `visual.static_stretch`: 2.07s frozen
 - PASS `visual.shot_length`: 4 cuts, avg shot 4.02s
 - PASS `captions.present`: 9 cues
 - PASS `captions.timing`: ok
@@ -187,17 +187,17 @@
 - PASS `media.fps`: avg=30.000 r=30.000
 - PASS `media.duration`: 20.10s (plan 20.0)
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
-- PASS `media.file_size`: 3.0 MB
+- PASS `media.file_size`: 2.9 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.4 LUFS
-- PASS `audio.true_peak`: -2.4 dBTP
-- PASS `audio.lra`: 1.9 LU
+- PASS `audio.loudness`: -14.5 LUFS
+- PASS `audio.true_peak`: -2.3 dBTP
+- PASS `audio.lra`: 1.8 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
-- PASS `visual.poster`: frame0 YAVG=51 contrast=194
+- PASS `visual.poster`: frame0 YAVG=51 contrast=195
 - PASS `visual.first_motion`: first motion at 0.0666667s
 - PASS `visual.black_frames`: 0 black frames (0.0%), 0 in hook
-- PASS `visual.static_stretch`: 2.20s frozen
+- PASS `visual.static_stretch`: 2.10s frozen
 - PASS `visual.shot_length`: 4 cuts, avg shot 4.02s
 - PASS `captions.present`: 9 cues
 - PASS `captions.timing`: ok
@@ -212,17 +212,17 @@
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
 - PASS `media.file_size`: 2.8 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.4 LUFS
-- PASS `audio.true_peak`: -2.4 dBTP
-- PASS `audio.lra`: 1.9 LU
+- PASS `audio.loudness`: -14.5 LUFS
+- PASS `audio.true_peak`: -2.3 dBTP
+- PASS `audio.lra`: 1.8 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=51 contrast=199
 - PASS `visual.first_motion`: first motion at 0.0666667s
 - PASS `visual.black_frames`: 0 black frames (0.0%), 0 in hook
-- PASS `visual.static_stretch`: 2.20s frozen
+- PASS `visual.static_stretch`: 2.10s frozen
 - PASS `visual.shot_length`: 4 cuts, avg shot 4.02s
-- PASS `visual.ui_clutter`: ratio 0.03
+- PASS `visual.ui_clutter`: ratio 0.04
 - PASS `captions.present`: 9 cues
 - PASS `captions.timing`: ok
 - PASS `captions.readability`: ok
@@ -234,17 +234,17 @@
 - PASS `media.fps`: avg=30.000 r=30.000
 - PASS `media.duration`: 20.10s (plan 20.0)
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
-- PASS `media.file_size`: 2.5 MB
+- PASS `media.file_size`: 2.2 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.4 LUFS
-- PASS `audio.true_peak`: -2.4 dBTP
-- PASS `audio.lra`: 1.9 LU
+- PASS `audio.loudness`: -14.5 LUFS
+- PASS `audio.true_peak`: -2.3 dBTP
+- PASS `audio.lra`: 1.8 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=73 contrast=199
 - PASS `visual.first_motion`: first motion at 0.0666667s
 - PASS `visual.black_frames`: 0 black frames (0.0%), 0 in hook
-- PASS `visual.static_stretch`: 2.20s frozen
+- PASS `visual.static_stretch`: 2.07s frozen
 - PASS `visual.shot_length`: 4 cuts, avg shot 4.02s
 - PASS `captions.present`: 9 cues
 - PASS `captions.timing`: ok
@@ -257,17 +257,17 @@
 - PASS `media.fps`: avg=30.000 r=30.000
 - PASS `media.duration`: 20.10s (plan 20.0)
 - PASS `media.faststart`: atoms=['ftyp', 'moov', 'free', 'mdat']
-- PASS `media.file_size`: 3.0 MB
+- PASS `media.file_size`: 2.9 MB
 - PASS `media.audio_stream`: 2ch @ 48000 Hz
-- PASS `audio.loudness`: -14.4 LUFS
-- PASS `audio.true_peak`: -2.4 dBTP
-- PASS `audio.lra`: 1.9 LU
+- PASS `audio.loudness`: -14.5 LUFS
+- PASS `audio.true_peak`: -2.3 dBTP
+- PASS `audio.lra`: 1.8 LU
 - PASS `audio.leading_silence`: 0.00s
 - PASS `audio.dead_air`: longest silence 0.00s
 - PASS `visual.poster`: frame0 YAVG=62 contrast=199
 - PASS `visual.first_motion`: first motion at 0.0666667s
 - PASS `visual.black_frames`: 0 black frames (0.0%), 0 in hook
-- PASS `visual.static_stretch`: 2.20s frozen
+- PASS `visual.static_stretch`: 2.10s frozen
 - PASS `visual.shot_length`: 4 cuts, avg shot 4.02s
 - PASS `captions.present`: 9 cues
 - PASS `captions.timing`: ok

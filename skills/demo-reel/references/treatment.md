@@ -63,6 +63,8 @@ The first render is a draft. Before the full render, and again after it, run at 
 5. Is anything **generic**? Could this frame belong to another product's reel?
 6. Does the motif visibly **change role** at each cut and hand off cleanly?
 7. Would **frame 0** earn a tap on its own? Does the last frame loop back to it?
+8. Does any frame use an **error, warning, or red banner** as proof, even an intended one (a fail-closed retry, a blocked input)? In a feed it reads as the product breaking. Show the safeguard holding instead: the state that stayed correct, with a calm label for the condition (for example, "network: offline").
+9. Do numbers **agree across surfaces**? A CLI that says 67 next to a GUI that says 66 makes viewers doubt both.
 
 Example of a good revision note, modeled on pdoom's: "R2: removed the always-on stats bar; the 3× number now ticks inside the build log and stamps the output card on the downbeat."
 
