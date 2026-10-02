@@ -75,6 +75,11 @@ Made by `/demo-reel` for 12 of this month's trending AI repositories on GitHub. 
 
 <sub>Independent demos made with demo-reel; not affiliated with or endorsed by these projects. Kits (plan, captions, poster, QA report) live in <a href="docs/showcase/">docs/showcase/</a>.</sub>
 
+**Feature walkthrough:** [RigSpark signed catalog updates](docs/showcase/rigspark-catalog-update/reel-A-landscape.mp4)
+traces one verified revision through the CLI and GUI, including fail-closed recovery.
+[Preview](docs/showcase/rigspark-catalog-update/preview.gif) ·
+[QA report: VRS 100 across 9 renders](docs/showcase/rigspark-catalog-update/qa-report.md)
+
 ## Install
 
 ```sh
