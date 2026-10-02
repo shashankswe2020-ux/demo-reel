@@ -7,12 +7,14 @@ from pathlib import Path
 from typing import Any
 
 from . import captions, experiment, specs
+from .beats import analyze_audio
 from .checks import CATALOG, Check, make, score
 from .ffmpeg import ToolError
 from .finish import finish
 from .hotspots import hotspots
 from .media_qa import analyze
 from .plan_lint import lint, load, variant_cues
+from .sheet import contact_sheet
 
 
 def _print_checks(checks: list[Check]) -> None:
@@ -35,6 +37,12 @@ def cmd_lint(ns: argparse.Namespace) -> int:
     _print_checks(checks)
     if info.get("hook_scores"):
         print("\nHook leaderboard:", ", ".join(f"{k}={v}" for k, v in info["hook_scores"].items()))
+    if grid := info.get("beat_grid"):
+        off = grid["off_beat"]
+        print(f"\nBeat grid ({grid['bpm']} BPM, offset {grid['offset_s']}s): "
+              + ("every scene cut lands on a beat" if not off else "off-beat cuts: " + "; ".join(off)))
+    if "treatment" in info:
+        print("\nTreatment:", "; ".join(info["treatment"]) or "ok")
     s = score(checks)
     print(f"\nplan checks: {s['passed']} passed, {s['failed']} failed; blockers: {s['blockers'] or 'none'}")
     return 0 if not s["blockers"] and not s["failed"] else 2
@@ -71,6 +79,27 @@ def cmd_captions(ns: argparse.Namespace) -> int:
 
 def cmd_hotspots(ns: argparse.Namespace) -> int:
     print(json.dumps(hotspots(Path(ns.video), ns.window, ns.top, ns.min_gap), indent=2))
+    return 0
+
+
+def cmd_beats(ns: argparse.Namespace) -> int:
+    events = analyze_audio(Path(ns.audio), ns.bpm)
+    if not ns.out:
+        print(json.dumps(events))
+        return 0
+    Path(ns.out).write_text(json.dumps(events), encoding="utf-8")
+    print(json.dumps({"out": ns.out, "bpm": events["bpm"], "offset_s": events["offset_s"],
+                      "beats": len(events["beats"]), "downbeats": events["downbeats"][:4],
+                      "onsets": {k: len(v) for k, v in events["onsets"].items()},
+                      "plan_music": {"bpm": events["bpm"], "offset_s": events["offset_s"]}}, indent=2))
+    return 0
+
+
+def cmd_sheet(ns: argparse.Namespace) -> int:
+    out = Path(ns.out) if ns.out else Path(ns.video).with_name(Path(ns.video).stem + ("-cuts" if ns.cuts else "-sheet")
+                                                                + ".png")
+    print(json.dumps(contact_sheet(Path(ns.video), out, cuts=ns.cuts, n=ns.n, cols=ns.cols, width=ns.width),
+                     indent=2))
     return 0
 
 
@@ -134,8 +163,8 @@ def cmd_check(ns: argparse.Namespace) -> int:
                             "measured": measured, "checks": [c.to_dict() for c in media_checks]})
     plan_score = score(plan_checks)
     report = {
-        "plan": {"score": plan_score, "hook_scores": info.get("hook_scores"),
-                 "checks": [c.to_dict() for c in plan_checks]},
+        "plan": {"score": plan_score, "hook_scores": info.get("hook_scores"), "beat_grid": info.get("beat_grid"),
+                 "treatment": info.get("treatment"), "checks": [c.to_dict() for c in plan_checks]},
         "renders": results,
         "min_vrs": min((r["score"]["vrs"] for r in results), default=0.0),
         "shippable": bool(results) and all(r["score"]["shippable"] for r in results),
@@ -227,6 +256,21 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--top", type=int, default=3)
     s.add_argument("--min-gap", type=float, default=5.0)
     s.set_defaults(fn=cmd_hotspots)
+
+    s = sub.add_parser("beats", help="beat grid, downbeats, band onsets, and envelopes of a soundtrack")
+    s.add_argument("audio")
+    s.add_argument("--bpm", type=float, help="known tempo (e.g. your synth's); only the phase is estimated")
+    s.add_argument("--out", help="write audio-events.json here (default: print it)")
+    s.set_defaults(fn=cmd_beats)
+
+    s = sub.add_parser("sheet", help="contact sheet of a render: evenly spaced frames, or both sides of every cut")
+    s.add_argument("video")
+    s.add_argument("--cuts", action="store_true", help="tile the frame before and after each detected cut")
+    s.add_argument("--n", type=int, default=12, help="evenly spaced frames when not using --cuts")
+    s.add_argument("--cols", type=int, default=4)
+    s.add_argument("--width", type=int, default=360, help="tile width in px")
+    s.add_argument("--out", help="PNG path (default: next to the video)")
+    s.set_defaults(fn=cmd_sheet)
 
     s = sub.add_parser("check", help="full gate run: plan + every variant x format render")
     s.add_argument("plan")

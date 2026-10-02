@@ -4,7 +4,7 @@ Build with whatever renderer the machine has. The toolkit only cares about the r
 
 ## Renderer requirements
 
-1. **Deterministic.** Every frame is a pure function of `t`. No wall-clock animation, no `Math.random()` without a seed. Wait for fonts, images, and video to load before capturing each frame.
+1. **Deterministic.** Every frame is a pure function of `t`. No wall-clock animation, no `Math.random()` without a seed. Wait for fonts, images, and video to load before capturing each frame. Per-frame flicker or jitter keys off the frame index (`Math.floor(t * fps + 1e-6)`), held constant across that frame, never off continuous `t`.
 2. **Parameterized.** One composition takes `variant` (the hook text for the `hook` slot) and `format` (`vertical` 1080×1920, `square` 1080×1080, `landscape` 1920×1080, or `portrait` 1080×1350).
 3. **Native per format.** Re-lay out for each aspect ratio: stack in vertical, sit side by side in landscape. `reel.py finish --fit blur|crop` is a fallback for footage you can't re-lay out, such as recordings.
 4. **Reuse the real thing.** Import or render the project's actual components, CSS, fonts, images, and demo clips. Rebuild only what you can't reuse.
@@ -14,10 +14,48 @@ Build with whatever renderer the machine has. The toolkit only cares about the r
 
 | Available | Approach |
 |---|---|
+| Node + Playwright (default) | The bundled runtime and renderer, described next |
 | Hyperframes (`npx hyperframes doctor` ok) | Compose in Hyperframes, and also run `npx hyperframes check` (WCAG contrast plus layout overflow) before rendering |
 | Remotion in the project | `<Composition>` per format, `inputProps={{variant}}` |
-| Node + Playwright | HTML page exposing `window.seek(t)`. Capture `page.screenshot()` per frame at 30 fps and pipe PNGs to `ffmpeg -f image2pipe -framerate 30 -i - -c:v libx264 -pix_fmt yuv420p` |
-| Python only | Pillow frames piped to FFmpeg the same way |
+| Python only | Pillow frames piped to `ffmpeg -f image2pipe -framerate 30 -i - -c:v libx264 -pix_fmt yuv420p` |
+
+### Bundled runtime and renderer
+
+```sh
+mkdir -p reel-output/work/composition && cd reel-output/work
+cp <skill-dir>/scripts/runtime/reel-runtime.js composition/
+cp <skill-dir>/scripts/runtime/template.html composition/index.html     # starting point
+npm i -D playwright && npx playwright install chromium
+python3 <skill-dir>/scripts/reel.py beats audio.wav --out audio-events.json
+```
+
+[`reel-runtime.js`](../scripts/runtime/reel-runtime.js) is a dependency-free timeline. The composition calls `Reel.define({ fonts, setup(cfg, R), render(f, R) })`, and `render` receives a frame `f` for time `f.t`:
+- `scene`, `lt` (local time), `p` (scene progress)
+- `beat`, `beatPhase`, `bar`, `barPhase` from the analyzed beat grid
+- `a.kick|snare|hat` (decaying pulses from real onsets) and `a.rms|low|mid|high` (envelopes)
+- `frame` (for per-frame flicker)
+- `cfg` (`variant`, `hook`, `hooks`, `format`, `plan`, `events`)
+
+`R` adds eases (`outExpo`, `inOutCubic`, `outBack`, and others), `prog`, `keys` (keyframes), `spring`, a seeded `mulberry32`/`hash`, `fit` (shrink-to-fit text), and `audio.timeOfBeat`/`beatBefore`/`nearestBeat`/`hit`/`env`. Size everything with `var(--u)` (1% of the short side), never `vw`/`vh`. No CSS animations or transitions: style is set from `f` alone. Measure layout with `offsetTop`/`offsetLeft`/`clientWidth`, not `getBoundingClientRect()`, because the preview scales the page to fit the window.
+
+**Preview:** serve `reel-output/` over HTTP (`python3 -m http.server`) and open `work/composition/index.html`. Keys: space play/pause with the soundtrack, ←/→ ±1 s (shift ±5), `,`/`.` ±1 frame, `[`/`]` previous/next scene, `l` loop the current scene, `v` next variant, `f` next format, `h` hide the HUD. `?t=6.2&variant=B&format=square` jumps straight to a moment.
+
+**Render** with [`render.mjs`](../scripts/render.mjs), run from `reel-output/work`:
+
+```sh
+node <skill-dir>/scripts/render.mjs --composition composition/index.html --plan ../reel-plan.json \
+  --events audio-events.json --audio audio.wav --stills auto            # review stills first
+node <skill-dir>/scripts/render.mjs --composition composition/index.html --plan ../reel-plan.json \
+  --events audio-events.json --audio audio.wav --samples 8 --jobs 3     # all variant × format masters
+```
+
+`--samples N` motion-blurs: every output frame averages N sub-frames spread over `--shutter` (default 0.35 of a frame), centred on the frame, and **never across a scene cut**, so cuts stay hard. Frames whose shutter edges render identically are treated as still and captured once. Other flags:
+- `--png` for lossless capture;
+- `--only A-vertical,B-square` to pick jobs; `--formats vertical` to pick formats;
+- `--from`/`--to` to render a segment;
+- `--stills 0,1.4` for explicit still times.
+
+Page errors from the composition are printed after each job. Read them.
 
 Render masters to `work/<variant>-<format>.mp4` with audio muxed. Then:
 
@@ -26,12 +64,22 @@ reel.py finish work/A-vertical.mp4 --format vertical --poster-t 1.4 --out reel-o
 ```
 
 `finish` does four things:
-1. Frames the video to the exact resolution at 30 fps CFR, yuv420p.
+1. Frames the video to the exact resolution at 30 fps CFR, limited-range BT.709 yuv420p with color tags. Untagged BT.601, which is FFmpeg's default for RGB sources, shifts brand colors in players that assume BT.709 for HD.
 2. Runs two-pass EBU R128 `loudnorm` to -14 LUFS / -1.5 dBTP target and outputs 48 kHz stereo AAC.
 3. Replaces **only frame 0** with the poster, so duration and sync stay the same.
 4. Applies `+faststart`.
 
 Choose `--poster-t` at the strongest **settled** hook frame. For variants, it's usually the moment the hook line has fully landed.
+
+## Craft from code-rendered music videos
+
+Techniques adapted from [pdoom-video](https://github.com/mexicat/pdoom-video), a code-rendered music video where every frame is a function of song time:
+
+- **Cut on the beat.** Make or pick the soundtrack first. Run `reel.py beats audio.wav --out work/audio-events.json` and copy its `plan_music` into `plan.music`. Then place scene starts on beats (downbeats for the big ones). Anchor each cut to the content it introduces: the last beat at or before the text arrives, never after it. `reel.py lint` lists the off-beat cuts. For a synth track whose tempo you set, pass `--bpm` so only the phase is estimated.
+- **Motion blur for fast moves.** Whips, slams, and fast zooms rendered as single instants look stepped at 30 fps. `render.mjs --samples 8` averages sub-frames over a short shutter (use 4 for drafts). It needs a fully deterministic composition, and it never spreads the shutter across a scene boundary, so `visual.shot_length` still counts every cut.
+- **A scrubbable preview.** The runtime's preview mode (`?t=` plus keys) is much faster to iterate on than re-rendering.
+- **Render in segments.** `render.mjs --from 0 --to 10` and `--from 10 --to 20` split a heavy render across machines or processes. Join the parts with `ffmpeg -f concat -c copy`; every segment uses the same encoder settings.
+- **Lossless frames when color matters.** Capture PNG (or raw RGBA) instead of JPEG for brand-critical flat colors and gradients. `finish` converts whatever arrives to tagged BT.709, but it can't recover banding or chroma lost to JPEG.
 
 ## Motion and retention
 
@@ -39,6 +87,7 @@ Choose `--poster-t` at the strongest **settled** hook frame. For variants, it's 
 - Keep something moving during reading holds (a slow push-in, a cursor idle wiggle, a waveform) so no stretch is frozen for more than 3 s.
 - Entrances and transitions take 0.2–0.5 s. Then the text holds.
 - Don't use plain crossfades between two busy layouts. Stagger them (old content out, then new content in) or dip through the background.
+- A hard cut between two dark plates may not register as a cut, which shortens the shot count `visual.shot_length` measures. `reel.py sheet --cuts` shows which boundaries count. Flash the signal color on the cut and decay to the new plate in about 0.15 s. The self-demo's terminal "powers on" this way.
 - Show the product **doing** its job: type the command, click the button, show the result.
 - For `loop.strategy = seamless`, the last frame should visually match the opening beat, which is checked by SSIM ≥ 0.5 against frame 1.
 
@@ -58,7 +107,7 @@ Choose `--poster-t` at the strongest **settled** hook frame. For variants, it's 
 
 ## Stills review (before the full render)
 
-Export one still per scene plus one from the middle of each transition, for each format. Check:
+Export one still per scene plus one from the middle of each transition, for each format. After rendering, `reel.py sheet <master> --cuts` tiles the frame before and after every detected cut, so you can review every boundary in one image. Check:
 - Text is inside the safe zone and not covered by the right-rail buttons or the bottom caption area.
 - There's no overflow or collision, and contrast holds even on busy UI.
 - Frame 0 (the poster) would earn a tap on its own.

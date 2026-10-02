@@ -16,8 +16,11 @@ LOUDNORM_TP = -1.5  # headroom so AAC encoding stays under the -1 dBTP gate
 PEAK_LIMITER = "alimiter=limit=0.75:attack=1:release=50:level=disabled"
 # Sub-30 Hz energy is inaudible on phones but makes AAC overshoot true peak by up to 4 dB after limiting.
 SUBSONIC_CUT = "highpass=f=30:poles=2"
-# Browser/PNG/JPEG sources arrive full-range; platforms expect limited-range yuv420p.
-TV_RANGE = "scale=out_range=tv,format=yuv420p"
+# Browser/PNG/JPEG sources arrive full-range BT.601; players decode untagged HD as BT.709, which shifts brand
+# colors. Convert (input matrix from frame tags, else 601) to limited-range BT.709 and tag it.
+TV_RANGE = ("scale=out_color_matrix=bt709:out_range=tv:flags=bicubic+accurate_rnd+full_chroma_int,format=yuv420p,"
+            "setparams=range=tv:color_primaries=bt709:color_trc=bt709:colorspace=bt709")
+COLOR_TAGS = ["-color_range", "tv", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709"]
 
 
 def _video_graph(fmt: str, fit: str, fps: int, focus: tuple[float, float]) -> str:
@@ -70,7 +73,7 @@ def finish(src_path: Path, out_path: Path, fmt: str, *, poster_t: float | None =
             args += ["-map", "1:a:0", "-shortest"]
         if duration:
             args += ["-t", f"{duration:.3f}"]
-        args += ["-c:v", "libx264", "-preset", "slow", "-crf", "18", "-profile:v", "high", "-color_range", "tv",
+        args += ["-c:v", "libx264", "-preset", "slow", "-crf", "18", "-profile:v", "high", *COLOR_TAGS,
                  "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2",
                  "-movflags", "+faststart", str(staged)]
         run(args)
@@ -79,12 +82,16 @@ def finish(src_path: Path, out_path: Path, fmt: str, *, poster_t: float | None =
             shutil.move(staged, out_path)
             return out_path
 
-        poster = out_path.with_suffix(".jpg")
+        # Go through RGB so the BT.709 frame lands in the JPEG (which viewers decode as BT.601) unshifted.
+        still = Path(tmp) / "poster.png"
         run([tool("ffmpeg"), "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{poster_t:.3f}",
-             "-i", str(staged), "-frames:v", "1", "-q:v", "2", str(poster)])
+             "-i", str(staged), "-frames:v", "1", "-sws_flags", "bicubic+accurate_rnd+full_chroma_int",
+             "-pix_fmt", "rgb24", str(still)])
+        poster = out_path.with_suffix(".jpg")
+        run([tool("ffmpeg"), "-hide_banner", "-loglevel", "error", "-y", "-i", str(still), "-q:v", "2", str(poster)])
         # Replace only frame 0 so duration, frame count, and audio sync are untouched.
-        run([tool("ffmpeg"), "-hide_banner", "-loglevel", "error", "-y", "-i", str(staged), "-i", str(poster),
-             "-filter_complex", f"[0:v][1:v]overlay=0:0:enable='eq(n,0)',{TV_RANGE}[v]",
+        run([tool("ffmpeg"), "-hide_banner", "-loglevel", "error", "-y", "-i", str(staged), "-i", str(still),
+             "-filter_complex", f"[1:v]{TV_RANGE}[p];[0:v][p]overlay=0:0:enable='eq(n,0)',{TV_RANGE}[v]",
              "-map", "[v]", "-map", "0:a?", "-c:v", "libx264", "-preset", "slow", "-crf", "18",
-             "-profile:v", "high", "-color_range", "tv", "-c:a", "copy", "-movflags", "+faststart", str(out_path)])
+             "-profile:v", "high", *COLOR_TAGS, "-c:a", "copy", "-movflags", "+faststart", str(out_path)])
     return out_path

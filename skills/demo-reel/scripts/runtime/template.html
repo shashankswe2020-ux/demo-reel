@@ -1,0 +1,67 @@
+<!doctype html>
+<!-- demo-reel starter composition. Copy this file and reel-runtime.js into reel-output/work/composition/.
+     Size everything with var(--u) (1% of the short side), never vw/vh, so preview and render match.
+     Every visual is a function of f.t: no timers, no CSS animations/transitions, no Math.random(). -->
+<html>
+<head>
+<meta charset="utf-8">
+<script src="reel-runtime.js"></script>
+<style>
+  /* Treatment palette: 2-4 neutrals + one signal color (see references/treatment.md). */
+  :root { --ink: #111214; --panel: #1C1D21; --bone: #EEE9DF; --signal: #FF4D12; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: var(--w); height: var(--h); overflow: hidden; background: var(--ink); color: var(--bone); }
+  /* Type voices: display (big, tight) and machine (mono). */
+  .display { font: 800 calc(9 * var(--u))/0.98 "Helvetica Neue", Arial, sans-serif; letter-spacing: -0.03em; }
+  .mono { font: 500 calc(3 * var(--u))/1.3 Menlo, monospace; }
+  /* Title-safe stage per format (vertical keeps out of the TikTok/Reels UI zones). */
+  .stage { position: absolute; }
+  .vertical .stage { left: 6%; right: 11%; top: 12%; bottom: 22%; }
+  .square .stage, .landscape .stage, .portrait .stage { inset: 7%; }
+  .scene { position: absolute; inset: 0; visibility: hidden; }
+  /* The through-line motif: one signal-colored line that changes role at every cut. */
+  #motif { position: absolute; height: calc(0.8 * var(--u)); background: var(--signal); transform-origin: 0 50%; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <section class="scene" data-scene="s1"><div id="hook" class="display"></div></section>
+  <!-- one <section data-scene="…"> per plan scene id -->
+</div>
+<div id="motif"></div>
+<script>
+const $ = s => document.querySelector(s);
+
+Reel.define({
+  fonts: ['800 10px "Helvetica Neue"', '500 10px Menlo'],
+
+  setup(cfg, R) {
+    $("#hook").textContent = cfg.hook;
+  },
+
+  render(f, R) {
+    const { ease, prog, keys, audio } = R;
+    document.querySelectorAll(".scene").forEach(el => {
+      el.style.visibility = el.dataset.scene === f.scene ? "visible" : "hidden";
+    });
+
+    // Something moves before 0.5 s; arrivals snap onto the beat with a strong ease, then hold.
+    if (f.scene === "s1") {
+      const land = audio.timeOfBeat(1);
+      const k = prog(f.t, land - 0.25, 0.25, ease.outExpo);
+      $("#hook").style.transform = `translateY(calc(${(1 - k) * 8} * var(--u))) scale(${1 + 0.04 * f.a.kick})`;
+      $("#hook").style.opacity = Math.max(0.15, k);
+    }
+
+    // The motif underlines the hook, then travels: keyframes in absolute time, eased into downbeats.
+    const x = keys(f.t, [[0, 0.06], [2.8, 0.06], [3.1, 0.5, ease.outExpo]]);
+    const len = keys(f.t, [[0, 0], [0.4, 0.8, ease.outExpo], [2.8, 0.8], [3.1, 0.1, ease.outExpo]]);
+    Object.assign($("#motif").style, { left: x * 100 + "%", top: "62%", width: len * 100 + "%" });
+
+    // Per-frame flicker keys off the frame index, constant across a motion-blur shutter.
+    $("#motif").style.opacity = 0.85 + 0.15 * R.hash(f.frame);
+  },
+});
+</script>
+</body>
+</html>

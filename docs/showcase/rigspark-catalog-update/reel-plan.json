@@ -1,0 +1,492 @@
+{
+  "schema": "demo-reel/plan@1",
+  "project": {
+    "name": "RigSpark",
+    "repo": "shashankswe2020-ux/rigspark",
+    "root": "/Users/shashankmishra/coding/local-llmup-open-issue-triage",
+    "one_liner": "RigSpark updates signed local-LLM advice catalogs without replacing the application.",
+    "audience": "Local-LLM users who want current recommendations while normal advice stays offline",
+    "cta": {
+      "text": "rigspark catalog --update",
+      "target": "rigspark catalog --update"
+    },
+    "lexicon": [
+      "RigSpark",
+      "catalog",
+      "revision",
+      "digest",
+      "Models view",
+      "verified snapshot",
+      "offline recommendations",
+      "Update catalog"
+    ]
+  },
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Catalogs update independently of application releases",
+      "evidence": {
+        "file": "README.md",
+        "quote": "RigSpark can activate a signed model catalog independently of an application release."
+      }
+    },
+    {
+      "id": "c2",
+      "text": "Recommendations and normal startup remain offline",
+      "evidence": {
+        "file": "README.md",
+        "quote": "Updating is always explicit; recommendations and normal startup remain offline."
+      }
+    },
+    {
+      "id": "c3",
+      "text": "Invalid updates leave the current snapshot unchanged",
+      "evidence": {
+        "file": "README.md",
+        "quote": "Invalid signatures, incompatible catalogs, and network failures leave the current snapshot unchanged."
+      }
+    },
+    {
+      "id": "c4",
+      "text": "Updates verify a signature before atomic activation",
+      "evidence": {
+        "file": "docs/references/guide.md",
+        "quote": "Updates verify an Ed25519 signature and model schema before atomic activation."
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "h1",
+      "type": "demo_first",
+      "text": "Watch RigSpark activate a signed catalog",
+      "visual": "revision flips from bundled to 1 in a real terminal",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 4,
+        "visual_proof": 5,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h2",
+      "type": "question",
+      "text": "Can model advice update without an app release?",
+      "visual": "application box stays fixed while catalog revision advances",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 5,
+        "stakes": 4,
+        "visual_proof": 4,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h3",
+      "type": "before_after",
+      "text": "Bundled catalog in. Signed revision out.",
+      "visual": "bundled and revision 1 terminal outputs snap side by side",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 3,
+        "visual_proof": 5,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h4",
+      "type": "negative",
+      "text": "Stop waiting for app releases",
+      "visual": "release calendar folds into an update command",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 3,
+        "stakes": 4,
+        "visual_proof": 3,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h5",
+      "type": "pain_point",
+      "text": "Your local model catalog gets stale",
+      "visual": "old revision dims before verified revision arrives",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 4,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h6",
+      "type": "bold_claim",
+      "text": "Model advice updates. RigSpark stays put.",
+      "visual": "catalog layer moves while app frame remains fixed",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 4,
+        "visual_proof": 5,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h7",
+      "type": "teaser",
+      "text": "Follow this catalog revision into Models",
+      "visual": "revision token travels from terminal to GUI",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 5,
+        "stakes": 3,
+        "visual_proof": 5,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h8",
+      "type": "contrarian",
+      "text": "Offline advice can still stay current",
+      "visual": "offline badge locks after explicit update",
+      "scores": {
+        "curiosity": 5,
+        "specificity": 4,
+        "stakes": 4,
+        "visual_proof": 4,
+        "pattern_break": 4
+      }
+    },
+    {
+      "id": "h9",
+      "type": "challenge",
+      "text": "Trace one signed revision across RigSpark",
+      "visual": "revision 1 highlights in CLI and GUI",
+      "scores": {
+        "curiosity": 4,
+        "specificity": 5,
+        "stakes": 3,
+        "visual_proof": 5,
+        "pattern_break": 3
+      }
+    },
+    {
+      "id": "h10",
+      "type": "before_after",
+      "text": "Refresh recommendations without replacing RigSpark",
+      "visual": "recommendation cards update under fixed chrome",
+      "scores": {
+        "curiosity": 3,
+        "specificity": 5,
+        "stakes": 4,
+        "visual_proof": 4,
+        "pattern_break": 3
+      }
+    }
+  ],
+  "variants": [
+    {
+      "id": "A",
+      "hook": "h6"
+    },
+    {
+      "id": "B",
+      "hook": "h7"
+    },
+    {
+      "id": "C",
+      "hook": "h1"
+    }
+  ],
+  "formats": [
+    "vertical",
+    "square",
+    "landscape"
+  ],
+  "render_formats": [
+    "landscape",
+    "square",
+    "vertical"
+  ],
+  "tone": "terminal",
+  "duration_s": 20,
+  "loop": {
+    "strategy": "callback",
+    "note": "The CTA returns to the exact catalog update command typed in the demo"
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "start": 0,
+      "duration": 3.0,
+      "visual": "RigSpark mascot and provenance terms move behind a high-contrast hook",
+      "sources": [
+        "README.md"
+      ],
+      "events": [
+        0.15,
+        0.55,
+        1.25,
+        2.1
+      ],
+      "text": [
+        {
+          "slot": "hook",
+          "in": 0.15,
+          "out": 3.0,
+          "box": [
+            0.08,
+            0.3,
+            0.78,
+            0.22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "role": "reveal",
+      "start": 3.0,
+      "duration": 3.0,
+      "visual": "real CLI status command types and reports bundled catalog provenance",
+      "sources": [
+        "crates/rigspark-cli/src/native.rs"
+      ],
+      "events": [
+        0.1,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5
+      ],
+      "text": [
+        {
+          "content": "Check provenance offline",
+          "claim": "c2",
+          "in": 0.0,
+          "out": 1.2,
+          "box": [
+            0.08,
+            0.14,
+            0.78,
+            0.08
+          ]
+        },
+        {
+          "content": "Source: bundled",
+          "in": 1.2,
+          "out": 3.0,
+          "box": [
+            0.08,
+            0.67,
+            0.78,
+            0.08
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "role": "demo",
+      "start": 6.0,
+      "duration": 6.0,
+      "visual": "real catalog update command types; the verify beam fills; source, revision, digest, and publish date land on the beats; SIGNATURE VERIFIED",
+      "sources": [
+        "README.md",
+        "crates/rigspark-runtime/src/catalog_update.rs",
+        "crates/rigspark-cli/src/native.rs"
+      ],
+      "events": [
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0,
+        5.5
+      ],
+      "text": [
+        {
+          "content": "Signed catalog update",
+          "claim": "c4",
+          "in": 0.2,
+          "out": 2.4,
+          "box": [
+            0.08,
+            0.14,
+            0.78,
+            0.08
+          ]
+        },
+        {
+          "content": "Revision: 1",
+          "claim": "c4",
+          "in": 3.0,
+          "out": 4.45,
+          "box": [
+            0.08,
+            0.62,
+            0.78,
+            0.08
+          ]
+        },
+        {
+          "content": "Published: 2026-09-30",
+          "illustrative": true,
+          "in": 4.5,
+          "out": 6.0,
+          "box": [
+            0.08,
+            0.7,
+            0.78,
+            0.08
+          ]
+        }
+      ],
+      "feature": {
+        "title": "Signed catalog update",
+        "claim": "c4"
+      }
+    },
+    {
+      "id": "s4",
+      "role": "proof",
+      "start": 12.0,
+      "duration": 5.0,
+      "visual": "real Models view capture: the cursor clicks Update catalog on the beat; a spotlight walks to 'Catalog updated to revision 1'; then a network-offline chip appears while the spotlight rests on the unchanged revision 1 status",
+      "sources": [
+        "crates/rigspark-gui/static/index.html",
+        "crates/rigspark-gui/examples/support/models.rs"
+      ],
+      "events": [
+        0.2,
+        0.5,
+        1.0,
+        1.35,
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0,
+        4.5
+      ],
+      "text": [
+        {
+          "content": "Same revision in the Models view",
+          "in": 0.2,
+          "out": 2.45,
+          "box": [
+            0.08,
+            0.14,
+            0.78,
+            0.08
+          ]
+        },
+        {
+          "content": "Offline retry. Revision 1 stays.",
+          "claim": "c3",
+          "in": 2.5,
+          "out": 5.0,
+          "box": [
+            0.08,
+            0.68,
+            0.78,
+            0.1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "role": "cta",
+      "start": 17.0,
+      "duration": 3.0,
+      "visual": "command returns with signed, atomic, offline labels and the opening provenance stream",
+      "sources": [
+        "README.md"
+      ],
+      "events": [
+        0.2,
+        0.65,
+        1.25,
+        1.9,
+        2.55
+      ],
+      "text": [
+        {
+          "content": "rigspark catalog --update",
+          "in": 0.2,
+          "out": 3.0,
+          "box": [
+            0.08,
+            0.36,
+            0.78,
+            0.1
+          ]
+        },
+        {
+          "content": "Normal advice stays offline.",
+          "claim": "c2",
+          "in": 0.65,
+          "out": 3.0,
+          "box": [
+            0.08,
+            0.5,
+            0.78,
+            0.1
+          ]
+        }
+      ]
+    }
+  ],
+  "share": {
+    "x": "RigSpark can now update its signed model catalog independently. Inspect provenance offline, activate explicitly, and keep the last verified snapshot if a retry fails.",
+    "linkedin": "RigSpark catalog updates now have a complete trust trail.\n\nAcross CLI and GUI: offline status, explicit signed activation, visible revision provenance, and fail-closed recovery.",
+    "tiktok": "One signed catalog revision, traced from terminal to the RigSpark Models view.",
+    "instagram": "Update RigSpark model advice without replacing the app. Signed activation, visible provenance, offline normal use.",
+    "youtube_title": "RigSpark Signed Catalog Updates: CLI + GUI Walkthrough",
+    "hashtags": [
+      "#RigSpark",
+      "#LocalLLM",
+      "#Rust",
+      "#Ollama"
+    ]
+  },
+  "music": {
+    "bpm": 120.0,
+    "offset_s": 0.0
+  },
+  "treatment": {
+    "file": "treatment.md",
+    "idea": "One signed revision is a token you can follow across the CLI and the Models view, and it survives the network going away.",
+    "motif": "The mint verification beam: sweeps the terminal, becomes the GUI spotlight from Update catalog to revision 1.",
+    "constraints": [
+      "only real surfaces",
+      "one number, the same revision everywhere",
+      "every big change on a beat",
+      "show trust, not alarms"
+    ],
+    "palette": [
+      "#08090c",
+      "#111419",
+      "#f4f1e8",
+      "#72e6a2",
+      "#ff9b78"
+    ],
+    "revisions": [
+      "R1: replaced the red 'Catalog download failed' GUI capture with a positive fail-closed beat (offline chip, unchanged revision 1)",
+      "R2: cursor clicks the real Update catalog button on the beat; dropped the CLI model count that contradicted the GUI; cuts on beats; SFX re-timed"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+1
+00:00:00,150 --> 00:00:03,000
+Follow this catalog revision into Models
+
+2
+00:00:03,000 --> 00:00:04,200
+Check provenance offline
+
+3
+00:00:04,200 --> 00:00:06,000
+Source: bundled
+
+4
+00:00:06,200 --> 00:00:08,400
+Signed catalog update
+
+5
+00:00:09,000 --> 00:00:10,450
+Revision: 1
+
+6
+00:00:10,500 --> 00:00:12,000
+Published: 2026-09-30
+
+7
+00:00:12,200 --> 00:00:14,450
+Same revision in the Models view
+
+8
+00:00:14,500 --> 00:00:17,000
+Offline retry. Revision 1 stays.
+
+9
+00:00:17,200 --> 00:00:20,000
+rigspark catalog --update Normal advice
+stays offline.
