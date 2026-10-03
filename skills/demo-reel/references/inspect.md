@@ -39,3 +39,12 @@ Write these down before you plan anything:
 - Record each claim as `{id, text, evidence: {file, quote}}`. The `quote` must be copied **verbatim** from the file. Whitespace and case differences are tolerated; anything else fails.
 - If the product doesn't state a number, you can't put one on screen. Illustrative UI text that is clearly not a claim (a filename, a fake timestamp in a mock UI) must set `"illustrative": true`.
 - Never invent testimonials, user counts, logos, or benchmarks.
+
+## Rights and credit ledger
+
+Create `work/sources.md`. For every external asset or substantive inspiration, record:
+
+| Source | Creator | URL or file | License / permission | Required credit | Use in reel |
+|---|---|---|---|---|---|
+
+Include footage, images, music, SFX, fonts, generated assets, datasets, visual models, and an artwork or reel whose composition materially informed the treatment. Distinguish reusable assets from methodological inspiration. If rights are unknown or incompatible with the intended distribution, do not use the asset. If everything is owned by the product repository, write that explicitly instead of leaving the ledger blank.

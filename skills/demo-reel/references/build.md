@@ -9,6 +9,16 @@ Build with whatever renderer the machine has. The toolkit only cares about the r
 3. **Native per format.** Re-lay out for each aspect ratio: stack in vertical, sit side by side in landscape. `reel.py finish --fit blur|crop` is a fallback for footage you can't re-lay out, such as recordings.
 4. **Reuse the real thing.** Import or render the project's actual components, CSS, fonts, images, and demo clips. Rebuild only what you can't reuse.
 5. **Text renders in the composition.** Don't rely on FFmpeg `drawtext` or `subtitles` (many builds don't include them). Style on-screen captions and callouts in the composition itself: large type (≥ 64 px on vertical), a high-contrast plate or stroke, and word-level emphasis on the key noun.
+6. **Visually truthful.** Show the process declared in `treatment.visual_truth`. Semantic color, size, brightness, and motion use one fixed reference across the clip; never normalize each frame independently when the channel is meant to show change over time.
+7. **Reproducible.** Pin seeds, dimensions, duration, fps, palette/look, inputs, and renderer flags. Save the exact commands in `work/render-recipe.txt`; variant renders go beside one another and never silently overwrite a prior cut.
+
+Before installing browser dependencies or starting a full render, run:
+
+```sh
+python3 <skill-dir>/scripts/reel.py preflight
+```
+
+This performs a real H.264/yuv420p + AAC encode and reads it back with ffprobe. A codec appearing in `ffmpeg -encoders` is not enough; some builds advertise a path that fails during encoding.
 
 ## Suggested renderers (use the first one that works)
 
@@ -36,7 +46,7 @@ python3 <skill-dir>/scripts/reel.py beats audio.wav --out audio-events.json
 - `frame` (for per-frame flicker)
 - `cfg` (`variant`, `hook`, `hooks`, `format`, `plan`, `events`)
 
-`R` adds eases (`outExpo`, `inOutCubic`, `outBack`, and others), `prog`, `keys` (keyframes), `spring`, a seeded `mulberry32`/`hash`, `fit` (shrink-to-fit text), and `audio.timeOfBeat`/`beatBefore`/`nearestBeat`/`hit`/`env`. Size everything with `var(--u)` (1% of the short side), never `vw`/`vh`. No CSS animations or transitions: style is set from `f` alone. Measure layout with `offsetTop`/`offsetLeft`/`clientWidth`, not `getBoundingClientRect()`, because the preview scales the page to fit the window.
+`R` adds eases (`outExpo`, `inOutCubic`, `outBack`, and others), `prog`, `keys` (keyframes), `spring`, a seeded `mulberry32`/`hash`, `remapProgress` (map output progress to a measured cumulative-change curve), `fit` (shrink-to-fit text), and `audio.timeOfBeat`/`beatBefore`/`nearestBeat`/`hit`/`env`. Size everything with `var(--u)` (1% of the short side), never `vw`/`vh`. No CSS animations or transitions: style is set from `f` alone. Measure layout with `offsetTop`/`offsetLeft`/`clientWidth`, not `getBoundingClientRect()`, because the preview scales the page to fit the window.
 
 **Preview:** serve `reel-output/` over HTTP (`python3 -m http.server`) and open `work/composition/index.html`. Keys: space play/pause with the soundtrack, ←/→ ±1 s (shift ±5), `,`/`.` ±1 frame, `[`/`]` previous/next scene, `l` loop the current scene, `v` next variant, `f` next format, `h` hide the HUD. `?t=6.2&variant=B&format=square` jumps straight to a moment.
 
@@ -44,7 +54,7 @@ python3 <skill-dir>/scripts/reel.py beats audio.wav --out audio-events.json
 
 ```sh
 node <skill-dir>/scripts/render.mjs --composition composition/index.html --plan ../reel-plan.json \
-  --events audio-events.json --audio audio.wav --stills auto            # review stills first
+  --events audio-events.json --audio audio.wav --stills auto --verify-determinism
 node <skill-dir>/scripts/render.mjs --composition composition/index.html --plan ../reel-plan.json \
   --events audio-events.json --audio audio.wav --samples 8 --jobs 3     # all variant × format masters
 ```
@@ -54,6 +64,7 @@ node <skill-dir>/scripts/render.mjs --composition composition/index.html --plan 
 - `--only A-vertical,B-square` to pick jobs; `--formats vertical` to pick formats;
 - `--from`/`--to` to render a segment;
 - `--stills 0,1.4` for explicit still times.
+- `--verify-determinism` to seek and capture opening, middle, and ending frames twice and abort on any byte difference.
 
 Page errors from the composition are printed after each job. Read them.
 
@@ -90,6 +101,7 @@ Techniques adapted from [pdoom-video](https://github.com/mexicat/pdoom-video), a
 - A hard cut between two dark plates may not register as a cut, which shortens the shot count `visual.shot_length` measures. `reel.py sheet --cuts` shows which boundaries count. Flash the signal color on the cut and decay to the new plate in about 0.15 s. The self-demo's terminal "powers on" this way.
 - Show the product **doing** its job: type the command, click the button, show the result.
 - For `loop.strategy = seamless`, the last frame should visually match the opening beat, which is checked by SSIM ≥ 0.5 against frame 1.
+- When a long build, simulation, migration, or generation has uneven activity, pace the compressed demo by **cumulative meaningful change**, not uniform source time. Measure a product-native progress signal (changed lines, completed items, output delta, bytes processed), then use `R.remapProgress(outputProgress, cumulativeMeasurements)` to sample at roughly equal increments of that signal. It enforces a monotonic curve before interpolation, preventing noisy measurements from running time backward. This keeps setup from consuming the reel and avoids racing past the payoff. Declare the remapping in `visual_truth.liberties`; never use it to imply speed. Any performance claim needs a clearly labeled real-time segment or source-backed timing.
 
 ## Sound
 
@@ -107,7 +119,12 @@ Techniques adapted from [pdoom-video](https://github.com/mexicat/pdoom-video), a
 
 ## Stills review (before the full render)
 
-Export one still per scene plus one from the middle of each transition, for each format. After rendering, `reel.py sheet <master> --cuts` tiles the frame before and after every detected cut, so you can review every boundary in one image. Check:
+Spend render cost in steps: export the poster first; then one still per scene, the middle and both shoulders of every transition, and the extrema of any repeated motion cycle; then render only the riskiest short segment. Expand to every variant and format only after these pass. After rendering, `reel.py sheet <master> --cuts` tiles the frame before and after every detected cut. `reel.py sheet <master> --weakest` creates a second sheet from measured dark, low-contrast, abrupt-change, and long-static candidates and prints the reason for each pick.
+
+Judge each transition or motion cycle by its **weakest** sampled frame, not its average impression. A single crossed, clipped, muddy, or semantically false frame rejects the candidate. Check:
 - Text is inside the safe zone and not covered by the right-rail buttons or the bottom caption area.
 - There's no overflow or collision, and contrast holds even on busy UI.
 - Frame 0 (the poster) would earn a tap on its own.
+- Visual channels still mean what `treatment.visual_truth` says they mean, with the same reference across frames.
+
+Record measurements, rejected alternatives, and the reason for every non-obvious parameter while they are fresh. Use [production-record.md](production-record.md); a decision that was expensive to learn should not survive only as an unexplained number.

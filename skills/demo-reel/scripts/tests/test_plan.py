@@ -98,6 +98,16 @@ class PlanLintTest(unittest.TestCase):
         checks, info = run_lint(plan)
         self.assertEqual(len(info["treatment"]), 4, info["treatment"])
         self.assertEqual({k: c.message for k, c in checks.items() if c.passed is False}, {})
+        plan = load_plan()
+        plan["treatment"]["visual_truth"] = {
+            "process": "", "encodings": [], "reference": "", "liberties": []
+        }
+        checks, info = run_lint(plan)
+        self.assertEqual(len(info["treatment"]), 4, info["treatment"])
+        self.assertEqual({k: c.message for k, c in checks.items() if c.passed is False}, {})
+        plan = load_plan()
+        del plan["treatment"]["visual_truth"]
+        self.assertIn("missing visual_truth", run_lint(plan)[1]["treatment"][0])
         del plan["treatment"]
         self.assertIn("no treatment", run_lint(plan)[1]["treatment"][0])
 

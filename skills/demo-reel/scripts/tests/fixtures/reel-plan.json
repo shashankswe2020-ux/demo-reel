@@ -197,6 +197,12 @@
     "motif": "One waveform line: it underlines the hook, scrubs the git log, and becomes the play button.",
     "constraints": ["type is the image", "every big change on a beat", "only real Shipcast UI"],
     "palette": ["#111214", "#1C1D21", "#EEE9DF", "#FF4D12"],
+    "visual_truth": {
+      "process": "A real git log becomes a generated episode, then plays in Shipcast's own player.",
+      "encodings": ["Waveform amplitude follows the rendered episode audio."],
+      "reference": "One peak-amplitude reference is calculated for the whole clip and reused in every scene.",
+      "liberties": ["Generation is time-compressed; the input, output, and claim remain unchanged."]
+    },
     "revisions": [
       "R1: moved the commit count from a corner badge into the git log scroll",
       "R2: the CTA command is typed by the waveform cursor instead of fading in"

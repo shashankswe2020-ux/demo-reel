@@ -2,6 +2,8 @@
 
 The gates set the floor: a reel that passes all 51 is watchable, readable, true, and native to the feed. They can't set the ceiling. The ceiling comes from a clear creative vision, firm constraints, and repeated revision. The benchmark is [pdoom-video](https://github.com/mexicat/pdoom-video) ([watch](https://www.youtube.com/watch?v=5EoO5413dBY)). It's a code-rendered music video made entirely in conversation with an agent. It wasn't a one-shot prompt: the author started with a vague vision and a few hard constraints, then made tens of small and big revisions. Approach the reel the same way, as the **director**, not as a template filler.
 
+The visual-truth discipline below is adapted from [On Growth and Form](https://github.com/paulina-duda/on-growth-and-form): show a process happening, make color carry a real quantity, calibrate that quantity consistently across time, disclose modeling liberties, and reject a candidate on its weakest moment rather than accepting it on average. Its code is PolyForm Noncommercial and its renders/text are all rights reserved; learn from the method, but do not copy its code, media, or wording without permission.
+
 Write `reel-output/treatment.md` after the hook lab and before `reel-plan.json`. Summarize it in `plan.treatment` (see [plan-schema.md](plan-schema.md)).
 
 ## 1. The idea in one paragraph
@@ -37,18 +39,38 @@ Constraints create the style. Pick a few, write them as rules you can check, and
 
 pdoom's first draft kept its P(doom) number in a permanent corner HUD. Moving it *into* each scene (a contour label, a scope readout, a form field, a stamp) is what made the video interesting. Do the same with claims and numbers: a counter ticking in the product's own status bar, a stamp on the output, a label riding the cursor. Persistent corner chrome is a smell.
 
-## 6. Sync to everything
+## 6. Visual truth
+
+Write `treatment.visual_truth` before building:
+
+- **Process:** show the product's actual transformation, not only a finished beauty shot. Preserve input → action → output long enough that a stranger can infer causality.
+- **Encodings:** motion, color, size, and brightness should carry a state the product or source already has: progress, status, latency, audio amplitude, changed lines. Write down what each channel means. Decoration can decorate, but it must not look like data.
+- **Reference:** hold semantic mappings against one fixed reference for the whole clip. If green means success or bar length means progress, it must mean the same thing in every frame. Do not normalize each frame independently; that can flatten real change or manufacture it.
+- **Liberties:** list every time compression, staged input, illustrative label, reconstructed UI, or simulated result. `liberties` must still be a non-empty list; use `"none"` when nothing is staged. A liberty may clarify the demo, but it may not alter a claim.
+
+The plan summary uses this shape:
+
+```json
+"visual_truth": {
+	"process": "A real git log becomes a generated episode, then plays in the product's own player.",
+	"encodings": ["Waveform amplitude follows the rendered episode audio."],
+	"reference": "One peak-amplitude reference is reused across the whole clip.",
+	"liberties": ["Generation is time-compressed; the input and output are unchanged."]
+}
+```
+
+## 7. Sync to everything
 
 Since you make the soundtrack, you know every event time. Run `reel.py beats audio.wav --out work/audio-events.json` and drive animation from the result (beats, downbeats, kick/snare/hat onsets, envelopes) through the runtime's `f.beat`, `f.a.kick`, and `audio.timeOfBeat(i)`, not through hand-typed times. This works for user-supplied tracks too. Copy the printed `plan_music` into `plan.music` so `lint` flags off-beat cuts. Text reveals, card arrivals, and clicks land on hits. Motion eases *into* the downbeat.
 
-## 7. Motion and taste
+## 8. Motion and taste
 
 - Use strong eases (expo, cubic, springs): hold, then snap. Avoid floaty screensaver drift.
 - Each scene gets its **own idiom** (terminal, paper, blueprint, chart, UI), while palette, type, and motif stay shared. The look changes often, but the film stays one film.
 - **No slop:** no purple/cyan neon, glowing brains, matrix rain, lens-flare soup, particle nebulae, stock "AI" imagery, mascots, or emoji. Nothing that looks AI-generated. Don't imitate other products' UIs or existing artworks.
 - Humor is deadpan and comes from the product's own absurdity (see the tones in SKILL.md).
 
-## 8. Plate by plate
+## 9. Plate by plate
 
 For each plan scene, write a short paragraph: the idiom, what is on screen, **what transforms into what**, which beat each change lands on, and how it hands off to the next plate (the motif should carry across the cut). For the hook, describe how the same typographic slam escalates across variants, so A/B/C differ in words but not in production value.
 
@@ -65,6 +87,8 @@ The first render is a draft. Before the full render, and again after it, run at 
 7. Would **frame 0** earn a tap on its own? Does the last frame loop back to it?
 8. Does any frame use an **error, warning, or red banner** as proof, even an intended one (a fail-closed retry, a blocked input)? In a feed it reads as the product breaking. Show the safeguard holding instead: the state that stayed correct, with a calm label for the condition (for example, "network: offline").
 9. Do numbers **agree across surfaces**? A CLI that says 67 next to a GUI that says 66 makes viewers doubt both.
+10. What is the **weakest sampled frame** in each motion or transition? A sequence that looks good on average still fails if one frame collapses, crosses, clips, or becomes unreadable.
+11. Does every semantic color, size, brightness, or motion channel keep the meaning and reference declared in `visual_truth`? Could a viewer mistake decoration for measured state?
 
 Example of a good revision note, modeled on pdoom's: "R2: removed the always-on stats bar; the 3× number now ticks inside the build log and stamps the output card on the downbeat."
 

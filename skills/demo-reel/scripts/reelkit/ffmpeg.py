@@ -6,6 +6,7 @@ import json
 import re
 import shutil
 import subprocess
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -45,6 +46,27 @@ def probe(path: str | Path) -> dict[str, Any]:
     out = run([tool("ffprobe"), "-v", "error", "-print_format", "json",
                "-show_format", "-show_streams", media_path(path)]).stdout
     return json.loads(out)
+
+
+def preflight() -> dict[str, Any]:
+    """Prove the installed tools can encode and read the formats the pipeline ships."""
+    with tempfile.TemporaryDirectory(prefix="demo-reel-preflight-") as directory:
+        output = Path(directory) / "probe.mp4"
+        run([tool("ffmpeg"), "-hide_banner", "-loglevel", "error", "-y",
+             "-f", "lavfi", "-i", "color=c=black:s=16x16:r=30:d=0.2",
+             "-f", "lavfi", "-i", "sine=f=440:sample_rate=48000:d=0.2",
+             "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", "-shortest", str(output)])
+        data = probe(output)
+    streams = data.get("streams", [])
+    video = next((stream for stream in streams if stream.get("codec_type") == "video"), None)
+    audio = next((stream for stream in streams if stream.get("codec_type") == "audio"), None)
+    if not video or video.get("codec_name") != "h264" or video.get("pix_fmt") != "yuv420p":
+        raise ToolError(f"H.264/yuv420p encode probe failed: {video}")
+    if not audio or audio.get("codec_name") != "aac":
+        raise ToolError(f"AAC encode probe failed: {audio}")
+    return {"ffmpeg": tool("ffmpeg"), "ffprobe": tool("ffprobe"),
+            "video": {"codec": video["codec_name"], "pixel_format": video["pix_fmt"]},
+            "audio": {"codec": audio["codec_name"], "sample_rate": int(audio["sample_rate"])}}
 
 
 def ratio(value: str | None) -> float:

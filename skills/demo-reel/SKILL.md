@@ -12,7 +12,7 @@ each one passing the same 51 checks. It also includes a loop that reads real pla
 `<skill-dir>` is the directory containing this file. The toolkit is plain Python 3.10+ (stdlib only) plus FFmpeg:
 
 ```
-python3 <skill-dir>/scripts/reel.py <lint|check|qa|finish|captions|hotspots|sheet|beats|compare|learn|gates> ...
+python3 <skill-dir>/scripts/reel.py <preflight|lint|check|qa|finish|captions|hotspots|sheet|beats|manifest|compare|learn|gates> ...
 ```
 
 Compositions render with the bundled browser runtime and renderer (`scripts/runtime/`, `scripts/render.mjs`; Node + Playwright). See [build.md](references/build.md#bundled-runtime-and-renderer).
@@ -39,9 +39,9 @@ Output goes to `reel-output/`, or `reel-output-YYYY-MM-DD-HHmmss/` if that direc
 Every step ends in a gate. Don't advance until the gate passes. If a gate can't pass, say which check failed and why. Never weaken a threshold.
 
 ### 1. Inspect → [references/inspect.md](references/inspect.md)
-Collect the material: the product in use (entry → key action → result), real UI and copy, exact colors and fonts, a **lexicon** of words that belong only to this product, and **claims**, each with a verbatim quote and its source file.
+Collect the material: the product in use (entry → key action → result), real UI and copy, exact colors and fonts, a **lexicon** of words that belong only to this product, and **claims**, each with a verbatim quote and its source file. Record every external asset, inspiration, model, font, track, and clip in `work/sources.md` with creator, URL/file, license or permission, required credit, and intended use. Unknown rights means don't use it.
 For a long recording, run `reel.py hotspots <video> --window <duration>` and build from the top windows.
-**Gate:** the 12 inspection answers are written down. Every lexicon term and claim quote exists in the source (step 3's lint enforces this).
+**Gate:** the 12 inspection answers are written down, and the rights ledger covers every external source (or says the reel uses project-owned material only). Every lexicon term and claim quote exists in the source (step 3's lint enforces this).
 
 ### 2. Hook lab → [references/hook-lab.md](references/hook-lab.md)
 Write at least 10 hooks across at least 4 hook types. Score each one honestly on the 5-part rubric. The linter adds brevity and grounding scores and ranks the hooks. The top-N hooks become variants A/B/C, which must use at least 2 different hook types.
@@ -49,23 +49,23 @@ Write at least 10 hooks across at least 4 hook types. Score each one honestly on
 
 ### 3. Treatment → [references/treatment.md](references/treatment.md), then plan → [references/plan-schema.md](references/plan-schema.md)
 Direct it before you plan it. Write `reel-output/treatment.md` with these parts: the idea in one paragraph, a through-line motif that transforms at every cut, 3–5 hard constraints, a palette of up to 4 neutrals plus one signal color, up to 3 type voices, information staged in the scene rather than on a HUD, and a plate-by-plate description of what turns into what on which beat.
-Then write `reel-output/reel-plan.json`, the contract that every later step reads. Cover scenes, timing, visual events, text boxes, claims, variants, loop strategy, CTA, share copy, `music`, and the `treatment` summary.
+Then write `reel-output/reel-plan.json`, the contract that every later step reads. Cover scenes, timing, visual events, text boxes, claims, variants, loop strategy, CTA, share copy, `music`, and the `treatment` summary. The treatment includes a `visual_truth` contract: the real process shown, what motion/color encodes, the fixed reference used across frames, and every compression or staging liberty.
 **Gate:** `reel.py lint reel-output/reel-plan.json` exits 0 with zero failures, and its treatment advisory is clean.
 
 ### 4. Build → [references/build.md](references/build.md)
-Build one composition. It takes the variant (which hook fills the `hook` slot) and the format (a native layout for each aspect ratio, not a crop) as parameters. Start from `scripts/runtime/template.html`. Make the soundtrack first and run `reel.py beats` on it, so cuts and arrivals land on real beats and hits. Render a master for every variant × format into `work/` (`render.mjs`, with `--samples` motion blur for fast moves). Then, for each master:
+Run `reel.py preflight` before expensive work. Build one composition. It takes the variant (which hook fills the `hook` slot) and the format (a native layout for each aspect ratio, not a crop) as parameters. Start from `scripts/runtime/template.html`. Make the soundtrack first and run `reel.py beats` on it, so cuts and arrivals land on real beats and hits. Keep `work/production-log.md` as described in [production-record.md](references/production-record.md): exact commands, calibration decisions, rejected alternatives, failures, and shipped hashes. Render a master for every variant × format into `work/` (`render.mjs`, with `--samples` motion blur for fast moves). Then, for each master:
 ```
 reel.py finish work/A-vertical.mp4 --format vertical --poster-t <settled hook frame> --out reel-output/reel-A-vertical.mp4
 reel.py captions reel-output/reel-plan.json --variant A --out reel-output/reel-A-vertical.srt
 ```
-Before the full render, look at stills from every scene and from the middle of every transition. Fix overflow, collisions, low contrast, and text in UI zones.
-Then act as the director: run at least **two revision rounds** against the questions in [treatment.md](references/treatment.md#director-passes), using stills and `reel.py sheet <master> --cuts`. Log each change in `plan.treatment.revisions`. Passing the gates is the floor, not the finish.
+Before the full render, use the cheapest preview that can answer the question: poster still first, then scene/transition stills, then a short segment. Run the still pass with `--verify-determinism`. Judge the weakest sampled frame, not the average. Fix overflow, collisions, low contrast, misleading visual encodings, and text in UI zones before paying for every variant and format.
+Then act as the director: run at least **two revision rounds** against the questions in [treatment.md](references/treatment.md#director-passes), using stills, `reel.py sheet <master> --cuts`, and `reel.py sheet <master> --weakest`. Log each change in `plan.treatment.revisions`. Passing the gates is the floor, not the finish.
 
 ### 5. Verify → [references/metrics.md](references/metrics.md)
 ```
 reel.py check reel-output/reel-plan.json --renders reel-output
 ```
-Writes `qa-report.md` and `qa-report.json`.
+Writes `qa-report.md`, `qa-report.json`, and `artifact-manifest.json` (content hashes, declared inputs, toolchain, and repository state).
 **Gate:** every render has **zero blocker failures and VRS ≥ 85**. Fix the cause (don't edit the plan to dodge a measurement), re-render, and re-check. Stop after 3 fix loops and report what is still failing.
 
 ### 6. Deliver → [references/experiment.md](references/experiment.md)

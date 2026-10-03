@@ -344,6 +344,17 @@ def _treatment_notes(t: Any, resolver: Resolver) -> list[str]:
     lo, hi = specs.TREATMENT_PALETTE_RANGE
     if not (lo <= len(palette) <= hi and all(re.fullmatch(r"#[0-9A-Fa-f]{6}", str(c)) for c in palette)):
         notes.append(f"palette must be {lo}-{hi} hex colors, got {palette}")
+    visual_truth = t.get("visual_truth")
+    if not isinstance(visual_truth, dict):
+        notes.append("missing visual_truth contract (process, encodings, reference, liberties)")
+    else:
+        notes += [f"empty visual_truth.{key}" for key in ("process", "reference")
+                  if not str(visual_truth.get(key) or "").strip()]
+        for key in ("encodings", "liberties"):
+            values = visual_truth.get(key)
+            if not (isinstance(values, list) and values
+                    and all(str(value).strip() for value in values)):
+                notes.append(f"visual_truth.{key} must be a non-empty list")
     if len(t.get("revisions") or []) < specs.TREATMENT_MIN_REVISIONS:
         notes.append(f"{len(t.get('revisions') or [])} director revisions logged, want >= "
                      f"{specs.TREATMENT_MIN_REVISIONS}")

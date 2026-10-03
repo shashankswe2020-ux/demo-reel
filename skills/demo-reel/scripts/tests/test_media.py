@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from reelkit import captions, experiment  # noqa: E402
 from reelkit.beats import analyze_audio  # noqa: E402
 from reelkit.cli import main  # noqa: E402
-from reelkit.ffmpeg import probe, run, tool  # noqa: E402
+from reelkit.ffmpeg import preflight, probe, run, tool  # noqa: E402
 from reelkit.finish import finish  # noqa: E402
 from reelkit.hotspots import hotspots  # noqa: E402
 from reelkit.media_qa import analyze  # noqa: E402
@@ -44,6 +44,12 @@ class MediaTest(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         shutil.rmtree(cls.tmp, ignore_errors=True)
+
+    def test_preflight_encodes_shipping_formats(self):
+        result = preflight()
+        self.assertEqual(result["video"], {"codec": "h264", "pixel_format": "yuv420p"})
+        self.assertEqual(result["audio"]["codec"], "aac")
+        self.assertEqual(result["audio"]["sample_rate"], 48000)
 
     def test_finished_render_passes_technical_gates(self):
         srt = self.good.with_suffix(".srt")
@@ -101,6 +107,10 @@ class MediaTest(unittest.TestCase):
         self.assertEqual((img["width"], img["height"]), (4 * 120 + 5 * 6, 2 * 68 + 3 * 6))
         even = contact_sheet(cutty, self.tmp / "even.png", n=6, cols=3, width=120)
         self.assertEqual(len(even["times"]), 6)
+        weakest = contact_sheet(cutty, self.tmp / "weakest.png", weakest=True, n=6, cols=3, width=120)
+        self.assertEqual(weakest["mode"], "weakest")
+        self.assertEqual(len(weakest["times"]), 6)
+        self.assertTrue(all(item["reasons"] for item in weakest["risks"]))
 
     def test_beats_recover_tempo_phase_and_downbeat(self):
         track = self.tmp / "click.wav"
@@ -152,8 +162,13 @@ class MediaTest(unittest.TestCase):
             target.with_suffix(".srt").write_text(captions.render_srt(variant_cues(plan, v)))
         code = main(["check", str(plan_path), "--renders", str(renders)])
         report = json.loads((renders / "qa-report.json").read_text())
+        manifest = json.loads((renders / "artifact-manifest.json").read_text())
         self.assertEqual(len(report["renders"]), 3)
         self.assertGreaterEqual(report["min_vrs"], 85.0, json.dumps(report["renders"][0]["score"]))
+        self.assertEqual(manifest["schema"], "demo-reel/manifest@1")
+        self.assertIn("reel-plan.json", manifest["inputs"])
+        self.assertEqual(len([name for name in manifest["artifacts"] if name.endswith(".mp4")]), 3)
+        self.assertTrue(all(len(item["sha256"]) == 64 for item in manifest["artifacts"].values()))
         self.assertEqual(code, 0 if report["shippable"] else 2)
 
     def test_hotspots_find_the_busy_window(self):
@@ -189,7 +204,8 @@ class RendererTest(unittest.TestCase):
             shutil.copy(SCRIPTS / "runtime" / "template.html", comp / "index.html")
             base = ["node", str(SCRIPTS / "render.mjs"), "--composition", str(comp / "index.html"),
                     "--plan", str(FIXTURES / "reel-plan.json"), "--out", str(tmp), "--only", "A-vertical"]
-            for extra in (["--stills", "auto"], ["--samples", "4", "--from", "0", "--to", "1"]):
+            for extra in (["--stills", "auto", "--verify-determinism"],
+                          ["--samples", "4", "--from", "0", "--to", "1"]):
                 proc = subprocess.run(base + extra, cwd=NODE_DIR, capture_output=True, text=True)
                 self.assertEqual(proc.returncode, 0, proc.stderr)
                 self.assertNotIn("page errors", proc.stderr + proc.stdout)

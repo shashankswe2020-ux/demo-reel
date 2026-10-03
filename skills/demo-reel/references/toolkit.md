@@ -3,13 +3,16 @@
 `reel.py` is stdlib-only Python 3.10+ and shells out to FFmpeg/ffprobe (list arguments, never a shell).
 
 ```
+python3 skills/demo-reel/scripts/reel.py preflight
 python3 skills/demo-reel/scripts/reel.py lint     reel-output/reel-plan.json
 python3 skills/demo-reel/scripts/reel.py finish   work/A-vertical.mp4 --format vertical --poster-t 1.4 --out reel-output/reel-A-vertical.mp4
 python3 skills/demo-reel/scripts/reel.py captions reel-output/reel-plan.json --variant A --out reel-output/reel-A-vertical.srt
 python3 skills/demo-reel/scripts/reel.py check    reel-output/reel-plan.json --renders reel-output
 python3 skills/demo-reel/scripts/reel.py hotspots recording.mov --window 20
 python3 skills/demo-reel/scripts/reel.py sheet    reel-output/reel-A-vertical.mp4 --cuts
+python3 skills/demo-reel/scripts/reel.py sheet    reel-output/reel-A-vertical.mp4 --weakest
 python3 skills/demo-reel/scripts/reel.py beats    reel-output/work/audio.wav --out reel-output/work/audio-events.json
+python3 skills/demo-reel/scripts/reel.py manifest reel-output/reel-plan.json --renders reel-output
 python3 skills/demo-reel/scripts/reel.py compare  brag-output/brag.mp4 reel-output/reel-A-vertical.mp4
 python3 skills/demo-reel/scripts/reel.py learn    reel-output/metrics.csv --objective hook_rate
 python3 skills/demo-reel/scripts/reel.py gates
@@ -17,13 +20,15 @@ python3 skills/demo-reel/scripts/reel.py gates
 
 | Command | Does |
 |---|---|
+| `preflight` | Performs a real H.264/yuv420p + AAC encode and probes the resulting MP4, failing before an expensive render if the installed FFmpeg path is unusable |
 | `lint` | Runs the 29 plan gates on `reel-plan.json` and prints the hook leaderboard (plus the beat-grid advisory when `music.bpm` is set) |
 | `finish` | Frames the video to the exact format, normalizes to −14 LUFS with a true-peak limiter, converts to limited-range BT.709 yuv420p with color tags (so brand colors don't shift in players), bakes the poster into frame 0, and sets faststart |
 | `captions` | Writes the SRT for one variant from the plan |
-| `check` | Runs the full gate pass (plan + every variant × format) and writes `qa-report.md` and `qa-report.json` |
+| `check` | Runs the full gate pass (plan + every variant × format) and writes `qa-report.md`, `qa-report.json`, and a content-addressed `artifact-manifest.json` |
 | `hotspots` | Ranks the strongest windows of a long recording (motion, cuts, loudness, hook motion) |
-| `sheet` | Contact sheet PNG of a render: `--n` evenly spaced frames, or `--cuts` for the frame either side of every cut the `visual.shot_length` detector counts |
+| `sheet` | Contact sheet PNG of a render: `--n` evenly spaced frames, `--cuts` for both sides of every measured cut, or `--weakest` for measured review-risk candidates |
 | `beats` | Analyzes a soundtrack: tempo, beat grid, downbeats, kick/snare/hat (low/mid/high) onsets, and loudness envelopes, written as `audio-events.json` for the runtime. Prints the `plan.music` values. `--bpm` fixes a known tempo |
+| `manifest` | Hashes declared source inputs and delivery artifacts and records tool versions plus Git revision/dirty state; `check` runs this automatically |
 | `compare` | Scores any videos side by side on the media gates, such as a /brag render against a reel |
 | `learn` | Reads post-launch `metrics.csv` and reports P(best) per variant plus the next traffic split |
 | `gates` | Lists every gate with its category, severity, and description (`--count` for the total) |

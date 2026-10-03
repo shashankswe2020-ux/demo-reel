@@ -9,9 +9,10 @@ from typing import Any
 from . import captions, experiment, specs
 from .beats import analyze_audio
 from .checks import CATALOG, Check, make, score
-from .ffmpeg import ToolError
+from .ffmpeg import ToolError, preflight
 from .finish import finish
 from .hotspots import hotspots
+from .manifest import write_manifest
 from .media_qa import analyze
 from .plan_lint import lint, load, variant_cues
 from .sheet import contact_sheet
@@ -96,9 +97,10 @@ def cmd_beats(ns: argparse.Namespace) -> int:
 
 
 def cmd_sheet(ns: argparse.Namespace) -> int:
-    out = Path(ns.out) if ns.out else Path(ns.video).with_name(Path(ns.video).stem + ("-cuts" if ns.cuts else "-sheet")
-                                                                + ".png")
-    print(json.dumps(contact_sheet(Path(ns.video), out, cuts=ns.cuts, n=ns.n, cols=ns.cols, width=ns.width),
+    suffix = "-cuts" if ns.cuts else "-weakest" if ns.weakest else "-sheet"
+    out = Path(ns.out) if ns.out else Path(ns.video).with_name(Path(ns.video).stem + suffix + ".png")
+    print(json.dumps(contact_sheet(Path(ns.video), out, cuts=ns.cuts, weakest=ns.weakest,
+                                  n=ns.n, cols=ns.cols, width=ns.width),
                      indent=2))
     return 0
 
@@ -116,6 +118,20 @@ def cmd_gates(ns: argparse.Namespace) -> int:
         print(f"{cid:28} {cat:12} {sev:7} {desc}")
     by_sev = {s: sum(1 for v in CATALOG.values() if v[1] == s) for s in specs.SEVERITY_WEIGHTS}
     print(f"\n{len(CATALOG)} machine-verified gates: {by_sev}")
+    return 0
+
+
+def cmd_preflight(ns: argparse.Namespace) -> int:
+    print(json.dumps(preflight(), indent=2))
+    return 0
+
+
+def cmd_manifest(ns: argparse.Namespace) -> int:
+    plan_path = Path(ns.plan).resolve()
+    plan = load(plan_path)
+    renders = Path(ns.renders).resolve()
+    out = Path(ns.out).resolve() if ns.out else renders / "artifact-manifest.json"
+    print(write_manifest(plan_path, _project_root(plan, plan_path, ns.project), [renders], out))
     return 0
 
 
@@ -174,6 +190,8 @@ def cmd_check(ns: argparse.Namespace) -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "qa-report.json").write_text(json.dumps(report, indent=2, default=str), encoding="utf-8")
     (out_dir / "qa-report.md").write_text(_markdown(report), encoding="utf-8")
+    manifest_path = write_manifest(plan_path, _project_root(plan, plan_path, ns.project),
+                                   [renders, out_dir], out_dir / "artifact-manifest.json")
     print("Plan:")
     _print_checks(plan_checks)
     for r in results:
@@ -184,6 +202,7 @@ def cmd_check(ns: argparse.Namespace) -> int:
             print(f"  FAIL  {c['severity']:7} {c['id']}: {c['message']}")
     print(f"\nmin VRS {report['min_vrs']} across {len(results)} renders; shippable={report['shippable']}")
     print(f"report: {out_dir / 'qa-report.md'}")
+    print(f"manifest: {manifest_path}")
     return 0 if report["shippable"] else 2
 
 
@@ -266,6 +285,7 @@ def main(argv: list[str] | None = None) -> int:
     s = sub.add_parser("sheet", help="contact sheet of a render: evenly spaced frames, or both sides of every cut")
     s.add_argument("video")
     s.add_argument("--cuts", action="store_true", help="tile the frame before and after each detected cut")
+    s.add_argument("--weakest", action="store_true", help="tile measured risk frames for director review")
     s.add_argument("--n", type=int, default=12, help="evenly spaced frames when not using --cuts")
     s.add_argument("--cols", type=int, default=4)
     s.add_argument("--width", type=int, default=360, help="tile width in px")
@@ -292,6 +312,16 @@ def main(argv: list[str] | None = None) -> int:
     s = sub.add_parser("gates", help="list every machine-verified gate")
     s.add_argument("--count", action="store_true")
     s.set_defaults(fn=cmd_gates)
+
+    s = sub.add_parser("preflight", help="prove FFmpeg can encode and ffprobe can read H.264/AAC MP4")
+    s.set_defaults(fn=cmd_preflight)
+
+    s = sub.add_parser("manifest", help="hash declared inputs, tool versions, and rendered artifacts")
+    s.add_argument("plan")
+    s.add_argument("--renders", required=True)
+    s.add_argument("--project")
+    s.add_argument("--out")
+    s.set_defaults(fn=cmd_manifest)
 
     ns = p.parse_args(argv)
     try:

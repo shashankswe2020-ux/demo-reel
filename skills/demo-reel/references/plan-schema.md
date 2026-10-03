@@ -34,6 +34,12 @@ The plan is the contract. Build, captions, and QA all read it, so write it befor
     "motif": "the red pen: underlines the hook, ticks the diff, signs the CTA",
     "constraints": ["type is the image", "every big change on a beat", "only real UI"],
     "palette": ["#111214", "#1C1D21", "#EEE9DF", "#FF4D12"],
+    "visual_truth": {
+      "process": "a real git log becomes an episode, then plays in the real player",
+      "encodings": ["waveform amplitude follows the rendered episode audio"],
+      "reference": "one peak-amplitude reference is reused across the whole clip",
+      "liberties": ["generation is time-compressed; input and output are unchanged"]
+    },
     "revisions": ["R1: moved the commit counter from a corner badge into the git log itself"]
   },
   "loop": {"strategy": "callback", "note": "how the end returns to the start"},
@@ -69,7 +75,7 @@ The plan is the contract. Build, captions, and QA all read it, so write it befor
 - The `demo` scene carries `"feature": {"title": "Line-level review comments", "claim": "c2"}`: the one headline feature it shows working. The title must appear in that scene's on-screen text, and the claim must be verified. Show it as input → output using the project's own examples (a README before/after, a sample prompt and its result, a real API call). An install command is not a feature.
 - `loop.strategy`: `seamless` (last frame ≈ opening; checked by SSIM), `match_cut`, `callback`, or `none`.
 - `music` (optional): when `bpm` is set, `lint` lists every scene start more than one frame (34 ms) off the beat grid. It's advisory, not a gate. Derive cut times from the grid (`offset_s + k × 60 / bpm`, snapped to the beat at or just before the text it introduces) instead of hand-typing them.
-- `treatment`: `lint` prints an advisory (not a gate) when it's missing, the file doesn't resolve, `idea` or `motif` is empty, there are fewer than 3 `constraints`, `palette` isn't 2–6 hex colors, or there are fewer than 2 `revisions` (expected after the director passes, so lint flags it until they're done).
+- `treatment`: `lint` prints an advisory (not a gate) when it's missing, the file doesn't resolve, `idea` or `motif` is empty, there are fewer than 3 `constraints`, `palette` isn't 2–6 hex colors, `visual_truth` does not define a process, one or more semantic encodings, a fixed cross-frame reference, and explicit liberties, or there are fewer than 2 `revisions` (expected after the director passes, so lint flags it until they're done).
 
 ## Commands
 

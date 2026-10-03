@@ -17,10 +17,11 @@ const DIMS = { vertical: [1080, 1920], square: [1080, 1080], landscape: [1920, 1
 const here = path.dirname(fileURLToPath(import.meta.url));
 
 function parseArgs(argv) {
-  const o = { fps: 30, samples: 1, shutter: 0.35, jobs: 2, png: false };
+  const o = { fps: 30, samples: 1, shutter: 0.35, jobs: 2, png: false, verifyDeterminism: false };
   for (let i = 0; i < argv.length; i++) {
     const k = argv[i].replace(/^--/, "");
     if (k === "png") o.png = true;
+    else if (k === "verify-determinism") o.verifyDeterminism = true;
     else o[k] = argv[++i];
   }
   for (const k of ["fps", "samples", "shutter", "jobs", "from", "to"]) if (o[k] !== undefined) o[k] = Number(o[k]);
@@ -93,6 +94,15 @@ async function renderJob(job) {
     await page.evaluate(t => window.seek(t), t);
     return page.screenshot(o.png ? { type: "png" } : { type: "jpeg", quality: 95 });
   };
+
+  if (o.verifyDeterminism) {
+    const probes = [...new Set([0, duration / 2, Math.max(0, duration - 1 / o.fps)].map(t => +t.toFixed(6)))];
+    for (const t of probes) {
+      const first = await shot(t), replay = await shot(t);
+      if (!first.equals(replay)) throw new Error(`${job.v}-${job.f}: nondeterministic frame at ${t.toFixed(3)}s`);
+    }
+    console.log(`verified deterministic replay for ${job.v}-${job.f} (${probes.length} frames)`);
+  }
 
   if (stills) {
     const dir = path.join(outDir, "stills");

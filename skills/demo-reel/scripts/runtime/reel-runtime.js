@@ -48,6 +48,28 @@
     return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
   };
   const hash = n => mulberry32(Math.floor(n) * 2654435761)();
+  /** Map output progress onto a measured cumulative-progress curve, enforcing monotonicity. */
+  const remapProgress = (u, values) => {
+    if (!Array.isArray(values) || values.length < 2) return clamp(u);
+    const curve = [];
+    let running = -Infinity;
+    for (const value of values) {
+      running = Math.max(running, Number.isFinite(+value) ? +value : running);
+      curve.push(running);
+    }
+    const start = curve[0], span = curve[curve.length - 1] - start;
+    if (!(span > 0)) return clamp(u);
+    const target = start + clamp(u) * span;
+    let lo = 0, hi = curve.length - 1;
+    while (lo < hi) {
+      const mid = (lo + hi) >> 1;
+      if (curve[mid] < target) lo = mid + 1; else hi = mid;
+    }
+    if (lo === 0) return 0;
+    const a = curve[lo - 1], b = curve[lo];
+    const fraction = b > a ? (target - a) / (b - a) : 1;
+    return ((lo - 1) + fraction) / (curve.length - 1);
+  };
 
   // ---------- audio events (from `reel.py beats --out audio-events.json`) ----------
   const KIND = { kick: "low", snare: "mid", hat: "high", low: "low", mid: "mid", high: "high" };
@@ -218,7 +240,7 @@
         if (document.readyState === "loading") addEventListener("DOMContentLoaded", preview); else preview();
       }
     },
-    clamp, lerp, ease, prog, spring, keys, mulberry32, hash, DIMS,
+    clamp, lerp, ease, prog, spring, keys, mulberry32, hash, remapProgress, DIMS,
     frameIdx, frameAt, audio,
     /** Shrink an element's font size until it fits its own box (call in setup, after fonts load). */
     fit(el, { max = 200, min = 12 } = {}) {
